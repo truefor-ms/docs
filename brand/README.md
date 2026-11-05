@@ -6,6 +6,8 @@ The original Trueforms materials are active working references. Start with the m
 
 | Resource | Purpose |
 | --- | --- |
+| [Confirmed logo reference](logo/README.md) | Established logo decisions, pinned reconstruction inputs, measured results, and remaining proposals |
+| [Reconstructed icon and complete logo](recreated/README.md) | Independently generated SVG/PNG files, build scripts, pinned font sources, and comparison evidence |
 | [Original master PDF](handoff/v2/trueforms-logo-master-spec.pdf) | Complete 32-page brand specification and handoff |
 | [Original master HTML](handoff/v2/trueforms-logo-master-spec.html) | Offline document with embedded visual examples and logo laboratory |
 | [English brand and icon guidelines](guidelines.md) | Practical reference, decision status, and integration constraints |

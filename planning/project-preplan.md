@@ -12,12 +12,12 @@ This delivery covers documentation and source preservation. Application developm
 
 ## 2. Starting point and repository responsibilities
 
-The workspace contains four separate Git repositories, each before its first commit. Preserve that starting arrangement until there is evidence for changing it. Repository count does not imply service count.
+The initial workspace inspection found four separate Git repositories, each before its first commit. Repository count does not imply service count. The confirmed ownership boundary is that logo materials and reconstruction tooling stay in `docs`, while `ui` contains actual UI components.
 
 | Repository | Proposed responsibility | Boundary |
 | --- | --- | --- |
-| `docs` | Product scope, brand references, decisions, contract explanations, review records | Not a runtime asset server |
-| `ui` | Brand distribution assets, tokens, shared accessible components, visual catalog | No backend calls, account management, or product business rules |
+| `docs` | Product scope, brand originals, reconstruction sources/scripts/outputs, decisions, contract explanations, review records | Not a runtime asset server |
+| `ui` | Actual shared accessible UI components, their tokens, and component examples | No logo source archive or reconstruction tooling; no backend business rules |
 | `frontend` | Pages, navigation, application theme, feature journeys, API consumption | No redrawn logo or independently maintained copies of shared tokens |
 | `backend` | Authorization, domain rules, persistence, API implementation and contract | No brand geometry or visual theme logic |
 
@@ -27,12 +27,12 @@ Sibling directories may be convenient during development, but a release must not
 
 ## 3. From source artwork to product
 
-Proposed flow: **preserved handoff → UI sources → validated versioned distribution → frontend consumption → acceptance on actual surfaces**.
+Proposed flow: **preserved handoff and reconstruction in docs → validated brand artifacts → frontend consumption through UI components → acceptance on actual surfaces**.
 
 1. Keep the original ZIP and complete extracted package accessible through the [brand hub](../brand/README.md), with hashes and provenance.
-2. During implementation, import the approved artwork, notices, and necessary production assets into `ui`. Separate immutable sources from derived outputs.
-3. Distribute SVG/PNG assets, required fonts, token outputs, and framework-specific adapters as appropriate. Record package naming and distribution choices in an architecture decision record (ADR).
-4. Pin the frontend to a known UI version; copy public assets to their deployment location during the build. The handoff's `/brand` path is an example, not an existing production endpoint.
+2. Keep approved artwork, notices, font inputs, reconstruction scripts, and generated logo files in `docs/brand/`. Separate immutable sources from derived outputs. UI components consume the selected assets without taking ownership of their reconstruction sources.
+3. Define how applications receive versioned brand artifacts from docs, separately from UI component releases. Record distribution choices in an architecture decision record (ADR).
+4. Pin the frontend to known UI and brand artifact versions; copy selected public assets to their deployment location during the build. The handoff's `/brand` path is an example, not an existing production endpoint.
 5. For a new brand release, record source hashes, derivatives, visible changes, and consumer impact. Retain the previous distribution for rollback.
 
 **Plan proposal:** track the brand source version separately from the UI package version. A component fix may still use brand geometry v2.0. Distinguish compatible fixes, additive assets/APIs, and breaking changes in release notes. Geometry changes must never be presented as silent optimization.
@@ -41,14 +41,11 @@ Proposed UI structure, to refine after technology selection:
 
 ```text
 ui/
-  brand/source/       # Approved geometry and source identity
-  brand/assets/       # Ready-to-use production assets
-  tokens/             # Primitive, semantic, and component values
-  src/brand/          # Logo and icon adapters
+  tokens/             # Values used by UI components
+  src/brand/          # Actual logo/icon components consuming brand assets
   src/components/     # Components required by real product journeys
   examples/           # Developer and visual review catalog
-  scripts/            # Validation and asset generation
-  licenses/           # Source notices
+  scripts/            # Component build and verification
 ```
 
 This is a proposed structure, not a directory tree created by this documentation task.
@@ -126,7 +123,7 @@ Phase 0 documentation and source preservation are delivered here. This does not 
 | P0 / TF-001 | Define the initial user and problem | None | One-page product brief; current versus planned capabilities |
 | P0 / TF-002 | Select the first journey and exclusions | TF-001 | Start/end, failure cases, and success measurement documented |
 | P0 / TF-003 | Decide stack, distribution, and repository boundaries | TF-002 | ADR with ownership and consumption method |
-| P0 / TF-004 | Import controlled brand sources into UI | TF-003 | Source hashes, notices, asset mapping validated |
+| P0 / TF-004 | Define UI/application consumption of brand artifacts from docs | TF-003 | Source ownership stays in docs; asset mapping and version consumption validated |
 | P0 / TF-005 | Establish token source and theme contract | TF-004 | Consistent generated outputs; proposal/acceptance status tracked |
 | P0 / TF-006 | Build logo/icon usage catalog | TF-004, TF-005 | B/A, modes, actual small sizes, manual theme behavior verified |
 | P1 / TF-007 | Implement first form components and state roles | TF-002, TF-005 | Label, help, error, loading, disabled, and focus behavior defined |
