@@ -1,0 +1,96 @@
+{
+  "variant": "B",
+  "wordmark": "trueforms",
+  "method": "Outline upstream Nimbus Roman Regular glyphs; apply AFM kerning and handoff pair adjustments; independently place the period and reconstructed icon.",
+  "reads_approved_logo_assets": false,
+  "font_sha256": "fd41669443616a7ae890c42e53a58f47fa24a940fd1e367acaff665cf5b6e9d8",
+  "afm_sha256": "e476212c416039aa9805f20d945e2b3a522be5de15125cb566d257482379ccd9",
+  "font_units_per_em": 1000,
+  "font_size": 125.13888888888889,
+  "letters": [
+    {
+      "letter": "t",
+      "offset": 0.0,
+      "added_spacing": 0.0,
+      "following_kern_font_units": 11.0
+    },
+    {
+      "letter": "r",
+      "offset": 41.16513888888889,
+      "added_spacing": 5.0,
+      "following_kern_font_units": 24.0
+    },
+    {
+      "letter": "u",
+      "offset": 89.83972222222222,
+      "added_spacing": 9.0,
+      "following_kern_font_units": 0
+    },
+    {
+      "letter": "e",
+      "offset": 156.90916666666666,
+      "added_spacing": 13.5,
+      "following_kern_font_units": -19.0
+    },
+    {
+      "letter": "f",
+      "offset": 213.09319444444444,
+      "added_spacing": 16.5,
+      "following_kern_font_units": -37.0
+    },
+    {
+      "letter": "o",
+      "offset": 254.13430555555556,
+      "added_spacing": 20.5,
+      "following_kern_font_units": 0
+    },
+    {
+      "letter": "r",
+      "offset": 320.70375,
+      "added_spacing": 24.5,
+      "following_kern_font_units": 20.0
+    },
+    {
+      "letter": "m",
+      "offset": 371.37777777777774,
+      "added_spacing": 31.0,
+      "following_kern_font_units": 0
+    },
+    {
+      "letter": "s",
+      "offset": 472.2358333333333,
+      "added_spacing": 34.5,
+      "following_kern_font_units": 0
+    }
+  ],
+  "wordmark_local_bounds": [
+    1.6268055555555554,
+    -85.4698611111111,
+    515.7841666666666,
+    1.2513888888888889
+  ],
+  "baseline_normalized": [
+    103.75819444444446,
+    92.5567361111111
+  ],
+  "icon_wordmark_gap": 28.5,
+  "dot_center_normalized": [
+    465.1910416666667,
+    63.774791666666665
+  ],
+  "dot_size": [
+    13.890416666666667,
+    13.890416666666667
+  ],
+  "viewBox": [
+    0,
+    0,
+    619.552361111111,
+    100.895
+  ],
+  "colors": {
+    "icon": "#16765C",
+    "wordmark": "#183C32",
+    "dot": "#AFBDB0"
+  }
+}

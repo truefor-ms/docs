@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-05",
+  "method": "Independent parametric construction; reference read only after SVG generation. Render both SVGs at density 720, resize to the same height, compare decoded RGBA bytes.",
+  "renderer": {
+    "sharp": "0.35.5",
+    "librsvg": "2.63.2"
+  },
+  "reference": "docs/brand/handoff/v2/assets/svg/trueforms-icon-color.svg",
+  "referenceSha256": "51862080898c095590514b59dee57faa311427607116c482df9fb89978b1281d",
+  "recreatedSha256": "a3a3d3cf8ab5056e7a2570f529c1096110a3dbd1733d597d9a8ed7e364725f19",
+  "sameSvgBytes": false,
+  "comparisons": [
+    {
+      "height": 16,
+      "width": 12,
+      "changedPixels": 2,
+      "maxChannelDelta": 2,
+      "meanAbsoluteChannelDelta": 0.010416666666666666
+    },
+    {
+      "height": 24,
+      "width": 18,
+      "changedPixels": 1,
+      "maxChannelDelta": 3,
+      "meanAbsoluteChannelDelta": 0.003472222222222222
+    },
+    {
+      "height": 32,
+      "width": 24,
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "meanAbsoluteChannelDelta": 0
+    },
+    {
+      "height": 256,
+      "width": 195,
+      "changedPixels": 24,
+      "maxChannelDelta": 13,
+      "meanAbsoluteChannelDelta": 0.0005258413461538461
+    },
+    {
+      "height": 1024,
+      "width": 780,
+      "changedPixels": 132,
+      "maxChannelDelta": 42,
+      "meanAbsoluteChannelDelta": 0.00024007161458333332
+    }
+  ],
+  "limitations": "Same-renderer raster comparison only; not a browser or physical-device acceptance test. Geometric reconstruction is separate from approved master files."
+}

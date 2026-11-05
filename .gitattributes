@@ -1,2 +1,7 @@
 # Preserve the supplied handoff bytes and SHA-256 manifest on every platform.
 brand/handoff/** -text
+
+# Preserve pinned font inputs and recorded reconstruction artifact hashes.
+brand/reconstruction-sources/** -text
+brand/recreated/** -text
+brand/scripts/** text eol=lf

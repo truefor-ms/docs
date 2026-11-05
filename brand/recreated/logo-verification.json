@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-05",
+  "variant": "B",
+  "renderer": {
+    "sharp": "0.35.5",
+    "librsvg": "2.63.2"
+  },
+  "method": "After generation only, render both SVGs at density 720 and resize to equal widths; compare decoded RGBA bytes.",
+  "reference": "docs/brand/handoff/v2/assets/svg/trueforms-logo.svg",
+  "referenceSha256": "7516e3a89adefe6058f28fce82e09da14258967fc88550a5a54b61d9af526994",
+  "recreatedSha256": "9ce2308590534c0c4fc463b9f63afea6ca4469a72f69ad7cc0bfcc04d52ff485",
+  "sameSvgBytes": false,
+  "comparisons": [
+    {
+      "width": 200,
+      "height": 33,
+      "changedPixels": 4,
+      "changedPixelPercent": 0.06060606060606061,
+      "maxChannelDelta": 42,
+      "meanAbsoluteChannelDelta": 0.002803030303030303
+    },
+    {
+      "width": 240,
+      "height": 39,
+      "changedPixels": 0,
+      "changedPixelPercent": 0,
+      "maxChannelDelta": 0,
+      "meanAbsoluteChannelDelta": 0
+    },
+    {
+      "width": 280,
+      "height": 46,
+      "changedPixels": 2,
+      "changedPixelPercent": 0.015527950310559006,
+      "maxChannelDelta": 1,
+      "meanAbsoluteChannelDelta": 0.00007763975155279503
+    },
+    {
+      "width": 1200,
+      "height": 195,
+      "changedPixels": 58,
+      "changedPixelPercent": 0.024786324786324785,
+      "maxChannelDelta": 18,
+      "meanAbsoluteChannelDelta": 0.00027670940170940173
+    },
+    {
+      "width": 2400,
+      "height": 391,
+      "changedPixels": 148,
+      "changedPixelPercent": 0.01577152600170503,
+      "maxChannelDelta": 85,
+      "meanAbsoluteChannelDelta": 0.00031649616368286445
+    }
+  ],
+  "limitations": "Same-renderer raster comparison, not browser or physical-device testing. The recreated font outlines originate from the specified upstream font, not the logo asset."
+}
