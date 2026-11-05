@@ -1,6 +1,6 @@
 # Trueforms project pre-plan
 
-**Date:** 5 November 2026 · **Status:** draft, before implementation · **Basis:** brand handoff v2.0 and local repository inspection.
+**Updated:** 5 November 2026 · **Status:** planning; repository responsibilities confirmed, implementation choices open · **Basis:** brand handoff v2.0, confirmed project decisions, and repository READMEs.
 
 ## 1. Objective and scope
 
@@ -8,61 +8,69 @@ Build a product foundation that can grow while preserving the established brand.
 
 The handoff is a substantial **brand and integration specification**, not a product requirements document. It mentions form and application creation, but does not settle user roles, the data model, pricing, hosting, or launch scope. The product journey below is therefore a proposal. No technology stack, delivery schedule, or capacity commitment is established here.
 
-This delivery covers documentation and source preservation. Application development, repository restructuring, package publication, and deployment remain future work.
+Documentation, brand preservation, logo reconstruction, and repository responsibility READMEs are in place. TrueUI components and frontend/backend application implementations remain future work. No framework, package identifier, or release process has been selected by this plan.
 
-## 2. Starting point and repository responsibilities
+## 2. Confirmed repository responsibilities
 
-The initial workspace inspection found four separate Git repositories, each before its first commit. Repository count does not imply service count. The confirmed ownership boundary is that logo materials and reconstruction tooling stay in `docs`, while `ui` contains actual UI components.
+The project uses four separate repositories. Their responsibilities are confirmed; repository count does not imply service count. **TrueUI** is the name of the common UI library maintained in `ui`, not the name of the frontend application or a claim that a package is already published.
 
-| Repository | Proposed responsibility | Boundary |
+| Repository | Confirmed responsibility | Boundary |
 | --- | --- | --- |
 | `docs` | Product scope, brand originals, reconstruction sources/scripts/outputs, decisions, contract explanations, review records | Not a runtime asset server |
-| `ui` | Actual shared accessible UI components, their tokens, and component examples | No logo source archive or reconstruction tooling; no backend business rules |
-| `frontend` | Pages, navigation, application theme, feature journeys, API consumption | No redrawn logo or independently maintained copies of shared tokens |
-| `backend` | Authorization, domain rules, persistence, API implementation and contract | No brand geometry or visual theme logic |
+| `ui` / **TrueUI** | Common UI components, reusable presentation and interaction behavior, component tokens/themes, accessibility, and examples | No frontend/backend business logic, application API orchestration, logo source archive, or reconstruction tooling |
+| `frontend` | Frontend application code and frontend business logic: pages, navigation, feature state, user journeys, and API orchestration | Consumes TrueUI; does not enforce authoritative backend rules or own logo masters |
+| `backend` | Backend operations and backend business logic: authoritative validation, authorization, domain behavior, persistence, integrations, and API contracts | No frontend workflow orchestration, UI presentation, or logo construction |
 
-Dependency direction: frontend consumes a versioned UI distribution and the backend API contract. UI does not depend on frontend. Backend can run independently. Documentation records the relationships between releases.
+Dependency direction: the frontend consumes TrueUI components and the backend API contract. TrueUI receives data, state, and callbacks through component APIs; it does not depend on the frontend application or a particular backend service. Frontend business logic coordinates client-side workflows. Backend business logic remains authoritative for permissions and stored data, including requests made outside the normal interface.
+
+Repository entry points: [TrueUI](https://github.com/truefor-ms/ui), [frontend](https://github.com/truefor-ms/frontend), and [backend](https://github.com/truefor-ms/backend). These README boundaries apply to the implementation proposals below.
 
 Sibling directories may be convenient during development, but a release must not require a developer's `../ui` directory. Establish reproducible package or artifact consumption. Consider a monorepo only after recording the actual cost of cross-repository changes and the trade-offs of migration.
 
 ## 3. From source artwork to product
 
-Proposed flow: **preserved handoff and reconstruction in docs → validated brand artifacts → frontend consumption through UI components → acceptance on actual surfaces**.
+Proposed flow: **preserved handoff and reconstruction in docs → validated brand artifacts → frontend consumption through TrueUI components where appropriate → acceptance on actual surfaces**.
 
 1. Keep the original ZIP and complete extracted package accessible through the [brand hub](../brand/README.md), with hashes and provenance.
-2. Keep approved artwork, notices, font inputs, reconstruction scripts, and generated logo files in `docs/brand/`. Separate immutable sources from derived outputs. UI components consume the selected assets without taking ownership of their reconstruction sources.
-3. Define how applications receive versioned brand artifacts from docs, separately from UI component releases. Record distribution choices in an architecture decision record (ADR).
-4. Pin the frontend to known UI and brand artifact versions; copy selected public assets to their deployment location during the build. The handoff's `/brand` path is an example, not an existing production endpoint.
+2. Keep approved artwork, notices, font inputs, reconstruction scripts, and generated logo files in `docs/brand/`. Separate immutable sources from derived outputs. A TrueUI logo-rendering component may consume selected assets; their source ownership stays in docs.
+3. Define how applications receive versioned brand artifacts from docs, separately from TrueUI component releases. Record distribution choices in an architecture decision record (ADR).
+4. Pin the frontend to known TrueUI and brand artifact versions once distribution is implemented; copy selected public assets to their deployment location during the build. The handoff's `/brand` path is an example, not an existing production endpoint.
 5. For a new brand release, record source hashes, derivatives, visible changes, and consumer impact. Retain the previous distribution for rollback.
 
-**Plan proposal:** track the brand source version separately from the UI package version. A component fix may still use brand geometry v2.0. Distinguish compatible fixes, additive assets/APIs, and breaking changes in release notes. Geometry changes must never be presented as silent optimization.
+**Plan proposal:** track the brand source version separately from the TrueUI package version. A component fix may still use brand geometry v2.0. Distinguish compatible fixes, additive assets/APIs, and breaking changes in release notes. Geometry changes must never be presented as silent optimization.
 
-Proposed UI structure, to refine after technology selection:
+Proposed TrueUI structure, to refine after technology selection:
 
 ```text
-ui/
-  tokens/             # Values used by UI components
-  src/brand/          # Actual logo/icon components consuming brand assets
-  src/components/     # Components required by real product journeys
-  examples/           # Developer and visual review catalog
+ui/                   # TrueUI common UI library
+  README.md           # Library purpose and responsibility boundaries
+  tokens/             # Shared component/theme values
+  src/components/     # Reusable UI components, including brand renderers if needed
+  examples/           # Isolated component usage and visual review
   scripts/            # Component build and verification
 ```
 
 This is a proposed structure, not a directory tree created by this documentation task.
 
-## 4. Grow the design system from a small core
+## 4. Build TrueUI from a small shared core
 
-| Layer | Contents | Change rule |
+TrueUI owns reusable UI behavior, such as keyboard navigation, focus management, selection, and open/closed state. It does not decide product workflows, make feature-specific API calls, or implement frontend/backend business rules. The frontend supplies the application state and handlers; the backend enforces server-side rules.
+
+For example, TrueUI can provide a form field that displays a label and error message. The frontend decides when to show that error and how to coordinate submission; the backend validates the request and applies its business rules. A form-builder screen belongs to the frontend, while reusable controls used by that screen may belong to TrueUI.
+
+| Layer | Contents | Ownership and change rule |
 | --- | --- | --- |
-| Brand primitives | Source colors, font identities, established geometry | Trace to a brand source version |
-| Semantic roles | Text, surfaces, control borders, focus, actions, error/success | Validate against actual surfaces and interactions |
-| Component values | Button, input, label, helper text, notification, layout | Add as required by the first journey |
+| Brand reference | Source colors, font identities, established geometry | Sources and reconstruction stay in docs; consumers trace to a brand version |
+| Shared UI tokens and semantic roles | Text, surfaces, control borders, focus, actions, error/success presentation | TrueUI; validate against actual surfaces and interactions |
+| Reusable components | Button, input, label, helper text, notification, layout | TrueUI; add reusable APIs as product journeys require them |
+| Application composition | Screens, feature state, validation timing, and submission flows | Frontend code and frontend business logic |
+| Authoritative operations | Permissions, data integrity, and domain behavior | Backend operations and backend business logic |
 
-The handoff's JSON/CSS are starting references, not a complete shared production system. Prefer one editable token source that generates CSS and other consumer outputs. Keep proposal status visible. Evaluate a product namespace for tokens to avoid generic-name collisions.
+The handoff's JSON/CSS are starting references, not a complete shared production system. Prefer one editable source for TrueUI component tokens that generates consumer outputs, with traceable mappings to the brand reference in docs. Keep proposal status visible. Evaluate a product namespace for tokens to avoid generic-name collisions.
 
-Initial components: logo, standalone icon, text/heading styles, links, buttons, form fields, labels, help/error text, and status notifications. Add dialogs, tables, date pickers, and drag-and-drop builders when a real journey requires them.
+Candidate initial components: buttons, links, form fields, labels, help/error presentation, status notifications, text/heading styles, and logo/icon renderers where needed. Add dialogs, tables, date pickers, or reusable drag-and-drop interactions when a real journey requires them. Feature-specific builders and their business decisions remain in the frontend.
 
-Resolve theme preference in one frontend-owned place. Distinguish user preference from system preference and supply the same resolved theme to UI and brand components. The sample React `mode="auto"` follows the operating system only; it cannot represent a manual application override on its own. If SSR is chosen, verify the initial and hydrated theme remain consistent.
+Resolve the application's theme preference in one frontend-owned place. TrueUI provides the shared theme presentation and accepts the resolved preference. Supply the same theme to its components and brand renderers. The sample React `mode="auto"` follows the operating system only; it cannot represent a manual application override on its own. If SSR is chosen, verify the initial and hydrated theme remain consistent.
 
 The first implementation can start with light mode. If the dark proposal is accepted, validate it on actual screens. Supporting monochrome brand assets does not automatically require a user-facing monochrome application theme.
 
@@ -90,7 +98,7 @@ Record data migrations, compatibility windows, and consumer versions with API/da
 
 | Observed need | Change to evaluate |
 | --- | --- |
-| A second interface consumes the same components | Expand UI distribution and consumer compatibility coverage |
+| A second interface consumes the same components | Expand TrueUI distribution and consumer compatibility coverage |
 | Assets are repeatedly copied by hand | Centralize build/package distribution |
 | Notifications or external calls delay user requests | Introduce background work with defined retry behavior |
 | Measured queries become slow | Inspect queries/indexes first; add caching or a separate read model if justified |
@@ -109,8 +117,8 @@ Order reflects dependencies, not a delivery-time estimate. Owners below are role
 | --- | --- | --- | --- |
 | 0. Preserve the foundation | Source archive, extracted materials, brand reference, review, pre-plan | Source integrity verified; established decisions separated from proposals | Documentation + brand |
 | 1. Define product and technical foundations | First user/journey, MVP exclusions, stack and distribution ADRs | One written journey and success measure; dependencies identified | Product + technical lead |
-| 2. Establish brand and UI core | Versioned assets, tokens, logo/icon adapters, small catalog | Geometry checks, theme/narrow-screen acceptance, consumer build | Brand/UI + frontend |
-| 3. Complete the first vertical journey | Frontend, API, and persistence for the selected journey | Real end-to-end outcome; access boundaries and failure paths verified | Frontend + backend |
+| 2. Establish TrueUI and brand consumption | Shared components/tokens/catalog in TrueUI; selected brand artifacts supplied from docs | Component API and interaction checks, theme/narrow-screen acceptance, frontend consumer build | TrueUI + brand + frontend |
+| 3. Complete the first vertical journey | Frontend code and business logic integrated with backend operations and business logic | Real end-to-end outcome; access boundaries and failure paths verified | Frontend + backend |
 | 4. Prepare the first release | Deployment, observability, backup/rollback, platform assets | Target-environment acceptance and recovery exercise recorded | Technical + product |
 | 5. Grow from evidence | Features and capacity changes driven by usage | Each addition has a demonstrated need, owner, and acceptance criterion | Product + module owner |
 
@@ -122,13 +130,13 @@ Phase 0 documentation and source preservation are delivered here. This does not 
 | --- | --- | --- | --- |
 | P0 / TF-001 | Define the initial user and problem | None | One-page product brief; current versus planned capabilities |
 | P0 / TF-002 | Select the first journey and exclusions | TF-001 | Start/end, failure cases, and success measurement documented |
-| P0 / TF-003 | Decide stack, distribution, and repository boundaries | TF-002 | ADR with ownership and consumption method |
-| P0 / TF-004 | Define UI/application consumption of brand artifacts from docs | TF-003 | Source ownership stays in docs; asset mapping and version consumption validated |
-| P0 / TF-005 | Establish token source and theme contract | TF-004 | Consistent generated outputs; proposal/acceptance status tracked |
-| P0 / TF-006 | Build logo/icon usage catalog | TF-004, TF-005 | B/A, modes, actual small sizes, manual theme behavior verified |
-| P1 / TF-007 | Implement first form components and state roles | TF-002, TF-005 | Label, help, error, loading, disabled, and focus behavior defined |
+| P0 / TF-003 | Select stack and distribution within the confirmed repository boundaries | TF-002 | ADR records implementation choices and the TrueUI consumption method |
+| P0 / TF-004 | Define frontend/TrueUI consumption of brand artifacts from docs | TF-003 | Source ownership stays in docs; asset mapping and version consumption validated |
+| P0 / TF-005 | Establish TrueUI token source and application theme contract | TF-004 | Consistent outputs; frontend-owned preference; proposal/acceptance status tracked |
+| P0 / TF-006 | Build an isolated TrueUI component catalog, including brand usage | TF-004, TF-005 | Reusable APIs and interaction states demonstrated; chosen logo modes/sizes verified |
+| P1 / TF-007 | Implement reusable form components in TrueUI | TF-002, TF-005 | Label, help, error, loading, disabled, and focus behavior defined; feature business logic stays in frontend/backend |
 | P1 / TF-008 | Define data model and API contract | TF-002, TF-003 | Schema versions, access model, and error shapes illustrated |
-| P1 / TF-009 | Complete the first end-to-end journey | TF-006, TF-007, TF-008 | UI → API → persistence → user outcome verified |
+| P1 / TF-009 | Compose the first journey in frontend and implement its backend rules | TF-006, TF-007, TF-008 | TrueUI components → frontend business logic → backend operations/business logic → persisted result verified |
 | P1 / TF-010 | Complete release and operational acceptance | TF-009 | Target-environment testing, restore, and release rollback recorded |
 
 These IDs are document-local planning references, not tasks created in an external tracker. TF-006 and TF-008 can progress independently once their own dependencies are satisfied.
@@ -139,7 +147,8 @@ These IDs are document-local planning references, not tasks created in an extern
 | --- | --- | --- |
 | Brand source | SHA-256, paths/transforms/viewBox/stroke, A/B and monochrome integrity | Automated report and source version |
 | Generated assets | SVG structure, PNG dimensions, font and asset paths | Build artifact inspection |
-| UI | Actual-size readability, surfaces, theme, keyboard, accessible names | Catalog and browser review record |
+| TrueUI | Reusable component contracts, interaction states, theme, keyboard, accessible names | Isolated component checks and catalog/browser review record |
+| Frontend integration | Component composition, client-side business flows, API orchestration, and actual-size brand readability | Application browser and integration review record |
 | Product | Selected journey, empty/loading/error states, access boundaries | Meaningful integration and end-to-end tests |
 | Release | Deployment paths, caching, target environment, rollback | Release acceptance record |
 
@@ -158,7 +167,7 @@ Update documentation with the change that alters behavior. Brand changes involve
 | Initial audience and product scope | Phase 1 | Do not infer a complete product from brand materials |
 | First release: marketing/demo or functioning form product? | Phase 1 | Do not turn proposed landing copy into availability claims |
 | Frontend/backend stack and hosting | Before scaffolding | The TSX sample does not mandate React |
-| UI package distribution/access | Phase 2 | Target reproducible, versioned consumption |
+| TrueUI framework, package identifier, and distribution/access | Phase 2 | Library name and ownership are confirmed; implementation and publishing choices remain open |
 | Individual versus team/workspace model | Before data modeling | Do not assume multi-tenancy |
 | Product language and localization | Before initial screens | English documentation does not select the product language |
 | Dark theme and proposed usage sizes | Relevant UI acceptance | Keep source-proposal status until accepted |
