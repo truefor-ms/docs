@@ -1,0 +1,1906 @@
+[
+  {
+    "title": "Master kararlar ve sürüm önceliği",
+    "intro": "Bu belge, güncel logo master spec’i ile önceki handoff’un tüm uygulama kapsamını tek kaynakta birleştirir. B ana logo; A aynı sistemin hazır alternatifidir.",
+    "blocks": [
+      [
+        "table",
+        {
+          "head": [
+            "Durum",
+            "Anlam"
+          ],
+          "rows": [
+            [
+              "Kesinleşmiş",
+              "Mevcut B/A kaynakları, özel kerning, geometrik hizalama, açık tema renkleri."
+            ],
+            [
+              "Ölçüm",
+              "SVG konturlarından hesaplanan birim, sınır, oran ve koordinatlar."
+            ],
+            [
+              "[Öneri]",
+              "Yeni koyu tema reçetesi, UI ve kullanım ölçüleri. Tasarım geçmişinde onaylanmış karar gibi sunulmaz."
+            ],
+            [
+              "Türev",
+              "Rengi değiştirilmiş mono/beyaz/siyah çıktılar; geometri kaynağa eşit."
+            ]
+          ]
+        }
+      ],
+      [
+        "list",
+        [
+          "Marka adı: Trueforms. Wordmark metni: trueforms. Alan adı çağrışımı: truefor.ms. Nokta, r ile m arasında bağımsız dekoratif path’tir.",
+          "Ana sembol: katlı doküman, dört satır, açık sağ alt köşe ve bağımsız onay.",
+          "Ana yerleşim B: nokta r/m yüksekliğinin merkezindedir. Alternatif A: nokta taban çizgisi yakınındadır.",
+          "Kaynak logo fontu Nimbus Roman Regular; harfler outline. Arayüz fontları ayrı sistemdir.",
+          "İkon #16765C; yazı #183C32; nokta #AFBDB0. Açık referans zemin #F8F7F2."
+        ]
+      ],
+      [
+        "note",
+        "Öncelik: source-reference/approved-b.svg ve approved-a.svg > specs/trueforms-logo-spec.json > bu doküman > kullanım önerileri. Eski handoff’taki Linux Libertine logo dizgisi, 72.1935 u ikon boşluğu ve 687.515 genişliğindeki viewBox güncel logo için geçerli değildir."
+      ],
+      [
+        "p",
+        "v2.0, 5 Kasım 2026. Bu sürümde şekiller yeniden tasarlanmadı. Güncel logoya açık/koyu/tek renk uygulamaları, HTML örnekleri, TSX, varlıklar ve teknik teslim bilgileri eklendi."
+      ]
+    ]
+  },
+  {
+    "title": "Logo ailesi ve dosya seçimi",
+    "intro": "Yerleşim (B veya A) ile renk modu birbirinden bağımsızdır. Ana kullanım B/color’dır. Her iki yerleşim için aynı renk ailesi hazırdır.",
+    "blocks": [
+      [
+        "figure",
+        {
+          "name": "variants",
+          "caption": "B’nin beş sabit renk modu. A için de aynı dosya ailesi sağlanır."
+        }
+      ],
+      [
+        "table",
+        {
+          "head": [
+            "Dosya / mod",
+            "Kullanım"
+          ],
+          "rows": [
+            [
+              "trueforms-logo.svg",
+              "B/color. Ana SVG; mevcut B kaynağıyla byte olarak aynı."
+            ],
+            [
+              "trueforms-logo-alt-a.svg",
+              "A/color. Hazır alternatif; mevcut A kaynağıyla byte olarak aynı."
+            ],
+            [
+              "trueforms-logo-{a|b}-color.svg",
+              "Açık zeminde üç renk."
+            ],
+            [
+              "trueforms-logo-{a|b}-dark.svg",
+              "Koyu zeminde açık yazı/ikon, yumuşak nokta. [Öneri]"
+            ],
+            [
+              "trueforms-logo-{a|b}-mono.svg",
+              "İkon, yazı ve nokta tek renk #183C32."
+            ],
+            [
+              "trueforms-logo-{a|b}-black.svg / -white.svg",
+              "Gerçek tek renk siyah veya beyaz. Opaklık 1."
+            ],
+            [
+              "trueforms-logo-{a|b}-currentcolor.svg",
+              "Inline SVG’de tek CSS rengi. Harici img için tema geçişi sağlamaz."
+            ]
+          ]
+        }
+      ],
+      [
+        "p",
+        "Logo ve ikon SVG’leri şeffaftır. Önizleme zemini dosyaya gömülmez. Avatar ve favicon kendi zeminini içerir. Renk modu, A/B nokta konumlarını veya kerningi değiştirmez."
+      ]
+    ]
+  },
+  {
+    "title": "İkonun geometrisi ve koordinat sistemi",
+    "intro": "Aşağıdaki ölçüler güncel SVG path verisinden alınmıştır. Birim SVG kullanıcı birimidir; fiziksel piksel veya milimetre değildir.",
+    "blocks": [
+      [
+        "figure",
+        {
+          "name": "geometry",
+          "caption": "Geometri şemasındaki koordinatlar translate uygulanmadan önceki tasarım uzayına aittir."
+        }
+      ],
+      [
+        "table",
+        {
+          "head": [
+            "Özellik",
+            "Kesin değer"
+          ],
+          "rows": [
+            [
+              "Sayfa merkez çizgisi sınırı",
+              "x: 14...110; y: 12...140. Genişlik 96, yükseklik 128."
+            ],
+            [
+              "Boyanmış alan",
+              "x: 10.75...113.25; y: 8.75...143.25."
+            ],
+            [
+              "Görünür genişlik ve yükseklik",
+              "102.5 × 134.5; en/boy 0.7620817844."
+            ],
+            [
+              "Çizgi kalınlığı",
+              "6.5; tüm ikon parçalarında eşit."
+            ],
+            [
+              "Uç ve birleşimler",
+              "stroke-linecap=\"round\"; stroke-linejoin=\"round\"."
+            ],
+            [
+              "Dolgu",
+              "fill=\"none\"."
+            ],
+            [
+              "Dosyadaki grup dönüşümü",
+              "translate(4 4)."
+            ],
+            [
+              "Üretim viewBox",
+              "14.75 12.75 102.5 134.5."
+            ]
+          ]
+        }
+      ],
+      [
+        "p",
+        "Boyanmış sınır, çizgi merkezinin dışına taşan 3.25 birimlik yarım kalınlığı da kapsar. viewBox, translate(4 4) uygulandıktan sonraki boyanmış sınıra oturur. Bu nedenle x ve y başlangıcının sıfır olmaması bir hata değildir."
+      ],
+      [
+        "note",
+        "viewBox değerini 0 0 102.5 134.5 yapıp path koordinatlarını aynı bırakmak şekli kaydırır ve keser. Dönüşümü kaldırmak istiyorsan tüm koordinatları tutarlı biçimde normalize et; yalnızca viewBox değerini değiştirme."
+      ]
+    ]
+  },
+  {
+    "title": "Path yapısı ve yeniden oluşturma",
+    "intro": "İkon dört path içerir. Ayrı path yapısı, sağ alt köşedeki boşluğun ve kopuk onayın korunmasını kolaylaştırır.",
+    "blocks": [
+      [
+        "table",
+        {
+          "head": [
+            "Sıra",
+            "Parça",
+            "Görev"
+          ],
+          "rows": [
+            [
+              "1",
+              "Dış doküman",
+              "Sol, üst ve sağ kenar ile kısa alt çizgi; sağ alt köşe açık."
+            ],
+            [
+              "2",
+              "Katlanan köşe",
+              "Üst sağ kat izi ve küçük yuvarlatılmış dönüş."
+            ],
+            [
+              "3",
+              "Dört satır",
+              "Tek path içinde dört bağımsız yatay alt yol."
+            ],
+            [
+              "4",
+              "Onay",
+              "İki eğik kol; diğer parçalardan bağımsız."
+            ]
+          ]
+        }
+      ],
+      [
+        "code",
+        "Dış doküman\nM60 140H24Q14 140 14 130V22Q14 12 24 12H78L110 44V90\n\nKatlanan köşe\nM78 12V36Q78 44 86 44H110\n\nMetin satırları\nM34 44H60M34 64H90M34 84H90M34 104H60\n\nOnay\nM70 126L84 140L110 114"
+      ],
+      [
+        "h",
+        "Onayın kesin yapısı"
+      ],
+      [
+        "list",
+        [
+          "Kısa kol: (70,126) → (84,140). Uzunluk 19.79899 birim.",
+          "Uzun kol: (84,140) → (110,114). Uzunluk 36.76955 birim.",
+          "Kısa/uzun kol oranı 7/13; SVG ekran koordinatlarında segment açıları +45° ve -45°.",
+          "Dikey eksen SVG içinde aşağı doğru artar. Görsel dönüş ve açı hesaplarını buna göre yap.",
+          "Onayın sağ ucu sayfanın sağ merkez çizgisiyle, alt tepe noktası alt merkez çizgisiyle aynı sınıra gelir. Eşit stroke kalınlığı sayesinde görünür sınırlar da eşleşir."
+        ]
+      ],
+      [
+        "p",
+        "“Köşenin onaya dönüşmesi” görsel fikirdir. Güncel üretim dosyasında animasyon veya gerçekten çıkarılmış bir köşe parçası yoktur. Eski sürümün L parçasını yeniden döndürerek geometriyi değiştirme."
+      ]
+    ]
+  },
+  {
+    "title": "Satır düzeni ve boşluk ölçümleri",
+    "intro": "Satırların tamamı x=34 noktasından başlar. İlk ve son satır kısa, ortadaki iki satır uzundur. Tüm satır merkezleri arasında 20 birim vardır.",
+    "blocks": [
+      [
+        "table",
+        {
+          "head": [
+            "Satır",
+            "Başlangıç",
+            "Bitiş",
+            "Merkez çizgisi uzunluğu"
+          ],
+          "rows": [
+            [
+              "1",
+              "34,44",
+              "60,44",
+              "26"
+            ],
+            [
+              "2",
+              "34,64",
+              "90,64",
+              "56"
+            ],
+            [
+              "3",
+              "34,84",
+              "90,84",
+              "56"
+            ],
+            [
+              "4",
+              "34,104",
+              "60,104",
+              "26"
+            ]
+          ]
+        }
+      ],
+      [
+        "p",
+        "Yuvarlak uçlar her iki tarafta 3.25 birim eklediği için boyanmış satır uzunlukları sırasıyla 32.5 ve 62.5 birimdir. Uzun satırların sayfa kenarlarına merkez çizgisi mesafesi 20 birim, boyanmış kenarlar arası açıklığı 13.5 birimdir."
+      ],
+      [
+        "table",
+        {
+          "head": [
+            "Boşluk",
+            "Boyanmış kenarlar arası ölçüm"
+          ],
+          "rows": [
+            [
+              "İki paralel satır arasındaki düşey boşluk",
+              "13.5 birim"
+            ],
+            [
+              "Onay ile alt çerçeve arasındaki en kısa boşluk",
+              "10.47056 birim"
+            ],
+            [
+              "Onay ile sağ çerçevenin alt ucu",
+              "17.5 birim"
+            ],
+            [
+              "Onay ile son satır arasındaki en kısa boşluk",
+              "17.66609 birim"
+            ]
+          ]
+        }
+      ],
+      [
+        "p",
+        "Alt çerçeveye en yakın nokta onayın köşe noktası değildir; kısa eğik kol üzerindedir. Ölçüm, (60,140) alt çerçeve ucu ile kısa kola düşen dikmenin uzunluğundan iki yarım stroke çıkarılarak yapılır: √288 - 6.5 = 10.47056."
+      ],
+      [
+        "h",
+        "Korunacak ilişkiler"
+      ],
+      [
+        "list",
+        [
+          "Alt boşluğu kapatma; dış doküman path’ine yeni bir Z veya sağ alt bağlantı ekleme.",
+          "Son satırı uzatarak onayın alanına girme. Kısa ilk ve son satır desenini koru.",
+          "Onayı ayrıca kalınlaştırma, stroke uçlarını kareye çevirme veya diğer çizgilere yapıştırma.",
+          "Dört satırı beşe çıkarma; çerçevesiz seçeneğin geometri parçalarını bu versiyona karıştırma."
+        ]
+      ]
+    ]
+  },
+  {
+    "title": "Güncel yatay logo geometrisi",
+    "intro": "Tüm değerler SVG kullanıcı birimidir (u). X sağa, Y aşağı büyür. Görünür konturlar üzerinden geometrik merkez alınır; font ascender/descender satır kutusu kullanılmaz.",
+    "blocks": [
+      [
+        "figure",
+        {
+          "name": "lockup",
+          "caption": "Kesikli çizgi, ikon ve B wordmark için ortak görünür düşey merkezdir."
+        }
+      ],
+      [
+        "table",
+        {
+          "head": [
+            "Özellik",
+            "Kesin değer"
+          ],
+          "rows": [
+            [
+              "viewBox",
+              "157.5745 65.0525 619.5523611111 100.895"
+            ],
+            [
+              "En / boy",
+              "6.140565549 : 1"
+            ],
+            [
+              "İkon görünür sınırı",
+              "x 157.5845 ... 234.4595 / y 65.0625 ... 165.9375"
+            ],
+            [
+              "İkon boyutu / merkez",
+              "76.875 × 100.875 u / y = 115.5"
+            ],
+            [
+              "B yazı görünür sınırı",
+              "x 262.9595 ... 777.116861 / y 72.139375 ... 158.860625"
+            ],
+            [
+              "İkon ile ilk harf arası",
+              "28.5 u"
+            ],
+            [
+              "İkon dönüşümü",
+              "translate(149.522 58.5) scale(.75)"
+            ],
+            [
+              "B yazı ve nokta dönüşümü",
+              "translate(261.33269444 157.60923611)"
+            ],
+            [
+              "Etkin ikon stroke",
+              "6.5 × 0.75 = 4.875 u"
+            ]
+          ]
+        }
+      ],
+      [
+        "p",
+        "Tuval, görünür toplam sınıra her yönde yaklaşık 0.01 u pay verir. Kullanımdaki koruma alanı SVG içine eklenmez; kapsayıcı boşluğuyla sağlanır. width belirlenirken height:auto bırakılır. viewBox başlangıcını path’leri taşımadan sıfırlamak geometrinin kesilmesine neden olur."
+      ]
+    ]
+  },
+  {
+    "title": "Logo tipografisi ve harf bazlı kerning",
+    "intro": "Nimbus Roman Regular kaynak alınmıştır. Üretimdeki path’ler ve ilave çift aralıkları bu markanın kesin çizimidir. Canlı metin veya tek letter-spacing değeri birebir karşılık değildir.",
+    "blocks": [
+      [
+        "table",
+        {
+          "head": [
+            "Ölçü",
+            "Değer"
+          ],
+          "rows": [
+            [
+              "Em birimi",
+              "1000"
+            ],
+            [
+              "Eşdeğer font boyutu",
+              "125.138888889 u"
+            ],
+            [
+              "x-height",
+              "56.3125 u"
+            ],
+            [
+              "Kelime",
+              "trueforms; 9 harf"
+            ],
+            [
+              "Nokta",
+              "Ayrı period outline; karakter advance değeri eklemez"
+            ]
+          ]
+        }
+      ],
+      [
+        "table",
+        {
+          "head": [
+            "Çift",
+            "Ek u",
+            "Ek em",
+            "Sonraki harf toplam u"
+          ],
+          "rows": [
+            [
+              "t/r",
+              "5.0",
+              "0.039956",
+              "5.0"
+            ],
+            [
+              "r/u",
+              "4.0",
+              "0.031964",
+              "9.0"
+            ],
+            [
+              "u/e",
+              "4.5",
+              "0.035960",
+              "13.5"
+            ],
+            [
+              "e/f",
+              "3.0",
+              "0.023973",
+              "16.5"
+            ],
+            [
+              "f/o",
+              "4.0",
+              "0.031964",
+              "20.5"
+            ],
+            [
+              "o/r",
+              "4.0",
+              "0.031964",
+              "24.5"
+            ],
+            [
+              "r/m",
+              "6.5",
+              "0.051942",
+              "31.0"
+            ],
+            [
+              "m/s",
+              "3.5",
+              "0.027969",
+              "34.5"
+            ]
+          ]
+        }
+      ],
+      [
+        "p",
+        "İlk t kayması 0 u; toplam ilave genişlik 34.5 u. Bu tablo doğal trueforms dizgisine eklenen düzeltmeleri gösterir, görünür konturlar arasındaki son boşlukları değil. r/m ek düzeltmesi 6.5 u’dur; nokta bu mevcut boşluk içine konur."
+      ],
+      [
+        "note",
+        "A ve B’de dokuz harfin path verileri ile yatay konumları birebir aynıdır. Font değiştirerek, sentetik inceltme veya CSS tracking uygulayarak yeni logo üretmeyin."
+      ]
+    ]
+  },
+  {
+    "title": "A / B farkı ve noktanın alternatif konumu",
+    "intro": "B ana sürümdür. A, aynı kelime dizgisinin taban çizgili alternatifidir. Mevcut iki dosyada yalnızca nokta Y’si değil, küçük bir X ve grup Y farkı da vardır.",
+    "blocks": [
+      [
+        "figure",
+        {
+          "name": "ab",
+          "caption": "Üst: B ana. Alt: A hazır alternatif. Her ikisinde son onaylı açık tema nokta rengi korunur."
+        }
+      ],
+      [
+        "table",
+        {
+          "head": [
+            "Parametre",
+            "B / ana",
+            "A / alternatif"
+          ],
+          "rows": [
+            [
+              "Nokta lokal X",
+              "361.432847",
+              "362.371389"
+            ],
+            [
+              "Nokta lokal Y",
+              "-28.781944",
+              "-5.568681"
+            ],
+            [
+              "Yazı/nokta grup Y",
+              "157.609236",
+              "157.546667"
+            ],
+            [
+              "Nokta global X",
+              "622.765542",
+              "623.704083"
+            ],
+            [
+              "Nokta global Y",
+              "128.827292",
+              "151.977986"
+            ]
+          ]
+        }
+      ],
+      [
+        "p",
+        "B’den A’ya: nokta path’inde lokal Δx = +0.938542 u, Δy = +23.213264 u. Yazı ve nokta gruplarının Y değeri -0.062569 u değişir. Noktanın global Y farkı +23.150694 u olur. İkon sabittir. Uygulamada hesaplamak yerine hazır A dosyasını seçin."
+      ]
+    ]
+  },
+  {
+    "title": "Nokta geometrisi ve merkez tanımı",
+    "intro": "Nokta kusursuz bir circle öğesiyle yeniden çizilmez. Fontun period glifinden gelen özgün outline korunur.",
+    "blocks": [
+      [
+        "table",
+        {
+          "head": [
+            "Referans",
+            "Değer / açıklama"
+          ],
+          "rows": [
+            [
+              "Nokta sınır kutusu",
+              "13.890417 × 13.890417 u"
+            ],
+            [
+              "B r/m düşey aralığı",
+              "Lokal y = -57.563889 ... 0"
+            ],
+            [
+              "B düşey merkez",
+              "(-57.563889 + 0) / 2 = -28.781944"
+            ],
+            [
+              "B sol karşı kontur",
+              "r gövdesi x = 340.725972"
+            ],
+            [
+              "B sağ karşı kontur",
+              "m gövdesi x = 382.139722"
+            ],
+            [
+              "B yatay merkez",
+              "(340.725972 + 382.139722) / 2 = 361.432847"
+            ],
+            [
+              "B yatay boş alan",
+              "41.41375 u; noktaya iki tarafta yaklaşık 13.761667 u"
+            ],
+            [
+              "A yatay merkezi",
+              "Taban yakınındaki serif aralığına göre mevcut x = 362.371389"
+            ]
+          ]
+        }
+      ],
+      [
+        "p",
+        "Yatay merkez, r ve m’nin tüm bounding box’larını birleştirip ortalamak değildir. B’de nokta yüksekliğinde birbirine bakan gövdeler esas alınır. Düşey merkez ise r/m görünür yüksekliğinin orta noktasıdır."
+      ],
+      [
+        "p",
+        "A’daki nokta alt sınırı, en alt harf konturunun 0.125139 u aşağısına uzanır. Tam kelime+nokta görünür merkezi korunurken yazı grubu bunun yarısı kadar (0.062569 u) yukarı alınmıştır. Bu küçük fark kaynakta vardır; v2 tarafından eklenmedi."
+      ],
+      [
+        "note",
+        "Nokta, alan adı hissini taşır; wordmark’ın metin kimliği trueforms kalır. Erişilebilir ad Trueforms’tur; nokta grubu aria-hidden=\"true\" olarak dekoratiftir."
+      ]
+    ]
+  },
+  {
+    "title": "Açık ve koyu zemin sistemi",
+    "intro": "Açık mod mevcut karardır. Koyu mod, aynı geometriyle hazırlanan yeni kullanım reçetesidir [Öneri]. Noktanın varlığı hissedilirken kelimeden daha düşük ağırlıkta kalması korunur.",
+    "blocks": [
+      [
+        "figure",
+        {
+          "name": "backgrounds",
+          "caption": "Açık color, koyu dark ve tek renk mono. Her biri kendi tanımlı yüzeyinde gösterilir."
+        }
+      ],
+      [
+        "table",
+        {
+          "head": [
+            "Rol",
+            "Açık / color",
+            "Koyu / dark [Öneri]"
+          ],
+          "rows": [
+            [
+              "Zemin (önizleme)",
+              "#F8F7F2",
+              "#183C32"
+            ],
+            [
+              "Yazı",
+              "#183C32",
+              "#F8F7F2"
+            ],
+            [
+              "İkon",
+              "#16765C",
+              "#E8EFE5"
+            ],
+            [
+              "Nokta",
+              "#AFBDB0",
+              "#657B70"
+            ],
+            [
+              "Opaklık",
+              "1 / tüm parçalar",
+              "1 / tüm parçalar"
+            ]
+          ]
+        }
+      ],
+      [
+        "p",
+        "Koyu modda opacity azaltılmadı; nokta rengi doğrudan tanımlandı. Böylece katmanların karışımıyla kontrol dışı sonuç oluşmaz. #102A23 dış arayüz zemini de örnekte bulunur; ölçüm referansı tabloda verilen #183C32 yüzeyidir."
+      ]
+    ]
+  },
+  {
+    "title": "Tek renk, beyaz ve currentColor",
+    "intro": "Tek renk modunda ikon, harfler ve nokta aynı renkte ve %100 opaktır. Noktayı ayrıca soluklaştırmak gerçek tek renk teslimi olmaz.",
+    "blocks": [
+      [
+        "table",
+        {
+          "head": [
+            "Mod",
+            "Tüm şekiller",
+            "Hedef"
+          ],
+          "rows": [
+            [
+              "mono",
+              "#183C32",
+              "Açık zeminde marka rengiyle tek mürekkep."
+            ],
+            [
+              "black",
+              "#000000",
+              "Siyah çıktı, kaşe veya tek renk uygulama kaynağı."
+            ],
+            [
+              "white",
+              "#FFFFFF",
+              "Koyu zeminde tam beyaz ters logo."
+            ],
+            [
+              "currentcolor",
+              "currentColor",
+              "Inline SVG, CSS color üzerinden kontrollü tek renk."
+            ]
+          ]
+        }
+      ],
+      [
+        "p",
+        "Dark ile white farklı seçimlerdir: dark’ta nokta yumuşaktır; white’ta tüm parçalar aynı beyazdır. A/B yerleşimi iki modda da korunur. Lazer, kabartma ve baskı için gerekli stroke expansion ayrı türevde yapılır."
+      ],
+      [
+        "code",
+        "<span style=\"color:#183C32\">\n  <!-- currentcolor SVG dosyasının içeriğini inline yerleştir -->\n</span>"
+      ],
+      [
+        "p",
+        "Harici <img src=\"...currentcolor.svg\"> ebeveynin color değerini SVG içine taşımaz. Örnekte sabit renk dosyaları img ile, currentColor ise inline SVG olarak gösterilir. CSS filter ile renk tahmini yapılmaz. [S3]"
+      ]
+    ]
+  },
+  {
+    "title": "Koruma alanı ve küçük ölçek",
+    "intro": "[Öneri] Aşağıdaki kullanım ölçüleri başlangıç değerleridir. Logo geometrisinin veya önceden onaylanmış kararların parçası değildir.",
+    "blocks": [
+      [
+        "figure",
+        {
+          "name": "sizes",
+          "caption": "Oranlı ölçek diyagramı; gerçek CSS boyutları HTML örneğinde incelenir. 160 px inceleme amaçlıdır."
+        }
+      ],
+      [
+        "table",
+        {
+          "head": [
+            "Kullanım",
+            "[Öneri]",
+            "Güncel ölçekte karşılık"
+          ],
+          "rows": [
+            [
+              "Yatay logo dış boşluğu",
+              "Her yönde 26 u",
+              "240 px genişlikte 10.07 px"
+            ],
+            [
+              "Tek ikon dış boşluğu",
+              "Her yönde 13 u",
+              "32 px yükseklikte 3.09 px"
+            ],
+            [
+              "Yatay logo başlangıç alt sınırı",
+              "200 px genişlik",
+              "32.57 px yükseklik; nokta yaklaşık 4.48 px"
+            ],
+            [
+              "Üst alan",
+              "240 ... 280 px genişlik",
+              "39.08 ... 45.60 px yükseklik"
+            ],
+            [
+              "Tek ikon",
+              "32 px yükseklik; 24 px deneme",
+              "32 px’te yaklaşık 1.55 px stroke"
+            ]
+          ]
+        }
+      ],
+      [
+        "p",
+        "200 px genişlikte wordmark okunurluğunu gerçek ekranda kontrol edin. 16 px favicon teknik çıktı olarak vardır; mikro ikon yeniden tasarlanmadı. Dar bağlamlarda tek ikon kullanılabilir. Koruma alanı kapsayıcı padding’idir, yeni viewBox değildir."
+      ]
+    ]
+  },
+  {
+    "title": "Renk paleti ve semantik roller",
+    "intro": "Ana renkler mevcut logo ve landing page paletinden alınmıştır. HEX değerleri sRGB sayısal renkleridir. Paletteki her renk her görevde kullanılmaz.",
+    "blocks": [
+      [
+        "table",
+        {
+          "head": [
+            "Token",
+            "HEX",
+            "RGB",
+            "Rol"
+          ],
+          "rows": [
+            [
+              "green",
+              "#16765C",
+              "22, 118, 92",
+              "İkon, ana eylem, bağlantı"
+            ],
+            [
+              "green-hover",
+              "#105B46",
+              "16, 91, 70",
+              "Ana eylem hover"
+            ],
+            [
+              "ink",
+              "#183C32",
+              "24, 60, 50",
+              "Başlık, metin, koyu bölüm"
+            ],
+            [
+              "canvas",
+              "#F8F7F2",
+              "248, 247, 242",
+              "Sıcak genel zemin"
+            ],
+            [
+              "surface",
+              "#FFFFFF",
+              "255, 255, 255",
+              "Form ve kart yüzeyi"
+            ],
+            [
+              "sage",
+              "#E8EFE5",
+              "232, 239, 229",
+              "Soft bölüm, avatar zemini"
+            ],
+            [
+              "lime",
+              "#DCE8A7",
+              "220, 232, 167",
+              "Sınırlı vurgu, koyu bölüm CTA"
+            ],
+            [
+              "muted",
+              "#65746B",
+              "101, 116, 107",
+              "Açık zeminde ikincil metin"
+            ],
+            [
+              "line",
+              "#D9E1D7",
+              "217, 225, 215",
+              "Dekoratif çizgi ve ayırıcı"
+            ],
+            [
+              "peach",
+              "#EEDBD0",
+              "238, 219, 208",
+              "Mevcut paletteki opsiyonel şablon vurgusu"
+            ]
+          ]
+        }
+      ],
+      [
+        "h",
+        "Paletin uygulanması"
+      ],
+      [
+        "list",
+        [
+          "[Öneri] Ana sayfa canvas, ürün kartları surface, destekleyen bloklar sage olsun. Yeşili ana eylem ve marka için kullan.",
+          "[Öneri] Lime ve peach aynı görünümde ana renklerle yarışmasın. Peach ana logo renginin alternatifi değildir.",
+          "Beyaz logo koyu ink veya green zeminde kullanılır. Koyu zemin üzerinde renkli logonun koyu yazısı kullanılmaz.",
+          "Formun gerçek doğrulama durumu ile marka ikonundaki onay işaretini ayır. Logo, formun başarıyla gönderildiği anlamına gelmez."
+        ]
+      ],
+      [
+        "note",
+        "Palet bir RGB arayüz paletidir. Bu teslimde resmî CMYK veya Pantone karşılığı belirlenmemiştir. RGB sayılarından üretilen yaklaşık dönüşümü onaylı baskı rengi olarak sunma."
+      ],
+      [
+        "note",
+        "Güncel wordmark’a özel nokta tokenı #AFBDB0’dır. Arayüzde body text, kontrol sınırı veya durum rengi olarak kullanılmaz. Koyu tema semantik tokenları yeni [Öneri] katmanıdır."
+      ]
+    ]
+  },
+  {
+    "title": "Kontrast ve erişilebilir kullanım",
+    "intro": "Oranlar bu pakette opak sRGB değerlerinden hesaplanmıştır. Gösterim iki ondalıktır; eşik değerlendirmesi yuvarlanmamış değer üzerinden yapılır.",
+    "blocks": [
+      [
+        "table",
+        {
+          "head": [
+            "Renk çifti",
+            "Oran",
+            "Normal metin 4.5:1"
+          ],
+          "rows": [
+            [
+              "Yazı / açık",
+              "11.31:1",
+              "Geçer"
+            ],
+            [
+              "İkon / açık",
+              "5.18:1",
+              "Geçer"
+            ],
+            [
+              "Nokta / açık",
+              "1.82:1",
+              "Geçmez"
+            ],
+            [
+              "Yazı / koyu",
+              "11.31:1",
+              "Geçer"
+            ],
+            [
+              "İkon / koyu",
+              "10.34:1",
+              "Geçer"
+            ],
+            [
+              "Nokta / koyu",
+              "2.67:1",
+              "Geçmez"
+            ],
+            [
+              "Koyu yardımcı / yüzey",
+              "6.20:1",
+              "Geçer"
+            ],
+            [
+              "Koyu kontrol / yüzey",
+              "3.71:1",
+              "Geçmez"
+            ],
+            [
+              "Beyaz / green",
+              "5.56:1",
+              "Geçer"
+            ],
+            [
+              "Muted / sage",
+              "4.20:1",
+              "Geçmez"
+            ],
+            [
+              "Line / beyaz",
+              "1.34:1",
+              "Geçmez"
+            ],
+            [
+              "Siyah / beyaz",
+              "21.00:1",
+              "Geçer"
+            ]
+          ]
+        }
+      ],
+      [
+        "p",
+        "WCAG 2.2: normal metin 4.5:1, büyük metin 3:1; logo yazısı bu metin kontrastı zorunluluğundan muaftır. Nokta bilerek düşük kontrastlı marka aksanıdır; normal metin tokenı gibi kullanılmaz. [S1]"
+      ],
+      [
+        "p",
+        "Kontrolü veya durumu tanımlamak için gerekli görsel bilgi, bitişik renge karşı 3:1 değerlendirilir. Dekoratif line rengi tek kontrol sınırı olarak seçilmez. [S2]"
+      ],
+      [
+        "list",
+        [
+          "Logoyu link yapan kapsayıcıya erişilebilir ad verin; içerideki img dekoratifse alt=\"\" kullanın.",
+          "Bağımsız logo görselinde alt=\"Trueforms\" yeterlidir. Aynı adı hem parent hem child üzerinde tekrar etmeyin.",
+          "Klavye focus’u açık ve koyu yüzeyde görülebilir kalmalı. Demo bunun için tema bazlı focus tokenı kullanır."
+        ]
+      ],
+      [
+        "p",
+        "Bu tablo tüm sayfanın erişilebilirlik uygunluğu iddiası değildir. Kullanılan gerçek yüzey, ölçek, etkileşim ve içerik ayrıca kontrol edilir."
+      ]
+    ]
+  },
+  {
+    "title": "Arayüz tipografisi ve font teslimi",
+    "intro": "Logo tipi ile arayüz fontlarını ayrı ele alın. Nimbus Roman güncel logo kaynağıdır. Önceki handoff’taki arayüz fontları aynı biçimde korunmuştur.",
+    "blocks": [
+      [
+        "table",
+        {
+          "head": [
+            "Rol",
+            "Kaynak",
+            "Teslim biçimi"
+          ],
+          "rows": [
+            [
+              "Logo",
+              "Nimbus Roman Regular",
+              "SVG içindeki outline path’ler; font yüklenmez."
+            ],
+            [
+              "UI metin / label",
+              "Rubik Regular / Bold",
+              "rubik-regular.woff ve rubik-bold.woff; 400/700."
+            ],
+            [
+              "UI büyük başlık",
+              "Linux Libertine Display G Regular",
+              "libertine-display.woff; logonun fontu değildir."
+            ]
+          ]
+        }
+      ],
+      [
+        "table",
+        {
+          "head": [
+            "[Öneri] kullanım",
+            "Boyut / satır yüksekliği"
+          ],
+          "rows": [
+            [
+              "Hero masaüstü / mobil",
+              "64 / 1.05; mobil 40 / 1.08"
+            ],
+            [
+              "Bölüm başlığı",
+              "40 / 1.15; mobil 32"
+            ],
+            [
+              "Gövde",
+              "16 / 1.6"
+            ],
+            [
+              "Label ve kontrol",
+              "14 ... 16 / 1.4"
+            ],
+            [
+              "Yardımcı",
+              "14 / 1.5"
+            ]
+          ]
+        }
+      ],
+      [
+        "list",
+        [
+          "Rubik 500/600 yüzü pakette yoktur; gerçek ihtiyaç varsa ilgili dosya ayrıca edinilir.",
+          "WOFF dosyaları önceki handoff’tan byte olarak korunmuştur. Türkçe karakter örneği HTML’de bulunur.",
+          "UI font bildirimi ve OFL metni licenses/ içinde korunur. Nimbus kaynak paket bildirimi ayrı dosyadadır; Nimbus font programı pakete eklenmez."
+        ]
+      ],
+      [
+        "note",
+        "Logo SVG’sini göstermek için assets/fonts klasörüne ihtiyaç yoktur. Bu klasör yalnızca örnek arayüz ve dokümanın tipografisi içindir."
+      ]
+    ]
+  },
+  {
+    "title": "Doğru ve yanlış logo uygulamaları",
+    "intro": "Geometri, renk ve harf çizimi tek bir kimlik olarak ele alınır. Uygulama yüzeyi değişebilir; logo kendi içinde yeniden tasarlanmaz.",
+    "blocks": [
+      [
+        "figure",
+        {
+          "name": "backgrounds",
+          "caption": "Tanımlı açık, koyu ve tek renk uygulamalar."
+        }
+      ],
+      [
+        "table",
+        {
+          "head": [
+            "Koru",
+            "Kaçın"
+          ],
+          "rows": [
+            [
+              "En boy oranı sabit ölçek",
+              "Yatay sıkıştırma veya dikey uzatma"
+            ],
+            [
+              "Tek ve sabit stroke sistemi",
+              "Onayı diğer çizgilerden kalın yapma"
+            ],
+            [
+              "Ayrık onay ve açık alt köşe",
+              "Onayı satıra ya da çerçeveye bağlama"
+            ],
+            [
+              "Orijinal dört satır",
+              "Satır ekleme veya rastgele uzunluklar"
+            ],
+            [
+              "Orijinal vektör yazı",
+              "Benzer fontla yeniden yazılmış wordmark"
+            ],
+            [
+              "Tanımlı beyaz sürüm",
+              "Koyu zeminde koyu yazıyı tutma"
+            ],
+            [
+              "Flat renk",
+              "Logonun kendisine gradient, gölge veya bevel ekleme"
+            ],
+            [
+              "trueforms + ayrı r/m noktası",
+              "Canlı metne period ekleyerek dizgiyi değiştirme"
+            ]
+          ]
+        }
+      ],
+      [
+        "p",
+        "[Öneri] Fotoğraf veya çok hareketli bir görsel üzerinde logoyu doğrudan kaybettirmek yerine sade bir marka yüzeyi kullan. Yüzeyin radius değeri ürün kartından gelebilir; bu, logo çiziminin bir parçası değildir."
+      ],
+      [
+        "note",
+        "Arayüz ikonlarına veya yükleme durumlarına benzetmek için logo onayını döndürme. Marka işareti ile uygulama işlev ikonları ayrı görevlerdir."
+      ],
+      [
+        "p",
+        "Noktanın boyutunu küçük ölçekte büyütmek, rengini opacity ile karıştırmak veya A/B arasında elle yaklaşık taşımak yeni tasarım değişikliğidir. Hazır dosya seçimi bu hataları önler."
+      ]
+    ]
+  },
+  {
+    "title": "Avatar ve kare çıktılar",
+    "intro": "Avatar, seçilen doküman ikonunu #E8EFE5 zemin üzerinde ortalar. 4096 × 4096 PNG, son onaylı avatarın birebir kaynak kopyasıdır.",
+    "blocks": [
+      [
+        "figure",
+        {
+          "name": "avatar",
+          "caption": "Kare avatar ve dairesel kırpma önizlemesi. Daire avatar dosyasına işlenmemiştir."
+        }
+      ],
+      [
+        "table",
+        {
+          "head": [
+            "Özellik",
+            "Değer"
+          ],
+          "rows": [
+            [
+              "Vektör çalışma alanı",
+              "1024 × 1024"
+            ],
+            [
+              "İkonun görünür yüksekliği",
+              "640 birim; karenin %62.5’i"
+            ],
+            [
+              "İkonun görünür genişliği",
+              "487.732342 birim; karenin yaklaşık %47.63’ü"
+            ],
+            [
+              "Üst ve alt boşluk",
+              "192 birim; %18.75"
+            ],
+            [
+              "Sol ve sağ boşluk",
+              "268.133829 birim; yaklaşık %26.18"
+            ],
+            [
+              "4096 px çıktıda görünür yüksekliği",
+              "2560 px"
+            ],
+            [
+              "4096 px çıktıda üst ve alt boşluk",
+              "768 px"
+            ],
+            [
+              "Zemin / ikon",
+              "#E8EFE5 / #16765C"
+            ],
+            [
+              "Köşe",
+              "Dosya tam karedir; platform isterse kendisi kırpar."
+            ]
+          ]
+        }
+      ],
+      [
+        "p",
+        "PNG kenarlarındaki anti-aliasing pikselleri ölçümü tam sayı piksel sınırına yuvarlar. Kaynak 4096 px görselde renkli alanın piksel kutusu (1072,768) ile (3024,3328) arasındadır; sağ ve alt değerler bu ölçümde hariç uçtur."
+      ],
+      [
+        "list",
+        [
+          "Profil resmi ve sosyal avatar için trueforms-avatar-4096.png yükle.",
+          "Daha hafif kullanım için 1024, 512 ve 256 px sürümler sağlanmıştır.",
+          "Kare içine yatay wordmark yerleştirme; avatar için tek ikon kullan.",
+          "Kare dosyaya yeniden beyaz border veya ikinci çerçeve ekleme."
+        ]
+      ],
+      [
+        "note",
+        "Apple touch icon ve app icon örnekleri bu avatar yerleşiminden üretilmiştir. Maskable PWA varlığı olarak işaretlenmemiştir; ayrı maskable güvenli alan testi yapılmadan purpose=\"maskable\" ekleme."
+      ]
+    ]
+  },
+  {
+    "title": "Üretim dosyaları ve raster çıktılar",
+    "intro": "SVG ana üretim formatıdır. PNG çıktılar aynı geometriyi belirli çözünürlükte taşır. Güncel A/B logoları önceki yatay logonun tüm raster teslimlerinin yerini alır.",
+    "blocks": [
+      [
+        "table",
+        {
+          "head": [
+            "Aile",
+            "Teslim"
+          ],
+          "rows": [
+            [
+              "Yatay logo SVG",
+              "A ve B × color/dark/mono/black/white/currentcolor; ayrıca iki ana alias."
+            ],
+            [
+              "Yatay logo PNG",
+              "A ve B × 5 sabit renk × 1200 / 2400 px genişlik."
+            ],
+            [
+              "Tek ikon",
+              "Color, mono, black, white, currentColor SVG; 1024 px yüksek PNG."
+            ],
+            [
+              "Avatar",
+              "1024 kare SVG; 256, 512, 1024, 4096 kare PNG."
+            ],
+            [
+              "Favicon",
+              "SVG; 16/32/48 PNG; ICO."
+            ],
+            [
+              "Mobil / PWA",
+              "180 px apple-touch; 192 ve 512 px app icon."
+            ]
+          ]
+        }
+      ],
+      [
+        "p",
+        "Güncel logo oranı 6.140565549’dur. PNG yüksekliği en yakın piksele yuvarlanır: 1200 × 195 ve 2400 × 391 px. SVG’den PNG’ye çevrimde piksel ızgarası kaynaklı anti-aliasing normaldir; vektör koordinatlar değişmez."
+      ],
+      [
+        "list",
+        [
+          "Beyaz ve dark PNG şeffaftır; görüntüleyicide koyu zeminle kontrol edin.",
+          "4096 px avatar önceki onaylı kaynakla birebir korunmuştur. Küçük PNG’den büyütülmemiştir.",
+          "scripts/render-pngs.cjs, Node.js + sharp ile logo PNG’lerini ve açıklayıcı figürleri yeniden üretir. Font/path üretmez.",
+          "Web için piksel boyutu önemlidir; DPI etiketi SVG’nin ya da PNG’nin yeni detay üretmesini sağlamaz."
+        ]
+      ]
+    ]
+  },
+  {
+    "title": "HTML ve CSS: temel entegrasyon",
+    "intro": "En kolay kullanım harici SVG’yi img olarak eklemektir. Örnekte yollar /brand olarak gösterilir; ZIP içindeki çalışan örnekler relative yol kullanır.",
+    "blocks": [
+      [
+        "code",
+        "<a href=\"/\" aria-label=\"Trueforms ana sayfa\">\n  <img class=\"tf-logo\"\n       src=\"/brand/trueforms-logo-b-color.svg\"\n       alt=\"\" width=\"240\" height=\"39.084\">\n</a>\n<style>\n.tf-logo { display:block; width:240px;\n  max-width:100%; height:auto; }\n</style>"
+      ],
+      [
+        "p",
+        "Bağımsız bilgi görselinde img alt=\"Trueforms\" olur. Parent link adlandırılmışsa img alt=\"\" bırakılır. Kullanılan genişliğe göre yükseklik width / 6.140565549 formülüyle hesaplanır. CSS width değeri değişse de oran korunur."
+      ],
+      [
+        "code",
+        "<picture>\n  <source media=\"(prefers-color-scheme: dark)\"\n          srcset=\"/brand/trueforms-logo-b-dark.svg\">\n  <img src=\"/brand/trueforms-logo-b-color.svg\"\n       alt=\"Trueforms\" width=\"240\" height=\"39.084\"\n       style=\"max-width:100%;height:auto\">\n</picture>"
+      ],
+      [
+        "p",
+        "Bu picture örneği işletim sistemi temasını takip eder. Uygulama kendi tema seçicisine sahipse logo seçimini de o state’e bağlayın; yalnızca prefers-color-scheme kullanmak manuel tercih ile çelişebilir. Tam örnek examples/index.html içindedir."
+      ],
+      [
+        "note",
+        "tokens/trueforms.css dosyasındaki relative font yolları paket yapısına göredir. Klasörleri üretime taşırken URL’leri birlikte güncelleyin. SVG path’lerini CSS ile yeniden dizmeyin."
+      ]
+    ]
+  },
+  {
+    "title": "Tema davranışı ve çalışan HTML örnekleri",
+    "intro": "Dört hazır HTML giriş noktası aynı varlıkları kullanır. Tema seçimi, renk modu ve A/B yerleşimi bağımsız kontrol edilir.",
+    "blocks": [
+      [
+        "table",
+        {
+          "head": [
+            "Dosya",
+            "Davranış"
+          ],
+          "rows": [
+            [
+              "examples/index.html",
+              "B varsayılan; sistem/açık/koyu/tek renk tema, A/B seçimi, renk modu ve genişlik kontrolü."
+            ],
+            [
+              "examples/light.html",
+              "Açık tema ile başlar. B/color hazırdır."
+            ],
+            [
+              "examples/dark.html",
+              "Koyu tema ile başlar. B/dark hazırdır."
+            ],
+            [
+              "examples/monochrome.html",
+              "Tek renk arayüzle başlar. B/black hazırdır."
+            ],
+            [
+              "trueforms-logo-master-spec.html",
+              "Tüm master metni + gömülü çevrimdışı logo laboratuvarı; tek dosya."
+            ]
+          ]
+        }
+      ],
+      [
+        "table",
+        {
+          "head": [
+            "Seçim",
+            "Sonuç"
+          ],
+          "rows": [
+            [
+              "Tema = sistem",
+              "prefers-color-scheme değişince tema ve otomatik logo modu birlikte güncellenir."
+            ],
+            [
+              "Tema = açık / koyu / tek renk",
+              "Sistem tercihini geçersiz kılar; logo modu Auto ise color / dark / black seçilir."
+            ],
+            [
+              "Logo modu = sabit",
+              "Seçilen mod ve kendi referans zemini gösterilir; uygulama teması ayrı kalır."
+            ],
+            [
+              "Yerleşim = A",
+              "Tüm modlarda hazır A dosyasına geçer; elle nokta taşıma yoktur."
+            ]
+          ]
+        }
+      ],
+      [
+        "list",
+        [
+          "Genişlik kontrolü 160 ... 600 px arasında inceleme sağlar. Gerçek render genişliği, dar kapsayıcıyla sınırlanır ve ekranda ölçülür.",
+          "SVG indir bağlantısı o anki yerleşim ve renk dosyasına gider. PNG’ler pakette hazırdır.",
+          "Demo form yalnızca yerel durum metni gösterir; veri göndermez.",
+          "currentColor örneği inline yerleştirilir ve ayrı renk seçicisinden CSS color alır."
+        ]
+      ]
+    ]
+  },
+  {
+    "title": "React ve TypeScript API",
+    "intro": "examples/TrueformsBrand.tsx, TrueformsLogo ve TrueformsIcon bileşenlerini içerir. Logo B ile başlar; A, aynı API’nin layout seçeneğidir.",
+    "blocks": [
+      [
+        "code",
+        "<TrueformsLogo layout=\"B\" mode=\"color\" width={240} />\n<TrueformsLogo layout=\"A\" mode=\"dark\" width={240} />\n<TrueformsLogo layout=\"B\" mode=\"auto\" />\n<TrueformsIcon size={32} label=\"Trueforms\" />\n\n<a href=\"/\" aria-label=\"Trueforms ana sayfa\">\n  <TrueformsLogo decorative mode=\"white\" />\n</a>"
+      ],
+      [
+        "table",
+        {
+          "head": [
+            "Prop",
+            "Tanım"
+          ],
+          "rows": [
+            [
+              "layout",
+              "B | A; varsayılan B."
+            ],
+            [
+              "mode",
+              "color | dark | mono | black | white | auto. auto, picture ile sistem temasını izler."
+            ],
+            [
+              "width",
+              "Varsayılan 240 CSS px; height orandan hesaplanır."
+            ],
+            [
+              "assetBase",
+              "Varsayılan /brand; son / normalize edilir."
+            ],
+            [
+              "decorative",
+              "true ise alt boş; false ise alt Trueforms."
+            ],
+            [
+              "className / style",
+              "Kapsayıcı stili ve class; uygulama yerleşimine uyarlama."
+            ],
+            [
+              "Icon size / label",
+              "Görünür yükseklik / erişilebilir ad. label yoksa dekoratif."
+            ]
+          ]
+        }
+      ],
+      [
+        "p",
+        "Manuel uygulama teması için mode değerini uygulamanın state’inden color veya dark olarak geçin. mode=\"auto\" yalnızca sistem tercihidir. Bileşen hook ve tarayıcı globali kullanmaz; kendi state’ini tutmaz."
+      ],
+      [
+        "p",
+        "TSX kaynak teslimidir. Hedef projenin React/TypeScript sürümünde typecheck ve build tamamlanmalıdır. Logo currentColor modu harici img API’sine eklenmedi; o kullanım için inline SVG örneği sağlandı."
+      ]
+    ]
+  },
+  {
+    "title": "Favicon mobil ve e posta örnekleri",
+    "intro": "Paket farklı kullanım yüzeylerine uygun örnek dosyalar içerir. Yayın yolu ve platformun kendi kırpma davranışı hedef projede kontrol edilir.",
+    "blocks": [
+      [
+        "code",
+        "<link rel=\"icon\" type=\"image/svg+xml\" href=\"/brand/favicon.svg\">\n<link rel=\"icon\" type=\"image/png\" sizes=\"32x32\"\n      href=\"/brand/favicon-32.png\">\n<link rel=\"icon\" type=\"image/x-icon\" href=\"/brand/favicon.ico\">\n<link rel=\"apple-touch-icon\" sizes=\"180x180\"\n      href=\"/brand/apple-touch-icon.png\">\n<meta name=\"theme-color\" content=\"#183C32\">"
+      ],
+      [
+        "h",
+        "Favicon"
+      ],
+      [
+        "p",
+        "32 × 32 SVG canvas içinde aynı ikon 26 birim yükseklikte yerleştirilmiştir. Arka plan adaçayı, köşe radius değeri 6’dır. 16 px çıktıda stroke yaklaşık 0.63 px olur; bu, küçük boyut kaybının nedenidir. Çizgi kalınlığı yapay olarak artırılmamıştır."
+      ],
+      [
+        "h",
+        "PWA ve mobil"
+      ],
+      [
+        "p",
+        "examples/site.webmanifest yalnızca bir entegrasyon örneğidir. 192 ve 512 px ikonları purpose=\"any\" olarak tanımlar. start_url ve icon yollarını kendi kurulumuna göre düzenle. Maskable sürüm bu teslimin kapsamında değildir; iOS/Android yayın veya mağaza varlığı sağlandığı varsayılmaz."
+      ],
+      [
+        "h",
+        "E posta"
+      ],
+      [
+        "p",
+        "examples/email-header.html açık zeminli B PNG’yi gösterir. 1200 px kaynak 240 px genişlikte kullanılır. Dosya yerelde çalışır; e-posta gönderiminde src değerini kendi mutlak HTTPS varlık adresinizle değiştirin. E-posta istemcisinin dark mode dönüşümü ayrıca kontrol edilir."
+      ],
+      [
+        "note",
+        "[Öneri] Platformda avatar yükledikten sonra hem kare hem daire kırpımını, favicon’u ise 16 ve 32 px görünümde kontrol et. Yerel dosyadaki doğru görünüm, her platformun yeniden işleme davranışını kanıtlamaz."
+      ]
+    ]
+  },
+  {
+    "title": "Landing page tasarım yönü",
+    "intro": "[Öneri] Logo kimliğini arayüze taşırken sıcak açık zemin, ince serif başlıklar, net Rubik metin ve yeşil eylemler üzerine kurulmuş sakin bir yapı kullan.",
+    "blocks": [
+      [
+        "table",
+        {
+          "head": [
+            "Bölüm",
+            "İçerik ve görsel yön"
+          ],
+          "rows": [
+            [
+              "Üst alan",
+              "Solda yatay logo; sağda sınırlı menü ve bir ana eylem."
+            ],
+            [
+              "Hero",
+              "Ürünün form ve uygulama oluşturma kapsamını açık söyleyen başlık; kısa açıklama; gerçek ürün görseli veya açıkça demo olarak belirtilmiş örnek."
+            ],
+            [
+              "Ürün gösterimi",
+              "Form, ekran ve veri ilişkisini göster; yalnızca dekoratif kart yığını kullanma."
+            ],
+            [
+              "Kullanım alanları",
+              "Gerçek kullanım senaryoları ve kısa açıklamalar."
+            ],
+            [
+              "Şablonlar",
+              "Yalnızca gerçekten sunulan veya açıkça örnek olduğu belirtilen şablonlar."
+            ],
+            [
+              "Alt eylem alanı",
+              "Ink zemin, beyaz logo, lime veya beyaz yüzeyli eylem."
+            ],
+            [
+              "Footer",
+              "Marka, gerçek ürün bağlantıları ve mevcut destek iletişimi."
+            ]
+          ]
+        }
+      ],
+      [
+        "h",
+        "Örnek İngilizce metin"
+      ],
+      [
+        "code",
+        "Build forms. Shape ideas.\n\nA simpler way to turn a form into the starting point\nfor your next app.\n\nExplore the demo"
+      ],
+      [
+        "p",
+        "Bu metin handoff örneğidir. Ürünün uygulama oluşturma kabiliyeti henüz yayında değilse, yayımlanacak metinde bunu gelecek planı veya demo olarak açıkla. “Free forever”, “No credit card”, müşteri sayısı, sertifika veya entegrasyon desteği gibi doğrulanmamış iddialar ekleme."
+      ],
+      [
+        "h",
+        "Responsive yerleşim"
+      ],
+      [
+        "list",
+        [
+          "[Öneri] İçerik maksimum genişliği 1200 px; yan boşluk mobilde 20 px, masaüstünde 32 px.",
+          "[Öneri] Hero masaüstünde iki kolon, dar alanda tek kolon. Mantıksal okuma sırası başlık, açıklama, eylem, ürün örneği olsun.",
+          "[Öneri] Kırılma noktasını gerçek içerik taşmasına göre seç. Paket örneğinde 760 px yalnızca başlangıç değeridir.",
+          "Mevcut canlı landing page bu teslim sırasında güncellenmemiştir. Yeni örneğin kendi görselleri güncel B dosyasından gelir."
+        ]
+      ]
+    ]
+  },
+  {
+    "title": "Arayüz tokenları ve bileşen davranışı",
+    "intro": "Önceki handoff’taki arayüz yönü korunur. Yeni koyu/mono semantik tokenlar ve tema davranışı aynı pakete eklenmiştir. Bu katman [Öneri] niteliğindedir.",
+    "blocks": [
+      [
+        "table",
+        {
+          "head": [
+            "[Öneri] token",
+            "Değer / amaç"
+          ],
+          "rows": [
+            [
+              "Boşluk",
+              "4, 8, 12, 16, 24, 32, 48, 64, 96 px"
+            ],
+            [
+              "Radius",
+              "Kontrol 10 px; kart 20 px"
+            ],
+            [
+              "Gövde",
+              "16 px / 1.6"
+            ],
+            [
+              "Focus",
+              "3 px; 4 px dış offset"
+            ],
+            [
+              "Kontrol sınırı",
+              "Açıkta muted; koyuda #7B9485"
+            ]
+          ]
+        }
+      ],
+      [
+        "table",
+        {
+          "head": [
+            "Semantik rol",
+            "Açık",
+            "Koyu [Öneri]"
+          ],
+          "rows": [
+            [
+              "Arka plan",
+              "#F8F7F2",
+              "#102A23"
+            ],
+            [
+              "Yüzey",
+              "#FFFFFF",
+              "#183C32"
+            ],
+            [
+              "Metin",
+              "#183C32",
+              "#F8F7F2"
+            ],
+            [
+              "Yardımcı",
+              "#65746B",
+              "#AFBDB0"
+            ],
+            [
+              "Kontrol sınırı",
+              "#65746B",
+              "#7B9485"
+            ],
+            [
+              "Eylem / üzeri",
+              "#16765C / #FFFFFF",
+              "#E8EFE5 / #183C32"
+            ],
+            [
+              "Focus",
+              "#16765C",
+              "#DCE8A7"
+            ]
+          ]
+        }
+      ],
+      [
+        "h",
+        "Form ve örnek davranışı"
+      ],
+      [
+        "p",
+        "Kalıcı label kullanın; placeholder etiketin yerine geçmez. Yardımcı metni kontrolle ilişkilendirin. Hata metni sorunu ve düzeltme yolunu açıklasın. Başarı/hata/uyarı/bilgi renk sistemi bu pakette tanımlı değildir; marka renklerini bu rollere rastgele atamayın."
+      ],
+      [
+        "p",
+        "Açıkta green üzerinde beyaz metin; koyuda tema tablosundaki eylem ve focus renkleri kullanılır. Line yalnızca dekoratif ayırıcıdır. Bitişik yüzeylerde kontrast tekrar kontrol edilir."
+      ],
+      [
+        "note",
+        "examples/index.html; logo, ölçü, avatar, font ve yerel form örneği içerir. Form veri göndermez veya kaydetmez. Relative yollar için ZIP’i çıkarıp klasör yapısını koruyun. Bağımsız okumada tek dosyalık master HTML’yi açın."
+      ]
+    ]
+  },
+  {
+    "title": "Tasarım araçları ve optimizasyon",
+    "intro": "SVG’leri içe aktarırken çizgi kalınlığını, birleşimleri ve harf path’lerini koru. Editörün otomatik sadeleştirmesi görünür şekli değiştirmemelidir.",
+    "blocks": [
+      [
+        "h",
+        "Figma veya vektör editörüne aktarma"
+      ],
+      [
+        "list",
+        [
+          "Yatay logo için kırpılmış SVG’yi, sembol için ikon SVG’sini içe aktar.",
+          "İkon ve yazıyı birlikte ölçekle. Çizgi kalınlığının geometriyle birlikte ölçeklendiğinden emin ol.",
+          "Logo frame’i, gerçek boyanmış sınırı takip edebilir; dış güvenli boşluğu ayrı parent frame ile ver.",
+          "Renk tokenlarını primitive olarak tanımla; marka varlıklarını bu renklerle bağla. Bu paket bir Figma library dosyası değildir.",
+          "Kaynağa geri aktarırken open path’lerin kapanmadığını ve onayın diğer çizgilerle birleşmediğini kontrol et."
+        ]
+      ],
+      [
+        "h",
+        "SVG optimizasyonu"
+      ],
+      [
+        "list",
+        [
+          "Gereksiz metadata kaldırılabilir; d attribute değerlerini doğrulamadan yuvarlama veya path merge işlemi yapma.",
+          "viewBox ve oranı koru. width/height HTML kullanımına göre değişebilir; görünür alan koordinatları sabit kalır.",
+          "vector-effect=\"non-scaling-stroke\" ekleme. Logo küçüldüğünde stroke da aynı oranla küçülmelidir.",
+          "İkonu stroke’tan dolgu path’e çevirmen gerekiyorsa türevi ayrı sakla ve kaynakla görüntü karşılaştırması yap. Üretim SVG’sinin yerine sessizce geçirme.",
+          "Harici raster resim, gömülü screenshot veya font referansı ekleme. Logo kendi vektörleriyle görünmelidir."
+        ]
+      ],
+      [
+        "h",
+        "Yapı ve isimler"
+      ],
+      [
+        "note",
+        "SVG currentColor sürümünü Figma gibi bir araç siyaha çevirebilir. Tasarım aracında kesin renkli veya beyaz varlığı içe aktar; CSS davranışı için currentColor sürümünü kod tarafında kullan."
+      ],
+      [
+        "p",
+        "Kaynak B/A dosyalarının group ve letter ID’leri korunur. Harici img birden fazla kullanıldığında ID çakışmaz. Inline kopyalamada ID’leri scope edin veya kullanılmayan ID’leri kaldırın. HTML dokümanındaki tekrarlar data URI img veya ID’siz inline kopya kullanır."
+      ]
+    ]
+  },
+  {
+    "title": "Baskı hareket ve diğer yüzeyler",
+    "intro": "[Öneri] Dijital kimliği başka yüzeylere taşırken mevcut şekli koru. Baskı rengi, çok küçük fiziksel boyut ve hareket davranışı bu teslimde onaylanmış üretim standardı değildir.",
+    "blocks": [
+      [
+        "h",
+        "Baskı"
+      ],
+      [
+        "p",
+        "Vektör SVG’yi tasarım aracına aktar, hedef baskı profiline göre renk dönüşümü yap ve gerçek prova al. İnce serifin ve 6.5 birimlik stroke’un seçilen fiziksel boyutta okunabilirliği prova üzerinden değerlendirilir. Tedarikçinin profilinden bağımsız bir CMYK değeri burada verilmemiştir."
+      ],
+      [
+        "p",
+        "Logo W mm genişlikte basılırsa etkin ikon stroke kalınlığı W × 4.875 / 619.552361 mm olur. 50 mm genişlikte yaklaşık 0.3934 mm. Bu hesap fiziksel okunurluk onayı değildir; gerçek prova gerekir."
+      ],
+      [
+        "h",
+        "Tek renk uygulama"
+      ],
+      [
+        "p",
+        "Tek renk ink veya siyah SVG’yi kullan. Lazer, kabartma veya kesim için stroke expansion gerekebilir; bunu ayrı türevde yap. Açık sağ alt köşe ve kopuk onay fiziksel üretimde de birbirine yapışmamalıdır."
+      ],
+      [
+        "h",
+        "Hareket"
+      ],
+      [
+        "p",
+        "Bu pakette animasyon yoktur. Gelecekte giriş animasyonu yapılırsa [Öneri] son kareyi mevcut geometriyle birebir eşleştir, onayı çerçeve dışına taşıyan kalıcı bir durum yaratma ve hareket azaltma tercihini dikkate al. Marka logosunu işlem başarısı geri bildirimi olarak tek başına kullanma."
+      ],
+      [
+        "h",
+        "Yeni kullanım talebi"
+      ],
+      [
+        "list",
+        [
+          "Dikey logo, sloganlı logo, mikro ikon veya maskable app icon istenirse mevcut dosyayı gelişigüzel sıkıştırmak yerine ayrı türev tanımla.",
+          "Yeni türevin amacını ve değiştirdiği noktaları sürüm notunda yaz.",
+          "Yeni yön seçilmedikçe B doküman geometrisini ana referans olarak tut."
+        ]
+      ]
+    ]
+  },
+  {
+    "title": "Dosya haritası ve teslim sırası",
+    "intro": "Ana paket klasörü trueforms-master-handoff-v2. Master PDF ve tek dosyalık HTML aynı içerik kaynağından üretilir.",
+    "blocks": [
+      [
+        "table",
+        {
+          "head": [
+            "Konum",
+            "İçerik"
+          ],
+          "rows": [
+            [
+              "trueforms-logo-master-spec.pdf",
+              "Master kararlar + bütün handoff. SVG/JSON/HTML ve uygulama ZIP’i PDF’ye ekli."
+            ],
+            [
+              "trueforms-logo-master-spec.html",
+              "Çevrimdışı doküman ve logo laboratuvarı; fontlar ve görseller gömülü."
+            ],
+            [
+              "README.txt / HANDOFF-INSTRUCTIONS.txt",
+              "Hızlı başlangıç ve devredilecek açık talimat."
+            ],
+            [
+              "assets/svg / assets/png",
+              "Güncel A/B, tema/mono, ikon, avatar, favicon, mobil çıktılar."
+            ],
+            [
+              "assets/fonts / licenses",
+              "Korunan arayüz fontları ve kaynak bildirimleri."
+            ],
+            [
+              "tokens",
+              "Renk modu, semantik tema, font ve ölçü JSON/CSS."
+            ],
+            [
+              "examples",
+              "Dört HTML, TSX, head snippet, manifest ve e-posta."
+            ],
+            [
+              "specs",
+              "Kesin geometri, A/B farkı, kontrast, kaynak kaydı ve QA."
+            ],
+            [
+              "source-reference",
+              "Byte olarak korunmuş B, A, ikon ve avatar."
+            ],
+            [
+              "scripts / MANIFEST.sha256",
+              "Varlık doğrulama, PNG üretimi ve dosya bütünlüğü."
+            ]
+          ]
+        }
+      ],
+      [
+        "list",
+        [
+          "1. Master kararları ve renk modu tablosunu okuyun.",
+          "2. ZIP’i çıkarın; examples/index.html ile modları gerçek ölçekte inceleyin.",
+          "3. Varsayılan olarak B/color, koyu zeminde B/dark; gerçek tek renk için B/mono veya B/white seçin.",
+          "4. A istenirse layout seçimini değiştirin; dosyayı yaklaşık yeniden üretmeyin.",
+          "5. Hedef projede yolları, erişilebilir adları ve tema state’ini bağlayıp kabul listesini tamamlayın."
+        ]
+      ],
+      [
+        "p",
+        "PDF eklerindeki trueforms-handoff-files.zip, belge dışındaki üretim dosyalarını içerir. Ana dağıtım ZIP’i ayrıca master PDF ve HTML’yi taşır. Böylece tek PDF de üretim varlıklarını yanında saklar."
+      ]
+    ]
+  },
+  {
+    "title": "Kalite kontrol ve kabul ölçütleri",
+    "intro": "Otomatik dosya kontrolleri ile hedef uygulamada yapılacak kontroller ayrı kaydedilir. specs/qa-report.json, bu teslimde çalıştırılan kontrollerin sonucudur.",
+    "blocks": [
+      [
+        "table",
+        {
+          "head": [
+            "Kontrol",
+            "Kabul ölçütü"
+          ],
+          "rows": [
+            [
+              "Kaynaklar",
+              "B/A alias ve source-reference byte hash’leri mevcut master ile eşleşir."
+            ],
+            [
+              "Renk türevleri",
+              "Her varyantta path dizileri, transformlar, viewBox ve stroke kaynağa eşit."
+            ],
+            [
+              "Tek renk",
+              "Tüm boyanan öğeler aynı renk; opacity azaltılmaz."
+            ],
+            [
+              "SVG",
+              "Raster image, text, script, foreignObject veya harici font bağımlılığı yok."
+            ],
+            [
+              "PNG / JSON",
+              "Beklenen boyutlar, geçerli JSON, doğru dosya adları."
+            ],
+            [
+              "HTML",
+              "Relative dosyalar ve bölüm linkleri çözümlenir; inline JS sözdizimi geçerli."
+            ],
+            [
+              "PDF",
+              "Sayfalar render edilerek tablo, metin ve figürler görsel kontrol edilir."
+            ],
+            [
+              "Paket",
+              "SHA-256 manifesti ve PDF ekleri doğrulanır."
+            ]
+          ]
+        }
+      ],
+      [
+        "list",
+        [
+          "Hedef React projesinde typecheck ve build.",
+          "Gerçek tarayıcıda 320 px ve geniş ekran, manuel/sistem tema geçişi, klavye focus ve A/B seçimi.",
+          "E-posta istemcilerinde PNG ve dark mode davranışı.",
+          "Favicon/avatarda platform kırpımı; PWA varsa cihaz kurulumu.",
+          "Baskı varsa fiziksel prova ve renk profili."
+        ]
+      ],
+      [
+        "note",
+        "Çalışma ortamında Chromium çalıştırılamadığı için HTML’nin tarayıcı görsel/etkileşim testi tamamlanmadı. Yerel varlık bağlantıları, JS sözdizimi, vektör/raster çıktılar ve PDF düzeni kontrol edildi. TSX hedef proje build testi bu paketin dışında kalır."
+      ]
+    ]
+  },
+  {
+    "title": "Doğrudan devredilecek handoff talimatı",
+    "intro": "Bu bölüm HANDOFF-INSTRUCTIONS.txt içinde düz metin olarak da hazırdır. Alıcının önceki konuşmayı okuması gerekmez.",
+    "blocks": [
+      [
+        "p",
+        "Trueforms için tek ana referans bu v2 master spec ve paketidir. B ana logo; A hazır alternatif. Wordmark metni trueforms, alan adı hissi truefor.ms. Nokta r/m arasında ayrı path’tir. Harfleri canlı metinle yeniden dizme."
+      ],
+      [
+        "p",
+        "Ana SVG: assets/svg/trueforms-logo.svg. A: assets/svg/trueforms-logo-alt-a.svg. Açık mod: color. Koyu mod: dark [Öneri]. Gerçek tek renk: mono, black veya white. currentcolor yalnızca inline SVG içindir. Aynı A/B geometrisine renk modu uygulanır."
+      ],
+      [
+        "p",
+        "İkon doküman, dört satır ve kopuk onaydan oluşur. Güncel kaynak B/A path ve transformlarını koru. İkon-yazı boşluğu 28.5 u. Yazı Nimbus Roman Regular kaynaklı outline. İkon #16765C, yazı #183C32, nokta #AFBDB0. A/B arasındaki X ve grup Y mikro farklarını hazır dosyalar taşır."
+      ],
+      [
+        "p",
+        "Üretim varlıkları assets altında; kesin sayılar specs/trueforms-logo-spec.json içinde. UI fontları Rubik 400/700 ve Linux Libertine Display’dir; ikincisi güncel logo fontu değildir. Font bildirimlerini koru. Tokenları aktar, uygulama teması ile logo modunu eşleştir. Logo oranını bozma, opacity ile nokta rengi türetme."
+      ],
+      [
+        "p",
+        "examples/index.html ana laboratuvar; light.html, dark.html ve monochrome.html hazır başlangıçlar. React API’de layout varsayılan B, mode varsayılan color. Manuel tema kullanılıyorsa mode değerini uygulama state’inden ver. Asset yollarını üretim dizinine göre düzenle."
+      ],
+      [
+        "p",
+        "SVG’leri küçük ölçekte ve hedef zeminde, klavye focus’u ve erişilebilir adları gerçek projede kontrol et. Avatar ve favicon kaynak geometrisini koru. Baskı veya mikro ikon gibi yeni tasarım gereksinimini ayrı türev olarak kaydet. [Öneri] olarak işaretli kullanım ölçülerini önceden onaylı marka kuralı gibi sunma."
+      ]
+    ]
+  },
+  {
+    "title": "Kaynaklar ve değişiklik kaydı",
+    "intro": "Logo sayıları harici kaynaklardan değil mevcut SVG dosyalarından ölçülür. Teknik referanslar yalnızca ilgili web davranışını veya standardı açıklar.",
+    "blocks": [
+      [
+        "table",
+        {
+          "head": [
+            "Sürüm",
+            "Değişiklik"
+          ],
+          "rows": [
+            [
+              "Önceki handoff v1",
+              "Doküman ikonu, avatar, arayüz paleti, fontlar ve geniş uygulama kapsamı."
+            ],
+            [
+              "Master v1",
+              "Nimbus Roman, özel kerning, trueforms + ayrı nokta; B ana / A alternatif."
+            ],
+            [
+              "Birleşik master v2",
+              "Önceki kapsam güncel logoya uyarlandı. Tema/mono aileleri, dört HTML örneği ve paket içi teknik referanslar birleştirildi."
+            ]
+          ]
+        }
+      ],
+      [
+        "list",
+        [
+          "[S1] W3C WCAG 2.2 Understanding 1.4.3: https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+          "[S2] W3C WCAG 2.2 Understanding 1.4.11: https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html",
+          "[S3] MDN currentColor: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value",
+          "[S4] SIL OFL resmî metin: https://openfontlicense.org/open-font-license-official-text/"
+        ]
+      ],
+      [
+        "p",
+        "Kaynak erişimi: 5 Kasım 2026. Mevcut WOFF bildirimleri önceki paketten aynen taşındı. Nimbus kaynak paket bildirimi çalışma ortamındaki fonts-urw-base35 kaydından alındı."
+      ],
+      [
+        "p",
+        "Güncel logo kaynakları: B sürüm 5, A sürüm 4. Handoff v1 kaynak kaydı ve v2 SHA-256 değerleri specs/source-provenance.json içinde bulunur. Bu dosyalar tasarım kaynaklarını izlemek içindir; ürün yayını veya alan adı sahipliği hakkında iddia oluşturmaz."
+      ]
+    ]
+  }
+]

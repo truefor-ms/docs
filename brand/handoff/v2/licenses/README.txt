@@ -1,0 +1,2 @@
+Logo: Nimbus Roman Regular kaynaklı outline path. Nimbus font programı bu pakete dahil edilmez; üretim logosu font yüklemez. Kaynak paket lisans bildirimi Nimbus-Roman-source-notice.txt içinde korunur.
+Arayüz: önceki handoff içindeki Rubik 400/700 ve Linux Libertine Display WOFF dosyaları aynı byte dizileriyle korunur. Bu fontların bildirimleri FONT-NOTICES.txt, lisansı OFL-1.1.txt içindedir. Linux Libertine arayüz başlığı içindir; güncel logo fontu değildir.

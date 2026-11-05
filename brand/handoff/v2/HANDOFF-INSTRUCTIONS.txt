@@ -1,0 +1,11 @@
+Trueforms için tek ana referans bu v2 master spec ve paketidir. B ana logo; A hazır alternatif. Wordmark metni trueforms, alan adı hissi truefor.ms. Nokta r/m arasında ayrı path’tir. Harfleri canlı metinle yeniden dizme.
+
+Ana SVG: assets/svg/trueforms-logo.svg. A: assets/svg/trueforms-logo-alt-a.svg. Açık mod: color. Koyu mod: dark [Öneri]. Gerçek tek renk: mono, black veya white. currentcolor yalnızca inline SVG içindir. Aynı A/B geometrisine renk modu uygulanır.
+
+İkon doküman, dört satır ve kopuk onaydan oluşur. Güncel kaynak B/A path ve transformlarını koru. İkon-yazı boşluğu 28.5 u. Yazı Nimbus Roman Regular kaynaklı outline. İkon #16765C, yazı #183C32, nokta #AFBDB0. A/B arasındaki X ve grup Y mikro farklarını hazır dosyalar taşır.
+
+Üretim varlıkları assets altında; kesin sayılar specs/trueforms-logo-spec.json içinde. UI fontları Rubik 400/700 ve Linux Libertine Display’dir; ikincisi güncel logo fontu değildir. Font bildirimlerini koru. Tokenları aktar, uygulama teması ile logo modunu eşleştir. Logo oranını bozma, opacity ile nokta rengi türetme.
+
+examples/index.html ana laboratuvar; light.html, dark.html ve monochrome.html hazır başlangıçlar. React API’de layout varsayılan B, mode varsayılan color. Manuel tema kullanılıyorsa mode değerini uygulama state’inden ver. Asset yollarını üretim dizinine göre düzenle.
+
+SVG’leri küçük ölçekte ve hedef zeminde, klavye focus’u ve erişilebilir adları gerçek projede kontrol et. Avatar ve favicon kaynak geometrisini koru. Baskı veya mikro ikon gibi yeni tasarım gereksinimini ayrı türev olarak kaydet. [Öneri] olarak işaretli kullanım ölçülerini önceden onaylı marka kuralı gibi sunma.

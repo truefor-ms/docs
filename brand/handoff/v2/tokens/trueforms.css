@@ -1,0 +1,10 @@
+@font-face{font-family:Rubik;src:url("../assets/fonts/rubik-regular.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:Rubik;src:url("../assets/fonts/rubik-bold.woff") format("woff");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:TFDisplay;src:url("../assets/fonts/libertine-display.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}
+:root{--tf-green:#16765C;--tf-ink:#183C32;--tf-dot:#AFBDB0;--tf-canvas:#F8F7F2;--tf-surface:#FFFFFF;--tf-sage:#E8EFE5;--tf-lime:#DCE8A7;--tf-muted:#65746B;--tf-line:#D9E1D7;--tf-font-ui:Rubik,system-ui,sans-serif;--tf-font-display:TFDisplay,Georgia,serif;
+--bg:#F8F7F2;--panel:#FFFFFF;--text:#183C32;--muted:#65746B;--border:#65746B;--soft-border:#D9E1D7;--accent:#16765C;--on-accent:#FFFFFF;--focus:#16765C;color-scheme:light}
+[data-theme="dark"]{--bg:#102A23;--panel:#183C32;--text:#F8F7F2;--muted:#AFBDB0;--border:#7B9485;--soft-border:#37574A;--accent:#E8EFE5;--on-accent:#183C32;--focus:#DCE8A7;color-scheme:dark}
+[data-theme="mono"]{--bg:#FFFFFF;--panel:#FFFFFF;--text:#000000;--muted:#333333;--border:#000000;--soft-border:#BBBBBB;--accent:#000000;--on-accent:#FFFFFF;--focus:#000000;color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme]),[data-theme="auto"]{--bg:#102A23;--panel:#183C32;--text:#F8F7F2;--muted:#AFBDB0;--border:#7B9485;--soft-border:#37574A;--accent:#E8EFE5;--on-accent:#183C32;--focus:#DCE8A7;color-scheme:dark}}
+.tf-logo{display:block;max-width:100%;height:auto;aspect-ratio:619.5523611111 / 100.895}.tf-icon{display:block;height:32px;width:auto;aspect-ratio:102.5 / 134.5}
+:focus-visible{outline:3px solid var(--focus);outline-offset:4px}

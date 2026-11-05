@@ -1,0 +1,21 @@
+LinLibertine_DR_G.ttf
+GPL- General Public License AND OFL-Open Font License
+Linux Libertine by Philipp H. Poll,
+Open Font under Terms of following Free Software Licenses:
+GPL (General Public License) with font-exception and OFL (Open Font License).
+Created with FontForge (http://fontforge.sf.net)
+Sept 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011Graphite version: Laszlo Nemeth (see http://www.numbertext.org/linux) 2011-07-19
+Philipp H. Poll
+http://www.fsf.org/licenses/gpl.html AND http://scripts.sil.org/OFL
+
+Rubik-Regular.ttf
+Copyright (c) 2015 by Hubert & Fischer. All rights reserved. Hebrew characters (c) 2016 by Meir Sadan.
+Hubert & Fischer
+This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFL
+http://scripts.sil.org/OFL
+
+Rubik-Bold.ttf
+Copyright (c) 2015 by Hubert & Fischer. All rights reserved. Hebrew characters (c) 2016 by Meir Sadan.
+Hubert & Fischer
+This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFL
+http://scripts.sil.org/OFL

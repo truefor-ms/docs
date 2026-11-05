@@ -1,0 +1,86 @@
+{
+  "version": "2.0",
+  "colors": {
+    "green": "#16765C",
+    "green-hover": "#105B46",
+    "ink": "#183C32",
+    "canvas": "#F8F7F2",
+    "surface": "#FFFFFF",
+    "sage": "#E8EFE5",
+    "lime": "#DCE8A7",
+    "muted": "#65746B",
+    "line": "#D9E1D7",
+    "peach": "#EEDBD0",
+    "dot": "#AFBDB0",
+    "dark-dot": "#657B70",
+    "dark-canvas": "#102A23",
+    "dark-muted": "#AFBDB0",
+    "dark-border": "#7B9485"
+  },
+  "logoModes": {
+    "color": {
+      "icon": "#16765C",
+      "wordmark": "#183C32",
+      "dot": "#AFBDB0",
+      "surface": "#F8F7F2",
+      "status": "approved"
+    },
+    "dark": {
+      "icon": "#E8EFE5",
+      "wordmark": "#F8F7F2",
+      "dot": "#657B70",
+      "surface": "#183C32",
+      "status": "proposed_application"
+    },
+    "mono": {
+      "icon": "#183C32",
+      "wordmark": "#183C32",
+      "dot": "#183C32",
+      "surface": "#F8F7F2",
+      "status": "derived_single_color"
+    },
+    "black": {
+      "icon": "#000000",
+      "wordmark": "#000000",
+      "dot": "#000000",
+      "surface": "#FFFFFF",
+      "status": "derived_single_color"
+    },
+    "white": {
+      "icon": "#FFFFFF",
+      "wordmark": "#FFFFFF",
+      "dot": "#FFFFFF",
+      "surface": "#183C32",
+      "status": "derived_single_color"
+    },
+    "currentcolor": {
+      "icon": "currentColor",
+      "wordmark": "currentColor",
+      "dot": "currentColor",
+      "surface": "context",
+      "status": "inline_only"
+    }
+  },
+  "defaultVariant": "B",
+  "alternativeVariant": "A",
+  "fonts": {
+    "logo": "Outlined Nimbus Roman Regular",
+    "ui": "Rubik 400/700",
+    "display": "Linux Libertine Display G Regular (UI only)"
+  },
+  "proposals": {
+    "spacing": [
+      4,
+      8,
+      12,
+      16,
+      24,
+      32,
+      48,
+      64,
+      96
+    ],
+    "radiusControl": 10,
+    "radiusCard": 20
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "version": "2.0",
+  "date": "2026-11-05",
+  "sources": {
+    "master": "libfile_4bd6f2d6f8bc8191b096792af90b100b (v1)",
+    "legacyHandoff": "libfile_7ee73dd909108191b6809d29a7c87b74",
+    "logoB": "libfile_4606a81b97ec8191990d91ab24978ee5 v5",
+    "logoA": "libfile_1257ba4959c88191a409850ef02e0a97 v4"
+  },
+  "files": [
+    {
+      "path": "source-reference/approved-b.svg",
+      "sha256": "7516e3a89adefe6058f28fce82e09da14258967fc88550a5a54b61d9af526994"
+    },
+    {
+      "path": "source-reference/approved-avatar-4096.png",
+      "sha256": "7076575bc989886cbf9919ca218783fa64dd518f127a3f6fa07a40591e77bf74"
+    },
+    {
+      "path": "source-reference/approved-a.svg",
+      "sha256": "67c7f87fada9b79711c082ca3a42d654fab0a9409578806300870ceadcf4300d"
+    },
+    {
+      "path": "source-reference/approved-icon.svg",
+      "sha256": "6254a0ba1ab47c04f6b1001439c575917b41bcca17a42b7c86d9bec7723f3b23"
+    }
+  ],
+  "changes": "Latest B and A retained byte-for-byte. Modes modify paint only. Existing standalone icon, avatar and UI fonts retained. Old lockup dimensions and logo font are superseded."
+}

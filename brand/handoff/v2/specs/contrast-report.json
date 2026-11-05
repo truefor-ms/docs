@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Yazı / açık",
+    "foreground": "#183C32",
+    "background": "#F8F7F2",
+    "ratio": 11.308522036475498,
+    "normal_text_AA": true,
+    "non_text_3_to_1": true
+  },
+  {
+    "name": "İkon / açık",
+    "foreground": "#16765C",
+    "background": "#F8F7F2",
+    "ratio": 5.179260985585415,
+    "normal_text_AA": true,
+    "non_text_3_to_1": true
+  },
+  {
+    "name": "Nokta / açık",
+    "foreground": "#AFBDB0",
+    "background": "#F8F7F2",
+    "ratio": 1.8247942771271846,
+    "normal_text_AA": false,
+    "non_text_3_to_1": false
+  },
+  {
+    "name": "Yazı / koyu",
+    "foreground": "#F8F7F2",
+    "background": "#183C32",
+    "ratio": 11.308522036475498,
+    "normal_text_AA": true,
+    "non_text_3_to_1": true
+  },
+  {
+    "name": "İkon / koyu",
+    "foreground": "#E8EFE5",
+    "background": "#183C32",
+    "ratio": 10.344722282638388,
+    "normal_text_AA": true,
+    "non_text_3_to_1": true
+  },
+  {
+    "name": "Nokta / koyu",
+    "foreground": "#657B70",
+    "background": "#183C32",
+    "ratio": 2.6688939607928073,
+    "normal_text_AA": false,
+    "non_text_3_to_1": false
+  },
+  {
+    "name": "Koyu yardımcı / yüzey",
+    "foreground": "#AFBDB0",
+    "background": "#183C32",
+    "ratio": 6.197149003710579,
+    "normal_text_AA": true,
+    "non_text_3_to_1": true
+  },
+  {
+    "name": "Koyu kontrol / yüzey",
+    "foreground": "#7B9485",
+    "background": "#183C32",
+    "ratio": 3.7065028514765777,
+    "normal_text_AA": false,
+    "non_text_3_to_1": true
+  },
+  {
+    "name": "Beyaz / green",
+    "foreground": "#FFFFFF",
+    "background": "#16765C",
+    "ratio": 5.555512453267277,
+    "normal_text_AA": true,
+    "non_text_3_to_1": true
+  },
+  {
+    "name": "Muted / sage",
+    "foreground": "#65746B",
+    "background": "#E8EFE5",
+    "ratio": 4.200284485559206,
+    "normal_text_AA": false,
+    "non_text_3_to_1": true
+  },
+  {
+    "name": "Line / beyaz",
+    "foreground": "#D9E1D7",
+    "background": "#FFFFFF",
+    "ratio": 1.337435862737482,
+    "normal_text_AA": false,
+    "non_text_3_to_1": false
+  },
+  {
+    "name": "Siyah / beyaz",
+    "foreground": "#000000",
+    "background": "#FFFFFF",
+    "ratio": 21.0,
+    "normal_text_AA": true,
+    "non_text_3_to_1": true
+  }
+]

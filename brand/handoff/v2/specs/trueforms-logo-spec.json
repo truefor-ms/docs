@@ -1,0 +1,251 @@
+{
+  "document": "Trueforms Master Spec + Complete Handoff",
+  "version": "2.0",
+  "date": "2026-11-05",
+  "primary_variant": "B",
+  "alternative_variant": "A",
+  "wordmark_text": "trueforms",
+  "domain_reference": "truefor.ms",
+  "units": "SVG user units; x right, y down",
+  "viewBox": [
+    157.5745,
+    65.0525,
+    619.5523611111112,
+    100.895
+  ],
+  "aspect_ratio": 6.140565549443592,
+  "colors": {
+    "wordmark": "#183C32",
+    "icon": "#16765C",
+    "dot": "#AFBDB0",
+    "reference_background": "#F8F7F2"
+  },
+  "font_origin": {
+    "family": "Nimbus Roman",
+    "style": "Regular",
+    "units_per_em": 1000,
+    "equivalent_font_size": 125.13888888888889,
+    "x_height": 56.3125,
+    "production_format": "outlined paths"
+  },
+  "icon": {
+    "transform": "translate(149.522 58.5) scale(.75)",
+    "visible_bounds": [
+      157.5845,
+      65.0625,
+      234.4595,
+      165.9375
+    ],
+    "source_stroke_width": 6.5,
+    "effective_stroke_width": 4.875,
+    "linecap": "round",
+    "linejoin": "round"
+  },
+  "icon_to_wordmark_gap": 28.5,
+  "pair_adjustments_from_natural_trueforms": [
+    {
+      "pair": "tr",
+      "added_units": 5.0,
+      "added_em": 0.03995560488346282
+    },
+    {
+      "pair": "ru",
+      "added_units": 4.0,
+      "added_em": 0.03196448390677026
+    },
+    {
+      "pair": "ue",
+      "added_units": 4.5,
+      "added_em": 0.03596004439511654
+    },
+    {
+      "pair": "ef",
+      "added_units": 3.0,
+      "added_em": 0.023973362930077693
+    },
+    {
+      "pair": "fo",
+      "added_units": 4.0,
+      "added_em": 0.03196448390677026
+    },
+    {
+      "pair": "or",
+      "added_units": 4.0,
+      "added_em": 0.03196448390677026
+    },
+    {
+      "pair": "rm",
+      "added_units": 6.5,
+      "added_em": 0.05194228634850167
+    },
+    {
+      "pair": "ms",
+      "added_units": 3.5,
+      "added_em": 0.027968923418423976
+    }
+  ],
+  "cumulative_letter_shifts": {
+    "1-t": 0,
+    "2-r": 5.0,
+    "3-u": 9.0,
+    "4-e": 13.5,
+    "5-f": 16.5,
+    "6-o": 20.5,
+    "7-r": 24.5,
+    "8-m": 31.0,
+    "9-s": 34.5
+  },
+  "variants": {
+    "B": {
+      "wordmark_translate": [
+        261.33269444,
+        157.60923611
+      ],
+      "wordmark_local_bounds": [
+        1.6268055555555554,
+        -85.4698611111111,
+        515.7841666666667,
+        1.2513888888888889
+      ],
+      "wordmark_global_bounds": [
+        262.9594999955556,
+        72.13937499888891,
+        777.1168611066666,
+        158.8606249988889
+      ],
+      "dot_local_center": [
+        361.4328472222222,
+        -28.78194444444444
+      ],
+      "dot_global_center": [
+        622.7655416622222,
+        128.82729166555558
+      ],
+      "dot_size": [
+        13.890416666666681,
+        13.890416666666667
+      ],
+      "dot_bounds_local": [
+        354.48763888888885,
+        -35.727152777777775,
+        368.37805555555553,
+        -21.836736111111108
+      ],
+      "svg_sha256": "7516e3a89adefe6058f28fce82e09da14258967fc88550a5a54b61d9af526994"
+    },
+    "A": {
+      "wordmark_translate": [
+        261.33269444,
+        157.54666667
+      ],
+      "wordmark_local_bounds": [
+        1.6268055555555554,
+        -85.4698611111111,
+        515.7841666666667,
+        1.2513888888888889
+      ],
+      "wordmark_global_bounds": [
+        262.9594999955556,
+        72.0768055588889,
+        777.1168611066666,
+        158.7980555588889
+      ],
+      "dot_local_center": [
+        362.3713888888889,
+        -5.568680555555555
+      ],
+      "dot_global_center": [
+        623.7040833288888,
+        151.97798611444446
+      ],
+      "dot_size": [
+        13.890416666666681,
+        13.890416666666665
+      ],
+      "dot_bounds_local": [
+        355.4261805555555,
+        -12.513888888888888,
+        369.3165972222222,
+        1.3765277777777778
+      ],
+      "svg_sha256": "67c7f87fada9b79711c082ca3a42d654fab0a9409578806300870ceadcf4300d"
+    }
+  },
+  "alternative_A_delta_from_B": {
+    "dot_local_dx": 0.9385416666666515,
+    "dot_local_dy": 23.213263888888886,
+    "wordmark_dy": -0.0625694400000043,
+    "dot_global_dy": 23.150694448888885
+  },
+  "dot_geometry": "Original outlined period glyph, not a replacement circle. Independent accent with aria-hidden=true.",
+  "dot_alignment": {
+    "B": "Center vertically on r/m visible bounds; center horizontally between facing r/m stems at that height.",
+    "A": "Place on the baseline using the existing serif-gap center."
+  },
+  "assets": {
+    "trueforms-logo.svg": "Primary B; exact SVG snapshot",
+    "trueforms-logo-alt-a.svg": "Alternative A; exact SVG snapshot"
+  },
+  "source_library_versions": {
+    "B": {
+      "library_file_id": "libfile_4606a81b97ec8191990d91ab24978ee5",
+      "version": 5
+    },
+    "A": {
+      "library_file_id": "libfile_1257ba4959c88191a409850ef02e0a97",
+      "version": 4
+    }
+  },
+  "color_modes": {
+    "color": {
+      "icon": "#16765C",
+      "wordmark": "#183C32",
+      "dot": "#AFBDB0",
+      "surface": "#F8F7F2",
+      "status": "approved"
+    },
+    "dark": {
+      "icon": "#E8EFE5",
+      "wordmark": "#F8F7F2",
+      "dot": "#657B70",
+      "surface": "#183C32",
+      "status": "proposed_application"
+    },
+    "mono": {
+      "icon": "#183C32",
+      "wordmark": "#183C32",
+      "dot": "#183C32",
+      "surface": "#F8F7F2",
+      "status": "derived_single_color"
+    },
+    "black": {
+      "icon": "#000000",
+      "wordmark": "#000000",
+      "dot": "#000000",
+      "surface": "#FFFFFF",
+      "status": "derived_single_color"
+    },
+    "white": {
+      "icon": "#FFFFFF",
+      "wordmark": "#FFFFFF",
+      "dot": "#FFFFFF",
+      "surface": "#183C32",
+      "status": "derived_single_color"
+    },
+    "currentcolor": {
+      "icon": "currentColor",
+      "wordmark": "currentColor",
+      "dot": "currentColor",
+      "surface": "context",
+      "status": "inline_only"
+    }
+  },
+  "recommended_usage": {
+    "status": "proposal",
+    "lockup_clearspace_units": 26,
+    "icon_clearspace_units": 13,
+    "lockup_width_css_px": 240,
+    "lockup_min_trial_width_css_px": 200,
+    "icon_height_css_px": 32
+  }
+}
