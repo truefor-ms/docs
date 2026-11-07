@@ -1,62 +1,35 @@
 # Trueforms documentation
 
-This repository is the long-term home for product planning, brand references, technical decisions, and review evidence. New documentation is written in **English**. Supplied source materials retain their original language and bytes.
+Trueforms is a form-focused SaaS. This documentation records the confirmed direction and the path to implementation. Runtime implementation has not started here.
 
-Initial documentation: **5 November 2026**. Current stage: **planning, before implementation**.
+## Confirmed decisions
 
-## Start here
+- `ui` contains **TrueUI**, the common UI library.
+- `frontend` contains the application and frontend business logic.
+- `backend` contains backend operations and authoritative business logic.
+- `docs` contains specifications, plans and brand sources.
+- App subscriptions and billing start in the initial implementation phase.
+- Payment collection inside forms is a separate end-to-end work package.
+- Maintained logo documentation starts at **v1.0**. Original supplied materials stay unchanged.
+- Documentation is English. Reports and guides are delivered as HTML.
 
-| Area | Entry point | Contents |
-| --- | --- | --- |
-| Brand and original materials | [Brand hub](brand/README.md) | Master PDF/HTML, original archive, extracted assets, specs, examples, fonts, and licenses |
-| Confirmed logo facts | [Logo README](brand/logo/README.md) | Identity, geometry, font provenance, reconstruction, and verified limits |
-| Project planning | [Project pre-plan](planning/project-preplan.md) | Repository responsibilities, growth strategy, phases, initial backlog, and open decisions |
-| Working brand reference | [Brand and icon guidelines](brand/guidelines.md) | Established geometry, variants, proposals, and integration boundaries |
-| Review evidence | [Handoff v2 review](reviews/brand-handoff-v2.md) | Source assessment, verification results, and implementation gaps |
-| Contribution rules | [Commit identity and Conventional Commits](contributing/README.md) | `formtrue` account, author/committer identity, message format, and change boundaries |
+## Implementation path
 
-## Documentation structure
+Start with the [Build path](planning/saas-implementation-plan.md), then use the separate [Form UI](planning/respondent-ui-build-order.md) and [Form Builder UI](planning/form-builder-ui-build-order.md) sequences. [Form payments](planning/form-payment-fields.md) has its own delivery boundary.
 
-```text
-docs/
-  README.md
-  contributing/
-    README.md
-  brand/
-    README.md
-    guidelines.md
-    logo/
-      README.md
-    recreated/                    # Reconstructed artwork and comparison reports
-    reconstruction-sources/       # Pinned font inputs and notices
-    scripts/                      # Icon and logo generation
-    handoff/
-      trueforms-master-handoff-v2.zip
-      v2/                         # Complete, unchanged extracted package
-  planning/
-    project-preplan.md
-  reviews/
-    brand-handoff-v2.md
-    evidence/
-      brand-handoff-v2-validation.json
-```
+The [Field reference](reference/fields.md) and [Component ownership](reference/components.md) retain the detailed contracts needed during implementation. They describe planned scope, not shipped features.
 
-Keep the root README as a navigation page. Add documents under their subject area rather than accumulating unrelated files at the root. Introduce `product/`, `architecture/`, `decisions/`, and `operations/` when there is actual content for them; these are future categories, not completed deliverables. Add each new area's entry point to this index.
+## Reference and working rules
 
-## Decision labels
+- [Logo v1.0](brand/logo/README.md)
+- [Original materials](brand/README.md)
+- [Contribution rules](contributing/README.md): Conventional Commits, required author/committer identity and pushes only as `formtrue`.
+- [Documentation standard](contributing/documentation.md)
 
-| Label | Meaning |
-| --- | --- |
-| Established in source | A decision described as approved by the supplied handoff; no new approval is implied |
-| Measurement | Numeric or geometric information from source files |
-| Source proposal | A usage or UI recommendation explicitly marked as proposed in the handoff |
-| Plan proposal | A recommendation introduced by this project plan; not an implemented decision |
-| Open decision | A question to resolve before the relevant implementation work |
+## Open decisions
 
-Imperative instructions inside supplied documents are treated as design and integration source material. They do not independently authorize implementation, publishing, technology selection, or final product scope. This delivery changes documentation only.
+Stack, hosting, initial audience, launch field subset, supported locales, plan/pricing details and operational targets still require explicit decisions. Broad capability inventories do not approve every feature for launch.
 
-## Workspace baseline
+## Documentation maintenance
 
-Current ownership: all logo documentation, source materials, reconstruction inputs, scripts, and outputs live in `docs/brand/`. The `ui` repository is reserved for actual UI components.
-
-`backend`, `frontend`, `ui`, and `docs` are four separate Git repositories. At review time, all were before their first commit and contained no application source files. The workspace root is not assumed to be a monorepo. These observations come from local inspection; remote repositories and the live site were not inspected.
+The current docs replace exploratory marketplace research and the superseded pre-plan. Useful field contracts and build sequences remain; original brand materials and verification records are preserved. Open [index.html](index.html) for the documentation interface.

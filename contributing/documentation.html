@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Maintaining this site."><meta name="theme-color" content="#f8f7f2">
+<title>Documentation | Trueforms Docs</title><link rel="icon" href="../brand/handoff/v2/assets/svg/favicon.svg">
+<link rel="stylesheet" href="../site/docs.css"><script src="../site/docs.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand-link" href="../index.html" aria-label="Trueforms documentation home"><img src="../brand/handoff/v2/assets/svg/trueforms-logo.svg" alt="Trueforms" width="170" height="28"></a><span>Documentation</span><a href="../planning/saas-implementation-plan.html">Build path</a></header>
+<div class="docs-shell"><aside class="sidebar"><details class="site-navigation" open><summary>Browse documentation</summary><div class="nav-content"><label class="search-field js-only" for="nav-search">Find a page<input id="nav-search" type="search" placeholder="Search pages" autocomplete="off"></label><nav aria-label="Documentation"><section data-nav-group><h2>Start here</h2><a data-nav-page data-search="overview confirmed direction, ownership and current status." href="../overview.html">Overview</a><a data-nav-page data-search="build path implementation stages and acceptance gates." href="../planning/saas-implementation-plan.html">Build path</a></section><section data-nav-group><h2>Implementation</h2><a data-nav-page data-search="form ui the interface people use to complete forms." href="../planning/respondent-ui-build-order.html">Form UI</a><a data-nav-page data-search="form builder ui editing, preview and publication." href="../planning/form-builder-ui-build-order.html">Form Builder UI</a><a data-nav-page data-search="form payments a separate package for payment collection." href="../planning/form-payment-fields.html">Form payments</a></section><section data-nav-group><h2>Reference</h2><a data-nav-page data-search="fields field types and value contracts." href="../reference/fields.html">Fields</a><a data-nav-page data-search="component ownership shared controls and application responsibilities." href="../reference/components.html">Component ownership</a></section><section data-nav-group><h2>Brand</h2><a data-nav-page data-search="logo v1.0 confirmed logo specification." href="../brand/logo/index.html">Logo v1.0</a><a data-nav-page data-search="source materials original materials and evidence." href="../brand/index.html">Source materials</a><a data-nav-page data-search="brand guidelines geometry, color and usage." href="../brand/guidelines.html">Brand guidelines</a></section><section data-nav-group><h2>Working rules</h2><a data-nav-page data-search="contribution rules commit identity and change boundaries." href="index.html">Contribution rules</a><a data-nav-page data-search="documentation maintaining this site." href="documentation.html" aria-current="page">Documentation</a></section><details class="source-records"><summary>Source records</summary><section data-nav-group><h2>Source records</h2><a data-nav-page data-search="logo reconstruction independent icon and full-logo builds, previews and comparison evidence." href="../brand/recreated/index.html">Logo reconstruction</a><a data-nav-page data-search="nimbus roman provenance pinned font inputs, upstream origin and preserved license notices." href="../brand/reconstruction-sources/nimbus-roman/index.html">Nimbus Roman provenance</a><a data-nav-page data-search="brand handoff v2 review package review, 192 validation checks and outstanding integration work." href="../reviews/brand-handoff-v2.html">Brand handoff v2 review</a></section></details></nav><p id="nav-empty" role="status" hidden>No matching pages.</p><a class="all-files" href="../files.html">All source files</a></div></details></aside>
+<div class="reading-area"><main id="main"><div class="breadcrumbs"><a href="../index.html">Docs</a> / Working rules</div>
+<header class="document-header"><h1>Documentation</h1><p class="description">Maintaining this site.</p>
+<div class="document-meta meta"><span>Policy</span><time datetime="2026-11-07">2026-11-07</time><a href="documentation.md">Markdown source</a><button class="quiet-button js-only" data-print>Print / Save PDF</button></div></header>
+<div class="document-layout"><details class="page-toc" open><summary>On this page</summary><nav aria-label="On this page"><div class="toc">
+<ul>
+<li><a href="#language-and-delivery">Language and delivery</a></li>
+<li><a href="#sources-and-html-pages">Sources and HTML pages</a></li>
+<li><a href="#presentation">Presentation</a></li>
+<li><a href="#logo-documentation-version">Logo documentation version</a></li>
+<li><a href="#report-content">Report content</a></li>
+<li><a href="#build-and-check">Build and check</a></li>
+<li><a href="#information-architecture">Information architecture</a></li>
+</ul>
+</div>
+</nav></details>
+<article class="article"><p><strong>Established:</strong> 6 November 2026. Applies to documentation and reports maintained in this repository.</p>
+<h2 id="language-and-delivery">Language and delivery</h2>
+<ul>
+<li>Write all newly authored documentation, reports, navigation and interface text in <strong>English</strong>.</li>
+<li>Deliver reports as <strong>HTML</strong> and register them in the <a href="../index.html">Docs Hub</a>. Markdown-only reports are not a completed delivery.</li>
+<li>Keep titles and descriptions factual. Use minimal promotional copy and no slogans in the documentation interface.</li>
+<li>Include existing documentation in the hub, including the build path, implementation guides, references, brand and working rules.</li>
+<li>Preserve supplied original materials byte-for-byte and in their original language. Label them as source materials rather than silently translating or replacing them.</li>
+</ul>
+<h2 id="sources-and-html-pages">Sources and HTML pages</h2>
+<p>Markdown is the editable source for authored documents. The matching HTML is the reading and report-delivery format. Both are versioned; regenerate HTML whenever the source changes. Do not independently edit generated prose in HTML.</p>
+<p><code>site/catalog.json</code> records each document's title, category, kind, source date and description. <code>site/build.py</code> creates the home page, all registered reading pages and a complete file inventory. Registered <code>README.md</code> files become <code>index.html</code>; other Markdown documents keep their basename with <code>.html</code>. Links between registered documents are rewritten to HTML.</p>
+<p>Open <code>index.html</code> from a complete checkout. Keep relative assets and folders together. Search filters titles and descriptions locally. Reading, navigation and file access remain available without JavaScript; search and the print button are progressive enhancements. This is an offline site bundle, not a promise that each page is a self-contained attachment.</p>
+<h2 id="presentation">Presentation</h2>
+<p>Use the original logo master as the visual reference: warm canvas, green ink, Rubik body text and Linux Libertine Display headings. Use the approved outlined logo, including its independent dot. Its font is not the document heading font.</p>
+<p>Shared presentation lives in <code>site/docs.css</code>; optional behavior lives in <code>site/docs.js</code>. Avoid per-report visual themes. Use a readable measure, section navigation, source links, scrollable comparison tables, visible keyboard focus, responsive layouts and print styles. The current hub uses the light reference palette; it does not establish a new product-wide theme system.</p>
+<p>Fonts and artwork are referenced from the preserved package. Keep source notices accessible. Never modify <code>brand/handoff/</code> to adapt a report.</p>
+<h2 id="logo-documentation-version">Logo documentation version</h2>
+<p>The maintained English logo reference starts at <strong>v1.0</strong>, dated 6 November 2026: its first real documentation release. Future changes should be recorded against that documentation version.</p>
+<p>The supplied archive/directory still carries <code>v2</code> and its original master still says <code>2.0</code>. Those identify the imported handoff package, not an earlier release of the maintained English logo documentation. Do not rename the archive, rewrite its embedded text or change its hashes to align these separate version schemes. Existing A/B artwork revision labels retain their original meaning.</p>
+<h2 id="report-content">Report content</h2>
+<p>Every report should state its date, scope, method, findings, recommendations, evidence links and verification limits. Distinguish observed behavior, source claims, proposals and unknowns. Keep historical observations tied to their original review date; an HTML conversion is not a new audit.</p>
+<p>Keep machine-readable evidence such as JSON alongside the relevant report and link it directly. HTML is the report; raw evidence is supplementary. The all-files inventory provides access to assets, licenses, scripts and records that are not prose documents.</p>
+<h2 id="build-and-check">Build and check</h2>
+<p>From the docs repository, install the pinned build dependency in your preferred Python environment:</p>
+<pre><code class="language-powershell">python -m pip install -r site/requirements.txt
+python site/build.py
+python site/build.py --check
+</code></pre>
+<p>The check detects stale HTML, unregistered authored Markdown documents, broken local links and missing HTML anchors. It does not validate external website availability. Original package content is never regenerated by this builder.</p>
+<p>After presentation changes, inspect the hub and representative long documents on desktop and mobile, exercise search/category/reset and section navigation, and check for overflow. Check print styling separately from on-screen layout; do not claim a physical print proof from browser inspection.</p>
+<p>Register new documents, rebuild and verify before committing. Follow the <a href="index.html">contribution rules</a>: English Conventional Commits, the required Trueforms author/committer identity, and pushes only through <code>formtrue</code> when requested.</p>
+<h2 id="information-architecture">Information architecture</h2>
+<p>The sidebar follows the build path: Start here, Implementation, Reference, Brand and Working rules. Source records remain available in a secondary disclosure. Keep exploratory research out of the maintained documentation unless it supports a current decision. Consolidate superseded plans instead of retaining competing roadmaps. Preserve original brand materials and source evidence.</p></article></div></main><nav class="page-pager" aria-label="Page navigation"><a href="index.html"><span>Previous</span>Contribution rules</a><a href="../brand/recreated/index.html"><span>Next</span>Logo reconstruction</a></nav><footer class="site-footer"><span>Trueforms documentation</span><a href="../brand/handoff/v2/licenses/README.txt">Font notices</a><a href="#main">Back to top</a></footer></div></div></body></html>

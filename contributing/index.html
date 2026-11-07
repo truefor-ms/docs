@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Commit identity and change boundaries."><meta name="theme-color" content="#f8f7f2">
+<title>Contribution rules | Trueforms Docs</title><link rel="icon" href="../brand/handoff/v2/assets/svg/favicon.svg">
+<link rel="stylesheet" href="../site/docs.css"><script src="../site/docs.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand-link" href="../index.html" aria-label="Trueforms documentation home"><img src="../brand/handoff/v2/assets/svg/trueforms-logo.svg" alt="Trueforms" width="170" height="28"></a><span>Documentation</span><a href="../planning/saas-implementation-plan.html">Build path</a></header>
+<div class="docs-shell"><aside class="sidebar"><details class="site-navigation" open><summary>Browse documentation</summary><div class="nav-content"><label class="search-field js-only" for="nav-search">Find a page<input id="nav-search" type="search" placeholder="Search pages" autocomplete="off"></label><nav aria-label="Documentation"><section data-nav-group><h2>Start here</h2><a data-nav-page data-search="overview confirmed direction, ownership and current status." href="../overview.html">Overview</a><a data-nav-page data-search="build path implementation stages and acceptance gates." href="../planning/saas-implementation-plan.html">Build path</a></section><section data-nav-group><h2>Implementation</h2><a data-nav-page data-search="form ui the interface people use to complete forms." href="../planning/respondent-ui-build-order.html">Form UI</a><a data-nav-page data-search="form builder ui editing, preview and publication." href="../planning/form-builder-ui-build-order.html">Form Builder UI</a><a data-nav-page data-search="form payments a separate package for payment collection." href="../planning/form-payment-fields.html">Form payments</a></section><section data-nav-group><h2>Reference</h2><a data-nav-page data-search="fields field types and value contracts." href="../reference/fields.html">Fields</a><a data-nav-page data-search="component ownership shared controls and application responsibilities." href="../reference/components.html">Component ownership</a></section><section data-nav-group><h2>Brand</h2><a data-nav-page data-search="logo v1.0 confirmed logo specification." href="../brand/logo/index.html">Logo v1.0</a><a data-nav-page data-search="source materials original materials and evidence." href="../brand/index.html">Source materials</a><a data-nav-page data-search="brand guidelines geometry, color and usage." href="../brand/guidelines.html">Brand guidelines</a></section><section data-nav-group><h2>Working rules</h2><a data-nav-page data-search="contribution rules commit identity and change boundaries." href="index.html" aria-current="page">Contribution rules</a><a data-nav-page data-search="documentation maintaining this site." href="documentation.html">Documentation</a></section><details class="source-records"><summary>Source records</summary><section data-nav-group><h2>Source records</h2><a data-nav-page data-search="logo reconstruction independent icon and full-logo builds, previews and comparison evidence." href="../brand/recreated/index.html">Logo reconstruction</a><a data-nav-page data-search="nimbus roman provenance pinned font inputs, upstream origin and preserved license notices." href="../brand/reconstruction-sources/nimbus-roman/index.html">Nimbus Roman provenance</a><a data-nav-page data-search="brand handoff v2 review package review, 192 validation checks and outstanding integration work." href="../reviews/brand-handoff-v2.html">Brand handoff v2 review</a></section></details></nav><p id="nav-empty" role="status" hidden>No matching pages.</p><a class="all-files" href="../files.html">All source files</a></div></details></aside>
+<div class="reading-area"><main id="main"><div class="breadcrumbs"><a href="../index.html">Docs</a> / Working rules</div>
+<header class="document-header"><h1>Contribution rules</h1><p class="description">Commit identity and change boundaries.</p>
+<div class="document-meta meta"><span>Policy</span><time datetime="2026-11-07">2026-11-07</time><a href="README.md">Markdown source</a><button class="quiet-button js-only" data-print>Print / Save PDF</button></div></header>
+<div class="document-layout"><details class="page-toc" open><summary>On this page</summary><nav aria-label="On this page"><div class="toc">
+<ul>
+<li><a href="#github-account-and-commit-identity">GitHub account and commit identity</a></li>
+<li><a href="#conventional-commits">Conventional Commits</a></li>
+<li><a href="#change-boundaries-and-verification">Change boundaries and verification</a></li>
+</ul>
+</div>
+</nav></details>
+<article class="article"><p>These project rules apply to new work in the Trueforms <code>docs</code>, <code>ui</code>, <code>frontend</code>, and <code>backend</code> repositories, including logo assets, reconstruction scripts, and documentation.</p>
+<p>Documentation and reports follow the <a href="documentation.html">documentation standard</a>: English content, HTML delivery through the Docs Hub, shared brand presentation, minimal slogans, and preserved original materials.</p>
+<h2 id="github-account-and-commit-identity">GitHub account and commit identity</h2>
+<p>Push only as <strong><code>formtrue</code></strong> for every Trueforms repository.</p>
+<p>For newly authored project commits, use this identity for both the author and committer:</p>
+<div class="table-wrap" role="region" aria-label="Table 1, scroll horizontally if needed" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Field</th>
+<th scope="col">Required value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub account used to push</td>
+<td><code>formtrue</code></td>
+</tr>
+<tr>
+<td>Git author name</td>
+<td><code>Trueforms</code></td>
+</tr>
+<tr>
+<td>Git committer name</td>
+<td><code>Trueforms</code></td>
+</tr>
+<tr>
+<td>Author and committer email</td>
+<td><code>352186882+formtrue@users.noreply.github.com</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Commit identity and push authentication are separate. Correct author/committer metadata does not establish which GitHub account authenticates the push. Check both. Preserve original attribution when importing third-party history rather than rewriting its authors to the project identity.</p>
+<p>Configure identity inside each relevant repository, using local settings so unrelated projects retain their own accounts:</p>
+<pre><code class="language-powershell">git config --local user.name &quot;Trueforms&quot;
+git config --local user.email &quot;352186882+formtrue@users.noreply.github.com&quot;
+git config --local credential.https://github.com.username formtrue
+</code></pre>
+<p>Verify the effective identity before committing; environment overrides can differ from repository configuration:</p>
+<pre><code class="language-powershell">git var GIT_AUTHOR_IDENT
+git var GIT_COMMITTER_IDENT
+</code></pre>
+<p>Before pushing, confirm that the remote is the intended Trueforms repository and that the credential helper or SSH identity used by <strong>Git</strong> authenticates as <code>formtrue</code>. If using GitHub CLI authentication, check its account too:</p>
+<pre><code class="language-powershell">gh api user --jq .login
+git remote -v
+</code></pre>
+<p>The CLI account check alone is not proof of Git's account if a different credential helper is configured. Never print tokens or embed them in remote URLs, documentation, or commit messages.</p>
+<h2 id="conventional-commits">Conventional Commits</h2>
+<p>Every new commit message must follow <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits 1.0.0</a>. The subject uses a type, an optional scope, and a short description:</p>
+<pre><code class="language-text">type(scope): description
+</code></pre>
+<p>Trueforms conventions: use English, lowercase types, a short relevant scope when useful, and a concrete action-oriented description. Do not use subjects such as <code>update</code>, <code>changes</code>, or <code>final</code> without a meaningful type and description.</p>
+<div class="table-wrap" role="region" aria-label="Table 2, scroll horizontally if needed" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Type</th>
+<th scope="col">Use in this project</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docs</code></td>
+<td>Documentation and reference updates</td>
+</tr>
+<tr>
+<td><code>feat</code></td>
+<td>New functionality or a new supported capability</td>
+</tr>
+<tr>
+<td><code>fix</code></td>
+<td>Corrections to existing behavior or output</td>
+</tr>
+<tr>
+<td><code>refactor</code></td>
+<td>Internal restructuring without changing behavior</td>
+</tr>
+<tr>
+<td><code>perf</code></td>
+<td>Performance improvements</td>
+</tr>
+<tr>
+<td><code>test</code></td>
+<td>Verification/test additions or corrections</td>
+</tr>
+<tr>
+<td><code>build</code></td>
+<td>Dependencies, packaging, or build tooling</td>
+</tr>
+<tr>
+<td><code>ci</code></td>
+<td>CI configuration and workflow changes</td>
+</tr>
+<tr>
+<td><code>chore</code></td>
+<td>Maintenance that does not fit a more precise type</td>
+</tr>
+<tr>
+<td><code>style</code></td>
+<td>Code formatting only; not a blanket label for visual design changes</td>
+</tr>
+<tr>
+<td><code>revert</code></td>
+<td>Reverting a prior change; identify the reverted commit in the body</td>
+</tr>
+</tbody>
+</table></div>
+<p>Examples for this workspace:</p>
+<pre><code class="language-text">docs(logo): record confirmed geometry and reconstruction results
+docs(contributing): define commit identity and message rules
+feat(brand): add reproducible logo generation
+fix(logo): correct period alignment in the primary layout
+build(brand): pin font outline tooling
+</code></pre>
+<p>Indicate a breaking change with <code>!</code> before the colon or a <code>BREAKING CHANGE:</code> footer. Explain the consumer impact and migration when relevant. For example:</p>
+<pre><code class="language-text">feat(brand)!: rename public logo asset paths
+
+BREAKING CHANGE: Consumers must replace the previous asset paths with the documented names.
+</code></pre>
+<p>Bodies and footers are optional when the subject fully explains a small change. Apply the same message rules to amended commits, squash commits, and any merge commits created for the project; do not rely on an automatically generated title without reviewing it.</p>
+<h2 id="change-boundaries-and-verification">Change boundaries and verification</h2>
+<ul>
+<li>Stage only files belonging to the requested change and preserve unrelated work.</li>
+<li>Inspect the staged diff before committing. Keep independent changes in separate commits where practical.</li>
+<li>Keep original handoff files unchanged; new artwork and reconstruction code live separately.</li>
+<li>Run checks appropriate to the change and report their actual scope. A file-level or same-renderer comparison is not a browser/device acceptance test.</li>
+<li>Use English for newly authored documentation. Preserve the language and bytes of original supplied materials.</li>
+<li>Creating or editing files does not by itself request a commit or push. Perform those actions when requested as part of the task.</li>
+</ul>
+<p>Before publishing a new commit, inspect its recorded identity and message:</p>
+<pre><code class="language-powershell">git log -1 --format=&quot;Author: %an &lt;%ae&gt;%nCommitter: %cn &lt;%ce&gt;%nSubject: %s&quot;
+</code></pre>
+<p>These are documented rules. This change does not install a commit hook or CI enforcement and does not configure credentials in other repositories.</p></article></div></main><nav class="page-pager" aria-label="Page navigation"><a href="../brand/guidelines.html"><span>Previous</span>Brand guidelines</a><a href="documentation.html"><span>Next</span>Documentation</a></nav><footer class="site-footer"><span>Trueforms documentation</span><a href="../brand/handoff/v2/licenses/README.txt">Font notices</a><a href="#main">Back to top</a></footer></div></div></body></html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Independent icon and full-logo builds, previews and comparison evidence."><meta name="theme-color" content="#f8f7f2">
+<title>Logo reconstruction | Trueforms Docs</title><link rel="icon" href="../handoff/v2/assets/svg/favicon.svg">
+<link rel="stylesheet" href="../../site/docs.css"><script src="../../site/docs.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand-link" href="../../index.html" aria-label="Trueforms documentation home"><img src="../handoff/v2/assets/svg/trueforms-logo.svg" alt="Trueforms" width="170" height="28"></a><span>Documentation</span><a href="../../planning/saas-implementation-plan.html">Build path</a></header>
+<div class="docs-shell"><aside class="sidebar"><details class="site-navigation" open><summary>Browse documentation</summary><div class="nav-content"><label class="search-field js-only" for="nav-search">Find a page<input id="nav-search" type="search" placeholder="Search pages" autocomplete="off"></label><nav aria-label="Documentation"><section data-nav-group><h2>Start here</h2><a data-nav-page data-search="overview confirmed direction, ownership and current status." href="../../overview.html">Overview</a><a data-nav-page data-search="build path implementation stages and acceptance gates." href="../../planning/saas-implementation-plan.html">Build path</a></section><section data-nav-group><h2>Implementation</h2><a data-nav-page data-search="form ui the interface people use to complete forms." href="../../planning/respondent-ui-build-order.html">Form UI</a><a data-nav-page data-search="form builder ui editing, preview and publication." href="../../planning/form-builder-ui-build-order.html">Form Builder UI</a><a data-nav-page data-search="form payments a separate package for payment collection." href="../../planning/form-payment-fields.html">Form payments</a></section><section data-nav-group><h2>Reference</h2><a data-nav-page data-search="fields field types and value contracts." href="../../reference/fields.html">Fields</a><a data-nav-page data-search="component ownership shared controls and application responsibilities." href="../../reference/components.html">Component ownership</a></section><section data-nav-group><h2>Brand</h2><a data-nav-page data-search="logo v1.0 confirmed logo specification." href="../logo/index.html">Logo v1.0</a><a data-nav-page data-search="source materials original materials and evidence." href="../index.html">Source materials</a><a data-nav-page data-search="brand guidelines geometry, color and usage." href="../guidelines.html">Brand guidelines</a></section><section data-nav-group><h2>Working rules</h2><a data-nav-page data-search="contribution rules commit identity and change boundaries." href="../../contributing/index.html">Contribution rules</a><a data-nav-page data-search="documentation maintaining this site." href="../../contributing/documentation.html">Documentation</a></section><details class="source-records"><summary>Source records</summary><section data-nav-group><h2>Source records</h2><a data-nav-page data-search="logo reconstruction independent icon and full-logo builds, previews and comparison evidence." href="index.html" aria-current="page">Logo reconstruction</a><a data-nav-page data-search="nimbus roman provenance pinned font inputs, upstream origin and preserved license notices." href="../reconstruction-sources/nimbus-roman/index.html">Nimbus Roman provenance</a><a data-nav-page data-search="brand handoff v2 review package review, 192 validation checks and outstanding integration work." href="../../reviews/brand-handoff-v2.html">Brand handoff v2 review</a></section></details></nav><p id="nav-empty" role="status" hidden>No matching pages.</p><a class="all-files" href="../../files.html">All source files</a></div></details></aside>
+<div class="reading-area"><main id="main"><div class="breadcrumbs"><a href="../../index.html">Docs</a> / Source records</div>
+<header class="document-header"><h1>Logo reconstruction</h1><p class="description">Independent icon and full-logo builds, previews and comparison evidence.</p>
+<div class="document-meta meta"><span>Technical reference</span><time datetime="2026-11-05">2026-11-05</time><a href="README.md">Markdown source</a><button class="quiet-button js-only" data-print>Print / Save PDF</button></div></header>
+<div class="document-layout"><details class="page-toc" open><summary>On this page</summary><nav aria-label="On this page"><div class="toc">
+<ul>
+<li><a href="#complete-logo-primary-b-layout">Complete logo: primary B layout</a></li>
+<li><a href="#standalone-icon">Standalone icon</a></li>
+<li><a href="#construction">Construction</a></li>
+<li><a href="#regenerate">Regenerate</a></li>
+</ul>
+</div>
+</nav></details>
+<article class="article"><p>This is a separate reconstruction of the standalone icon from master handoff v2 measurements. It does not replace the approved source artwork.</p>
+<h2 id="complete-logo-primary-b-layout">Complete logo: primary B layout</h2>
+<ul>
+<li><a href="trueforms-logo.svg">Full vector logo, including the independent dot</a></li>
+<li><a href="trueforms-logo.png">Transparent full-logo PNG, 2400 px wide</a></li>
+<li><a href="logo-preview.png">Full-logo preview</a></li>
+<li><a href="../scripts/recreate-logo.py">Logo reconstruction script</a></li>
+<li><a href="logo-construction.json">Computed layout measurements</a></li>
+<li><a href="logo-verification.json">Full-logo comparison report</a></li>
+</ul>
+<p>The nine letters are regenerated from the <a href="../reconstruction-sources/nimbus-roman/index.html">pinned upstream Nimbus Roman Regular font</a>. Native AFM pair kerning is applied first, then the handoff's eight additional pair adjustments. The period glyph is outlined independently and centered at the specified B position between r and m; it does not add advance width to the word. The icon is generated by the existing independent construction script and placed at 0.75 scale with a 28.5-unit visible gap to the wordmark.</p>
+<p>This uses the specified font's actual contours, not hand-drawn approximations. Neither the approved complete-logo SVG nor its path strings are inputs to generation. The approved B file is read only by the post-generation comparison. All output paths are outlined; the result needs no installed fonts. Source and generated coordinate systems differ through a consistent translation to a zero-origin viewBox.</p>
+<p>To rebuild the SVG from the docs repository, install the pinned Python build dependency into your preferred environment, then run:</p>
+<pre><code class="language-powershell">python -m pip install -r brand/scripts/requirements-reconstruction.txt
+python brand/scripts/recreate-logo.py
+</code></pre>
+<p>The preserved font, metrics, and upstream license files are build sources. No original handoff files are modified.</p>
+<h2 id="standalone-icon">Standalone icon</h2>
+<ul>
+<li><a href="trueforms-icon.svg">Vector icon</a></li>
+<li><a href="trueforms-icon.png">Transparent PNG, 1024 px high</a></li>
+<li><a href="preview.png">Preview on the reference light surface</a></li>
+<li><a href="../scripts/recreate-icon.py">Reconstruction script</a></li>
+<li><a href="verification.json">Verification results</a></li>
+</ul>
+<h2 id="construction">Construction</h2>
+<p>The script does not read, import, or copy an existing SVG or its path strings. It constructs four paths from named measurements: a 96 × 128 centerline document, a 32-unit fold, four rows with 20-unit spacing, and a detached checkmark with 14/26-unit diagonal runs. Stroke width is 6.5, with round caps and joins; color is <code>#16765C</code>.</p>
+<p>The measurement tables and path descriptions in master sections 03–05 were consulted. The 10-unit outer turns and 8-unit fold turn were interpreted from the specified control-point geometry. This is an independently implemented reconstruction from the supplied specification, not a claim that the original path definitions were never seen.</p>
+<p>The output uses a normalized <code>0 0 102.5 134.5</code> viewBox. Every coordinate is rebuilt in that normalized frame, so the original translation is unnecessary. The outer contour is traversed in the opposite direction and the quadratic turns are represented by mathematically equivalent cubic curves. No source <code>d</code> string is reused.</p>
+<p>The original icon is used only by the separate verification step after generation. Rendering differences, if any, are reported rather than hidden by modifying the reference.</p>
+<h2 id="regenerate">Regenerate</h2>
+<p>From the docs repository:</p>
+<pre><code class="language-powershell">python brand/scripts/recreate-icon.py
+</code></pre>
+<p>The icon SVG generator uses only the Python standard library. Both generators and all their inputs are kept in the docs repository; the UI repository is reserved for actual UI components. PNGs are rasterized previews of the generated SVGs, not traced or edited copies of the original images. The comparison reports record renderer and reference details.</p>
+<p>The preview background is presentation only; the SVG and transparent PNG contain no background. For inline decorative use, the consuming component should hide the SVG from assistive technology; for an external image, supply the appropriate <code>alt</code> text.</p></article></div></main><nav class="page-pager" aria-label="Page navigation"><a href="../../contributing/documentation.html"><span>Previous</span>Documentation</a><a href="../reconstruction-sources/nimbus-roman/index.html"><span>Next</span>Nimbus Roman provenance</a></nav><footer class="site-footer"><span>Trueforms documentation</span><a href="../handoff/v2/licenses/README.txt">Font notices</a><a href="#main">Back to top</a></footer></div></div></body></html>

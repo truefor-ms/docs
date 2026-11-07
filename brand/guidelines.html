@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Geometry, color and usage."><meta name="theme-color" content="#f8f7f2">
+<title>Brand guidelines | Trueforms Docs</title><link rel="icon" href="handoff/v2/assets/svg/favicon.svg">
+<link rel="stylesheet" href="../site/docs.css"><script src="../site/docs.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand-link" href="../index.html" aria-label="Trueforms documentation home"><img src="handoff/v2/assets/svg/trueforms-logo.svg" alt="Trueforms" width="170" height="28"></a><span>Documentation</span><a href="../planning/saas-implementation-plan.html">Build path</a></header>
+<div class="docs-shell"><aside class="sidebar"><details class="site-navigation" open><summary>Browse documentation</summary><div class="nav-content"><label class="search-field js-only" for="nav-search">Find a page<input id="nav-search" type="search" placeholder="Search pages" autocomplete="off"></label><nav aria-label="Documentation"><section data-nav-group><h2>Start here</h2><a data-nav-page data-search="overview confirmed direction, ownership and current status." href="../overview.html">Overview</a><a data-nav-page data-search="build path implementation stages and acceptance gates." href="../planning/saas-implementation-plan.html">Build path</a></section><section data-nav-group><h2>Implementation</h2><a data-nav-page data-search="form ui the interface people use to complete forms." href="../planning/respondent-ui-build-order.html">Form UI</a><a data-nav-page data-search="form builder ui editing, preview and publication." href="../planning/form-builder-ui-build-order.html">Form Builder UI</a><a data-nav-page data-search="form payments a separate package for payment collection." href="../planning/form-payment-fields.html">Form payments</a></section><section data-nav-group><h2>Reference</h2><a data-nav-page data-search="fields field types and value contracts." href="../reference/fields.html">Fields</a><a data-nav-page data-search="component ownership shared controls and application responsibilities." href="../reference/components.html">Component ownership</a></section><section data-nav-group><h2>Brand</h2><a data-nav-page data-search="logo v1.0 confirmed logo specification." href="logo/index.html">Logo v1.0</a><a data-nav-page data-search="source materials original materials and evidence." href="index.html">Source materials</a><a data-nav-page data-search="brand guidelines geometry, color and usage." href="guidelines.html" aria-current="page">Brand guidelines</a></section><section data-nav-group><h2>Working rules</h2><a data-nav-page data-search="contribution rules commit identity and change boundaries." href="../contributing/index.html">Contribution rules</a><a data-nav-page data-search="documentation maintaining this site." href="../contributing/documentation.html">Documentation</a></section><details class="source-records"><summary>Source records</summary><section data-nav-group><h2>Source records</h2><a data-nav-page data-search="logo reconstruction independent icon and full-logo builds, previews and comparison evidence." href="recreated/index.html">Logo reconstruction</a><a data-nav-page data-search="nimbus roman provenance pinned font inputs, upstream origin and preserved license notices." href="reconstruction-sources/nimbus-roman/index.html">Nimbus Roman provenance</a><a data-nav-page data-search="brand handoff v2 review package review, 192 validation checks and outstanding integration work." href="../reviews/brand-handoff-v2.html">Brand handoff v2 review</a></section></details></nav><p id="nav-empty" role="status" hidden>No matching pages.</p><a class="all-files" href="../files.html">All source files</a></div></details></aside>
+<div class="reading-area"><main id="main"><div class="breadcrumbs"><a href="../index.html">Docs</a> / Brand</div>
+<header class="document-header"><h1>Brand guidelines</h1><p class="description">Geometry, color and usage.</p>
+<div class="document-meta meta"><span>Reference</span><time datetime="2026-11-07">2026-11-07</time><a href="guidelines.md">Markdown source</a><button class="quiet-button js-only" data-print>Print / Save PDF</button></div></header>
+<div class="document-layout"><details class="page-toc" open><summary>On this page</summary><nav aria-label="On this page"><div class="toc">
+<ul>
+<li><a href="#1-source-precedence">1. Source precedence</a></li>
+<li><a href="#2-identity-established-in-source">2. Identity established in source</a></li>
+<li><a href="#3-geometry-to-preserve">3. Geometry to preserve</a></li>
+<li><a href="#4-color-modes">4. Color modes</a></li>
+<li><a href="#5-source-proposals-pending-product-acceptance">5. Source proposals, pending product acceptance</a></li>
+<li><a href="#6-typography-tokens-and-accessible-use">6. Typography, tokens, and accessible use</a></li>
+<li><a href="#7-surface-specific-assets">7. Surface-specific assets</a></li>
+</ul>
+</div>
+</nav></details>
+<article class="article"><p>Date: <strong>5 November 2026</strong>. Source: <strong>Master Spec + Complete Handoff 2.0</strong>.</p>
+<p>This English reference supports implementation planning; it does not replace the exact artwork. Package paths below are relative to <a href="handoff/v2/">the preserved source package</a>. For direct access to original documents and assets, use the <a href="index.html">brand hub</a>.</p>
+<h2 id="1-source-precedence">1. Source precedence</h2>
+<p>The master document specifies this order:</p>
+<ol>
+<li><code>source-reference/approved-b.svg</code> and <code>approved-a.svg</code>.</li>
+<li><code>specs/trueforms-logo-spec.json</code>.</li>
+<li>The master PDF/HTML explanation.</li>
+<li>Usage proposals.</li>
+</ol>
+<p>For the standalone icon, also preserve <code>source-reference/approved-icon.svg</code> and <code>specs/geometry.json</code>. For the avatar, preserve <code>source-reference/approved-avatar-4096.png</code>. Record inconsistencies for review without silently changing the source.</p>
+<p>Legacy references to <strong>Linux Libertine logo typesetting</strong>, a <strong>72.1935 u icon-to-wordmark gap</strong>, or a <strong>687.515 u viewBox width</strong> do not describe the current logo and must not be carried into new implementation work.</p>
+<h2 id="2-identity-established-in-source">2. Identity established in source</h2>
+<div class="table-wrap" role="region" aria-label="Table 1, scroll horizontally if needed" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Subject</th>
+<th scope="col">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brand name / accessible image name</td>
+<td>Trueforms</td>
+</tr>
+<tr>
+<td>Wordmark text</td>
+<td><code>trueforms</code>; domain association <code>truefor.ms</code></td>
+</tr>
+<tr>
+<td>Primary layout</td>
+<td>B: dot centered vertically within the visible r/m height</td>
+</tr>
+<tr>
+<td>Alternative layout</td>
+<td>A: dot near the baseline</td>
+</tr>
+<tr>
+<td>Primary asset</td>
+<td><code>assets/svg/trueforms-logo.svg</code>, an exact B/color source copy</td>
+</tr>
+<tr>
+<td>Alternative asset</td>
+<td><code>assets/svg/trueforms-logo-alt-a.svg</code>, an exact A/color source copy</td>
+</tr>
+<tr>
+<td>Wordmark</td>
+<td>Outlined Nimbus Roman Regular artwork, not live text</td>
+</tr>
+<tr>
+<td>Dot</td>
+<td>Independent period outline between r and m, not a replacement circle or typed punctuation</td>
+</tr>
+<tr>
+<td>Icon</td>
+<td>Folded document, four rows, open lower-right corner, detached checkmark</td>
+</tr>
+</tbody>
+</table></div>
+<p>The logo does not load a font. Retyping the wordmark, approximating its spacing with CSS, or moving the dot manually changes the artwork. Select the supplied A/B files: their differences include small horizontal and group-vertical offsets as well as the dot's vertical position.</p>
+<h2 id="3-geometry-to-preserve">3. Geometry to preserve</h2>
+<div class="table-wrap" role="region" aria-label="Table 2, scroll horizontally if needed" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Measurement</th>
+<th scope="col">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Icon paths</td>
+<td>4: document outline, fold, shared four-row path, checkmark</td>
+</tr>
+<tr>
+<td>Stroke / cap / join</td>
+<td><code>6.5</code> / <code>round</code> / <code>round</code>; <code>fill="none"</code></td>
+</tr>
+<tr>
+<td>Standalone icon viewBox</td>
+<td><code>14.75 12.75 102.5 134.5</code></td>
+</tr>
+<tr>
+<td>Standalone icon transform</td>
+<td><code>translate(4 4)</code></td>
+</tr>
+<tr>
+<td>Horizontal logo viewBox</td>
+<td><code>157.5745 65.0525 619.5523611111112 100.895</code></td>
+</tr>
+<tr>
+<td>Horizontal aspect ratio</td>
+<td>Approximately <code>6.140565549 : 1</code></td>
+</tr>
+<tr>
+<td>Icon-to-wordmark gap</td>
+<td><code>28.5 u</code></td>
+</tr>
+<tr>
+<td>Icon transform inside logo</td>
+<td><code>translate(149.522 58.5) scale(.75)</code></td>
+</tr>
+<tr>
+<td>Effective stroke inside logo</td>
+<td><code>4.875 u</code></td>
+</tr>
+<tr>
+<td>Row pattern</td>
+<td>Short / long / long / short; centers separated by <code>20 u</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><code>u</code> means SVG user units, not CSS pixels. Do not reset the viewBox origin without transforming the paths consistently. Preserve proportional scaling, including stroke scaling; do not add <code>non-scaling-stroke</code>. Supply clearspace through the outer container. Coordinate rounding, path merging, or stroke expansion requires a separately tracked derivative and comparison against the source.</p>
+<h2 id="4-color-modes">4. Color modes</h2>
+<div class="table-wrap" role="region" aria-label="Table 3, scroll horizontally if needed" tabindex="0"><table class="wide">
+<thead>
+<tr>
+<th scope="col">Mode</th>
+<th scope="col">Icon</th>
+<th scope="col">Wordmark</th>
+<th scope="col">Dot</th>
+<th scope="col">Status / use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>color</code></td>
+<td><code>#16765C</code></td>
+<td><code>#183C32</code></td>
+<td><code>#AFBDB0</code></td>
+<td>Established in source; reference surface <code>#F8F7F2</code></td>
+</tr>
+<tr>
+<td><code>dark</code></td>
+<td><code>#E8EFE5</code></td>
+<td><code>#F8F7F2</code></td>
+<td><code>#657B70</code></td>
+<td>Source proposal; measured on <code>#183C32</code></td>
+</tr>
+<tr>
+<td><code>mono</code></td>
+<td><code>#183C32</code></td>
+<td><code>#183C32</code></td>
+<td><code>#183C32</code></td>
+<td>Single-color derivative</td>
+</tr>
+<tr>
+<td><code>black</code></td>
+<td><code>#000000</code></td>
+<td><code>#000000</code></td>
+<td><code>#000000</code></td>
+<td>Single-color derivative</td>
+</tr>
+<tr>
+<td><code>white</code></td>
+<td><code>#FFFFFF</code></td>
+<td><code>#FFFFFF</code></td>
+<td><code>#FFFFFF</code></td>
+<td>Single-color derivative</td>
+</tr>
+<tr>
+<td><code>currentcolor</code></td>
+<td><code>currentColor</code></td>
+<td><code>currentColor</code></td>
+<td><code>currentColor</code></td>
+<td>CSS color through inline SVG only</td>
+</tr>
+</tbody>
+</table></div>
+<p>All parts remain fully opaque. Do not derive the dot color with opacity. <code>dark</code> and <code>white</code> are distinct variants. An external SVG loaded through <code>&lt;img&gt;</code> does not inherit the parent's CSS <code>color</code>. Logo and standalone icon assets are transparent; avatar and favicon assets include backgrounds.</p>
+<h2 id="5-source-proposals-pending-product-acceptance">5. Source proposals, pending product acceptance</h2>
+<div class="table-wrap" role="region" aria-label="Table 4, scroll horizontally if needed" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Starting proposal</th>
+<th scope="col">Value</th>
+<th scope="col">Acceptance needed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Horizontal logo width</td>
+<td>240 px; 240–280 px in the header</td>
+<td>Actual header and mobile layout</td>
+</tr>
+<tr>
+<td>Trial lower width</td>
+<td>200 px</td>
+<td>Serif and dot readability; not a proven minimum</td>
+</tr>
+<tr>
+<td>Logo clearspace</td>
+<td>26 u on every side</td>
+<td>About 10.07 px at 240 px logo width</td>
+</tr>
+<tr>
+<td>Icon height</td>
+<td>32 px; trial at 24 px</td>
+<td>Stroke and detached-checkmark readability</td>
+</tr>
+<tr>
+<td>Icon clearspace</td>
+<td>13 u on every side</td>
+<td>About 3.09 px at 32 px icon height</td>
+</tr>
+<tr>
+<td>Spacing scale</td>
+<td>4, 8, 12, 16, 24, 32, 48, 64, 96 px</td>
+<td>Actual content and component needs</td>
+</tr>
+<tr>
+<td>Radius</td>
+<td>Controls 10 px; cards 20 px</td>
+<td>Product design review</td>
+</tr>
+<tr>
+<td>Dark theme</td>
+<td>Supplied semantic-role proposal</td>
+<td>Visual and interaction review on actual surfaces</td>
+</tr>
+</tbody>
+</table></div>
+<p>The 160 px logo sample is an inspection case. A supplied 16 px favicon is not proof of accepted micro-size readability. A redesigned micro icon must be a separate derivative rather than a silent master replacement.</p>
+<h2 id="6-typography-tokens-and-accessible-use">6. Typography, tokens, and accessible use</h2>
+<p>UI fonts are <strong>Rubik 400/700</strong> and <strong>Linux Libertine Display</strong> for display headings. Neither replaces the outlined logo. Rubik 500/600 files are absent. Preserve the supplied <code>licenses/</code> notices with font distribution; this is source preservation, not a new licensing assessment.</p>
+<p>The supplied <code>specs/contrast-report.json</code> reports <strong>1.82:1</strong> for the dot on the light surface, <strong>2.67:1</strong> for the dot on the dark surface, <strong>4.20:1</strong> for muted text on sage, and <strong>1.34:1</strong> for the decorative line on white. These figures do not establish whole-product accessibility. Keep the dot out of functional text/state roles and do not use the decorative line as a control's only distinguishing boundary.</p>
+<p>Success, error, warning, and information roles still need product design. The brand checkmark is not confirmation that a form was submitted. Plan persistent labels, associated help/error text, visible keyboard focus, and state communication that does not depend on color alone.</p>
+<p>A standalone logo uses the accessible name <code>Trueforms</code>. If its home-link container already supplies the accessible name, keep the nested image decorative. Avoid duplicate inline SVG IDs when artwork is repeated.</p>
+<h2 id="7-surface-specific-assets">7. Surface-specific assets</h2>
+<div class="table-wrap" role="region" aria-label="Table 5, scroll horizontally if needed" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Surface</th>
+<th scope="col">Starting asset</th>
+<th scope="col">Additional verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Web header/footer</td>
+<td>B SVG in a suitable mode</td>
+<td>Ratio, manual theme, narrow viewport, focus</td>
+</tr>
+<tr>
+<td>Compact brand area</td>
+<td>Standalone SVG icon</td>
+<td>Contextual meaning and readability</td>
+</tr>
+<tr>
+<td>Profile/avatar</td>
+<td>Approved 4096 px PNG or suitable smaller export</td>
+<td>Platform square/circle crop</td>
+</tr>
+<tr>
+<td>Favicon</td>
+<td>SVG, ICO, 16/32/48 px PNG</td>
+<td>Real browser tab and cache behavior</td>
+</tr>
+<tr>
+<td>Email</td>
+<td>1200/2400 px-wide PNG</td>
+<td>Absolute delivery URL and client dark mode</td>
+</tr>
+<tr>
+<td>PWA, if selected</td>
+<td>192/512 px app icons with <code>purpose="any"</code></td>
+<td>Installation and platform checks; no maskable derivative supplied</td>
+</tr>
+<tr>
+<td>Print, embossing, motion</td>
+<td>Separate derivative work</td>
+<td>Production proof or motion acceptance</td>
+</tr>
+</tbody>
+</table></div>
+<p>On the avatar's 1024-unit square, the visible icon height is 640 with 192-unit top/bottom margins and a <code>#E8EFE5</code> background. Do not squeeze the horizontal wordmark into a square. Vertical lockups, taglines, maskable icons, and animation are not completed assets in this delivery.</p>
+<p>Sources: master PDF pages 3–24 and 26–28; <code>specs/trueforms-logo-spec.json</code>, <code>specs/geometry.json</code>, <code>specs/contrast-report.json</code>, <code>tokens/</code>, and <code>licenses/</code>.</p></article></div></main><nav class="page-pager" aria-label="Page navigation"><a href="index.html"><span>Previous</span>Source materials</a><a href="../contributing/index.html"><span>Next</span>Contribution rules</a></nav><footer class="site-footer"><span>Trueforms documentation</span><a href="handoff/v2/licenses/README.txt">Font notices</a><a href="#main">Back to top</a></footer></div></div></body></html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Confirmed direction, ownership and current status."><meta name="theme-color" content="#f8f7f2">
+<title>Overview | Trueforms Docs</title><link rel="icon" href="brand/handoff/v2/assets/svg/favicon.svg">
+<link rel="stylesheet" href="site/docs.css"><script src="site/docs.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand-link" href="index.html" aria-label="Trueforms documentation home"><img src="brand/handoff/v2/assets/svg/trueforms-logo.svg" alt="Trueforms" width="170" height="28"></a><span>Documentation</span><a href="planning/saas-implementation-plan.html">Build path</a></header>
+<div class="docs-shell"><aside class="sidebar"><details class="site-navigation" open><summary>Browse documentation</summary><div class="nav-content"><label class="search-field js-only" for="nav-search">Find a page<input id="nav-search" type="search" placeholder="Search pages" autocomplete="off"></label><nav aria-label="Documentation"><section data-nav-group><h2>Start here</h2><a data-nav-page data-search="overview confirmed direction, ownership and current status." href="overview.html" aria-current="page">Overview</a><a data-nav-page data-search="build path implementation stages and acceptance gates." href="planning/saas-implementation-plan.html">Build path</a></section><section data-nav-group><h2>Implementation</h2><a data-nav-page data-search="form ui the interface people use to complete forms." href="planning/respondent-ui-build-order.html">Form UI</a><a data-nav-page data-search="form builder ui editing, preview and publication." href="planning/form-builder-ui-build-order.html">Form Builder UI</a><a data-nav-page data-search="form payments a separate package for payment collection." href="planning/form-payment-fields.html">Form payments</a></section><section data-nav-group><h2>Reference</h2><a data-nav-page data-search="fields field types and value contracts." href="reference/fields.html">Fields</a><a data-nav-page data-search="component ownership shared controls and application responsibilities." href="reference/components.html">Component ownership</a></section><section data-nav-group><h2>Brand</h2><a data-nav-page data-search="logo v1.0 confirmed logo specification." href="brand/logo/index.html">Logo v1.0</a><a data-nav-page data-search="source materials original materials and evidence." href="brand/index.html">Source materials</a><a data-nav-page data-search="brand guidelines geometry, color and usage." href="brand/guidelines.html">Brand guidelines</a></section><section data-nav-group><h2>Working rules</h2><a data-nav-page data-search="contribution rules commit identity and change boundaries." href="contributing/index.html">Contribution rules</a><a data-nav-page data-search="documentation maintaining this site." href="contributing/documentation.html">Documentation</a></section><details class="source-records"><summary>Source records</summary><section data-nav-group><h2>Source records</h2><a data-nav-page data-search="logo reconstruction independent icon and full-logo builds, previews and comparison evidence." href="brand/recreated/index.html">Logo reconstruction</a><a data-nav-page data-search="nimbus roman provenance pinned font inputs, upstream origin and preserved license notices." href="brand/reconstruction-sources/nimbus-roman/index.html">Nimbus Roman provenance</a><a data-nav-page data-search="brand handoff v2 review package review, 192 validation checks and outstanding integration work." href="reviews/brand-handoff-v2.html">Brand handoff v2 review</a></section></details></nav><p id="nav-empty" role="status" hidden>No matching pages.</p><a class="all-files" href="files.html">All source files</a></div></details></aside>
+<div class="reading-area"><main id="main"><div class="breadcrumbs"><a href="index.html">Docs</a> / Start here</div>
+<header class="document-header"><h1>Overview</h1><p class="description">Confirmed direction, ownership and current status.</p>
+<div class="document-meta meta"><span>Index</span><time datetime="2026-11-07">2026-11-07</time><a href="README.md">Markdown source</a><button class="quiet-button js-only" data-print>Print / Save PDF</button></div></header>
+<div class="document-layout"><details class="page-toc" open><summary>On this page</summary><nav aria-label="On this page"><div class="toc">
+<ul>
+<li><a href="#confirmed-decisions">Confirmed decisions</a></li>
+<li><a href="#implementation-path">Implementation path</a></li>
+<li><a href="#reference-and-working-rules">Reference and working rules</a></li>
+<li><a href="#open-decisions">Open decisions</a></li>
+<li><a href="#documentation-maintenance">Documentation maintenance</a></li>
+</ul>
+</div>
+</nav></details>
+<article class="article"><p>Trueforms is a form-focused SaaS. This documentation records the confirmed direction and the path to implementation. Runtime implementation has not started here.</p>
+<h2 id="confirmed-decisions">Confirmed decisions</h2>
+<ul>
+<li><code>ui</code> contains <strong>TrueUI</strong>, the common UI library.</li>
+<li><code>frontend</code> contains the application and frontend business logic.</li>
+<li><code>backend</code> contains backend operations and authoritative business logic.</li>
+<li><code>docs</code> contains specifications, plans and brand sources.</li>
+<li>App subscriptions and billing start in the initial implementation phase.</li>
+<li>Payment collection inside forms is a separate end-to-end work package.</li>
+<li>Maintained logo documentation starts at <strong>v1.0</strong>. Original supplied materials stay unchanged.</li>
+<li>Documentation is English. Reports and guides are delivered as HTML.</li>
+</ul>
+<h2 id="implementation-path">Implementation path</h2>
+<p>Start with the <a href="planning/saas-implementation-plan.html">Build path</a>, then use the separate <a href="planning/respondent-ui-build-order.html">Form UI</a> and <a href="planning/form-builder-ui-build-order.html">Form Builder UI</a> sequences. <a href="planning/form-payment-fields.html">Form payments</a> has its own delivery boundary.</p>
+<p>The <a href="reference/fields.html">Field reference</a> and <a href="reference/components.html">Component ownership</a> retain the detailed contracts needed during implementation. They describe planned scope, not shipped features.</p>
+<h2 id="reference-and-working-rules">Reference and working rules</h2>
+<ul>
+<li><a href="brand/logo/index.html">Logo v1.0</a></li>
+<li><a href="brand/index.html">Original materials</a></li>
+<li><a href="contributing/index.html">Contribution rules</a>: Conventional Commits, required author/committer identity and pushes only as <code>formtrue</code>.</li>
+<li><a href="contributing/documentation.html">Documentation standard</a></li>
+</ul>
+<h2 id="open-decisions">Open decisions</h2>
+<p>Stack, hosting, initial audience, launch field subset, supported locales, plan/pricing details and operational targets still require explicit decisions. Broad capability inventories do not approve every feature for launch.</p>
+<h2 id="documentation-maintenance">Documentation maintenance</h2>
+<p>The current docs replace exploratory marketplace research and the superseded pre-plan. Useful field contracts and build sequences remain; original brand materials and verification records are preserved. Open <a href="index.html">index.html</a> for the documentation interface.</p></article></div></main><nav class="page-pager" aria-label="Page navigation"><a href="planning/saas-implementation-plan.html"><span>Next</span>Build path</a></nav><footer class="site-footer"><span>Trueforms documentation</span><a href="brand/handoff/v2/licenses/README.txt">Font notices</a><a href="#main">Back to top</a></footer></div></div></body></html>

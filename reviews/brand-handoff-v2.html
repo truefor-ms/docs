@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Package review, 192 validation checks and outstanding integration work."><meta name="theme-color" content="#f8f7f2">
+<title>Brand handoff v2 review | Trueforms Docs</title><link rel="icon" href="../brand/handoff/v2/assets/svg/favicon.svg">
+<link rel="stylesheet" href="../site/docs.css"><script src="../site/docs.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand-link" href="../index.html" aria-label="Trueforms documentation home"><img src="../brand/handoff/v2/assets/svg/trueforms-logo.svg" alt="Trueforms" width="170" height="28"></a><span>Documentation</span><a href="../planning/saas-implementation-plan.html">Build path</a></header>
+<div class="docs-shell"><aside class="sidebar"><details class="site-navigation" open><summary>Browse documentation</summary><div class="nav-content"><label class="search-field js-only" for="nav-search">Find a page<input id="nav-search" type="search" placeholder="Search pages" autocomplete="off"></label><nav aria-label="Documentation"><section data-nav-group><h2>Start here</h2><a data-nav-page data-search="overview confirmed direction, ownership and current status." href="../overview.html">Overview</a><a data-nav-page data-search="build path implementation stages and acceptance gates." href="../planning/saas-implementation-plan.html">Build path</a></section><section data-nav-group><h2>Implementation</h2><a data-nav-page data-search="form ui the interface people use to complete forms." href="../planning/respondent-ui-build-order.html">Form UI</a><a data-nav-page data-search="form builder ui editing, preview and publication." href="../planning/form-builder-ui-build-order.html">Form Builder UI</a><a data-nav-page data-search="form payments a separate package for payment collection." href="../planning/form-payment-fields.html">Form payments</a></section><section data-nav-group><h2>Reference</h2><a data-nav-page data-search="fields field types and value contracts." href="../reference/fields.html">Fields</a><a data-nav-page data-search="component ownership shared controls and application responsibilities." href="../reference/components.html">Component ownership</a></section><section data-nav-group><h2>Brand</h2><a data-nav-page data-search="logo v1.0 confirmed logo specification." href="../brand/logo/index.html">Logo v1.0</a><a data-nav-page data-search="source materials original materials and evidence." href="../brand/index.html">Source materials</a><a data-nav-page data-search="brand guidelines geometry, color and usage." href="../brand/guidelines.html">Brand guidelines</a></section><section data-nav-group><h2>Working rules</h2><a data-nav-page data-search="contribution rules commit identity and change boundaries." href="../contributing/index.html">Contribution rules</a><a data-nav-page data-search="documentation maintaining this site." href="../contributing/documentation.html">Documentation</a></section><details class="source-records"><summary>Source records</summary><section data-nav-group><h2>Source records</h2><a data-nav-page data-search="logo reconstruction independent icon and full-logo builds, previews and comparison evidence." href="../brand/recreated/index.html">Logo reconstruction</a><a data-nav-page data-search="nimbus roman provenance pinned font inputs, upstream origin and preserved license notices." href="../brand/reconstruction-sources/nimbus-roman/index.html">Nimbus Roman provenance</a><a data-nav-page data-search="brand handoff v2 review package review, 192 validation checks and outstanding integration work." href="brand-handoff-v2.html" aria-current="page">Brand handoff v2 review</a></section></details></nav><p id="nav-empty" role="status" hidden>No matching pages.</p><a class="all-files" href="../files.html">All source files</a></div></details></aside>
+<div class="reading-area"><main id="main"><div class="breadcrumbs"><a href="../index.html">Docs</a> / Source records</div>
+<header class="document-header"><h1>Brand handoff v2 review</h1><p class="description">Package review, 192 validation checks and outstanding integration work.</p>
+<div class="document-meta meta"><span>Report</span><time datetime="2026-11-05">2026-11-05</time><a href="brand-handoff-v2.md">Markdown source</a><button class="quiet-button js-only" data-print>Print / Save PDF</button></div></header>
+<div class="document-layout"><details class="page-toc" open><summary>On this page</summary><nav aria-label="On this page"><div class="toc">
+<ul>
+<li><a href="#assessment">Assessment</a></li>
+<li><a href="#materials-examined">Materials examined</a></li>
+<li><a href="#verification-results">Verification results</a></li>
+<li><a href="#integration-findings">Integration findings</a></li>
+<li><a href="#not-verified-in-this-task">Not verified in this task</a></li>
+<li><a href="#handling-source-instructions">Handling source instructions</a></li>
+</ul>
+</div>
+</nav></details>
+<article class="article"><p><strong>Reviewed:</strong> 5 November 2026. <strong>Scope:</strong> supplied package, master content, representative visual details, validation scripts, and local workspace baseline.</p>
+<h2 id="assessment">Assessment</h2>
+<p>The package provides a strong, traceable brand foundation: exact B/A artwork, an independent document icon, production derivatives, structured measurements, font notices, and integration examples. It is suitable as a controlled source for implementation planning. It does not establish a finished product, a chosen framework, or accepted behavior in the target application.</p>
+<p>The <a href="../brand/index.html">brand hub</a> gives direct access to the full original materials. The <a href="../planning/saas-implementation-plan.html">build path</a> turns the findings into proposed work; the <a href="../brand/guidelines.html">guidelines</a> preserve the distinction between established artwork and proposed UI usage.</p>
+<h2 id="materials-examined">Materials examined</h2>
+<div class="table-wrap" role="region" aria-label="Table 1, scroll horizontally if needed" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Material</th>
+<th scope="col">Review performed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Master PDF</td>
+<td>Confirmed 32 pages; extracted text; rendered all pages; inspected page overview sheets and enlarged A/B and sizing pages</td>
+</tr>
+<tr>
+<td>Structured master content</td>
+<td>Read all 30 sections of <code>specs/guide-content.json</code>; confirmed their titles appear in master HTML</td>
+</tr>
+<tr>
+<td>README and handoff instructions</td>
+<td>Read scope, source precedence, implementation notes, and stated limits</td>
+</tr>
+<tr>
+<td>Logo/geometry/provenance JSON</td>
+<td>Reviewed exact dimensions, paths, transforms, colors, source hashes, and A/B differences</td>
+</tr>
+<tr>
+<td>Contrast and original QA reports</td>
+<td>Reviewed reported measurements, completed checks, and untested surfaces</td>
+</tr>
+<tr>
+<td>Tokens and integration examples</td>
+<td>Read CSS/JSON, TSX, browser theme logic, manifest, head snippet, and email example</td>
+</tr>
+<tr>
+<td>Scripts</td>
+<td>Inspected validator and PNG renderer before executing validation</td>
+</tr>
+<tr>
+<td>Fonts and notices</td>
+<td>Read package font notices and license README; preserved all supplied license files</td>
+</tr>
+<tr>
+<td>Workspace</td>
+<td>Confirmed four separate repositories with no commits or application source files at review time</td>
+</tr>
+</tbody>
+</table></div>
+<p>This was not a fresh full-size page-by-page PDF layout certification. Rendered overview inspection and selected enlarged pages supported understanding of the source diagrams.</p>
+<h2 id="verification-results">Verification results</h2>
+<div class="table-wrap" role="region" aria-label="Table 2, scroll horizontally if needed" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Check</th>
+<th scope="col">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inspected source validator, rerun with Python UTF-8 mode</td>
+<td><strong>Passed: 192 checks</strong></td>
+</tr>
+<tr>
+<td>Preserved ZIP identity</td>
+<td>SHA-256 matches the supplied archive</td>
+</tr>
+<tr>
+<td>Complete extracted package</td>
+<td>All <strong>106 files</strong> compared byte-for-byte against ZIP entries; no extra files in the preserved tree</td>
+</tr>
+<tr>
+<td>Included manifest coverage</td>
+<td><strong>105 entries</strong> verified by the validator</td>
+</tr>
+<tr>
+<td>Source B/A aliases and provenance hashes</td>
+<td>Passed within the validator</td>
+</tr>
+<tr>
+<td>Color-mode geometry, monochrome paints, specified logo PNG dimensions</td>
+<td>Passed within the validator</td>
+</tr>
+<tr>
+<td>JSON parsing, checked HTML links/anchors, font URLs</td>
+<td>Passed within the validator</td>
+</tr>
+<tr>
+<td>PDF page rendering</td>
+<td>32 page images generated</td>
+</tr>
+<tr>
+<td>PDF attachment inventory</td>
+<td>Five attachments listed: production ZIP, B/A SVG, logo spec JSON, master HTML</td>
+</tr>
+<tr>
+<td>Master HTML section-title presence</td>
+<td>All 30 guide section titles found</td>
+</tr>
+<tr>
+<td>Authored documentation</td>
+<td>Five English Markdown documents; <strong>41 local links</strong> resolve; code fences and trailing whitespace checked</td>
+</tr>
+</tbody>
+</table></div>
+<p>Detailed output: <a href="evidence/brand-handoff-v2-validation.json">fresh validation report</a>.</p>
+<p>The original <code>specs/qa-report.json</code> records <strong>87 asset checks</strong> plus other original-author checks. The fresh run reports <strong>192</strong> because the supplied script additionally validates <strong>105 manifest entries</strong>. These counts describe different report scopes, not a contradiction.</p>
+<p>The PDF attachment names were inspected; the embedded production ZIP was not separately unpacked and compared. The authoritative preserved package for this review is the user-supplied outer ZIP.</p>
+<h2 id="integration-findings">Integration findings</h2>
+<div class="table-wrap" role="region" aria-label="Table 3, scroll horizontally if needed" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Finding</th>
+<th scope="col">Evidence</th>
+<th scope="col">Planned response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dark theme, spacing, radius, and minimum trial sizes are proposals</td>
+<td>Spec statuses and master sections 10, 12, 24</td>
+<td>Preserve proposal labels; accept through actual product review</td>
+</tr>
+<tr>
+<td>React logo <code>auto</code> follows only system theme</td>
+<td><code>examples/TrueformsBrand.tsx</code> uses a media-query picture source</td>
+<td>Feed explicit resolved mode for manual application themes</td>
+</tr>
+<tr>
+<td>Sample inline icon has a fixed default green</td>
+<td><code>TrueformsIcon</code> sets <code>color: #16765C</code> unless overridden</td>
+<td>Connect the adapter to a semantic theme color; test dark surfaces</td>
+</tr>
+<tr>
+<td>JSON and CSS are not a complete generated token system</td>
+<td>JSON contains palette/mode/proposal data; CSS additionally defines semantic theme roles</td>
+<td>Establish one editable source and generated consumer outputs</td>
+</tr>
+<tr>
+<td>Functional status colors remain undefined</td>
+<td>Master section 24</td>
+<td>Design success/error/warning/information roles before functional form UI</td>
+</tr>
+<tr>
+<td>Brand colors are not suitable for every UI role</td>
+<td>Supplied contrast report</td>
+<td>Review each text/control/surface combination</td>
+</tr>
+<tr>
+<td>Demo form is local-only</td>
+<td>Example submit handler prevents submission and updates local status text</td>
+<td>Treat the working product journey as separate implementation</td>
+</tr>
+<tr>
+<td>Asset and font paths assume package/deployment structure</td>
+<td>Relative CSS font paths, example <code>/brand</code> base, manifest paths</td>
+<td>Define build-time copying and verify deployed URLs</td>
+</tr>
+<tr>
+<td>PNG renderer has environment-specific dependency resolution</td>
+<td><code>render-pngs.cjs</code> resolves sharp through <code>CODEX_PRIMARY_RUNTIME_NODE_MODULES</code></td>
+<td>Adapt tooling to the chosen project setup before using it in CI</td>
+</tr>
+<tr>
+<td>PWA assets are not maskable</td>
+<td>Manifest uses <code>purpose="any"</code>; master explicitly excludes maskable delivery</td>
+<td>Do not label them maskable without a separate derivative and acceptance</td>
+</tr>
+<tr>
+<td>Supplied font weights are limited</td>
+<td>Rubik 400/700 WOFF only</td>
+<td>Use supplied weights or separately source an intentional addition</td>
+</tr>
+<tr>
+<td>Original asset validator is intentionally bounded</td>
+<td>Checks paths/transforms/viewBox/stroke and selected paints/dimensions</td>
+<td>Extend relevant assertions and visual checks for future production changes</td>
+</tr>
+</tbody>
+</table></div>
+<p>For example, the validator's geometry comparison does not independently compare every SVG attribute, and its vector-only test is a prohibited-element check rather than a complete external-resource audit. A passed run demonstrates its defined checks, not unlimited verification of any future modified SVG.</p>
+<h2 id="not-verified-in-this-task">Not verified in this task</h2>
+<ul>
+<li>Browser rendering or interaction of the HTML examples.</li>
+<li>React/TypeScript typecheck or build in a target application.</li>
+<li>Actual product theme switching, keyboard behavior, or assistive-technology output.</li>
+<li>Email-client rendering and forced dark mode.</li>
+<li>Platform avatar cropping, installed PWA behavior, or favicon presentation.</li>
+<li>Physical print, CMYK conversion, or animation.</li>
+<li>Font rendering across target browsers and languages.</li>
+<li>Live website behavior, remote repository state, or product capabilities.</li>
+</ul>
+<p>These remain appropriately scoped implementation acceptance work. Source preservation and successful file checks do not imply they have passed.</p>
+<h2 id="handling-source-instructions">Handling source instructions</h2>
+<p>The document's imperative handoff text was read as source guidance. It did not authorize applying tokens to an application, choosing React, publishing a website, or redesigning artwork. The inspected validator was run as a local integrity check. Original files were preserved unchanged; newly authored English documentation and fresh evidence are outside the source directory.</p></article></div></main><nav class="page-pager" aria-label="Page navigation"><a href="../brand/reconstruction-sources/nimbus-roman/index.html"><span>Previous</span>Nimbus Roman provenance</a></nav><footer class="site-footer"><span>Trueforms documentation</span><a href="../brand/handoff/v2/licenses/README.txt">Font notices</a><a href="#main">Back to top</a></footer></div></div></body></html>

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The interface people use to complete forms."><meta name="theme-color" content="#f8f7f2">
+<title>Form UI | Trueforms Docs</title><link rel="icon" href="../brand/handoff/v2/assets/svg/favicon.svg">
+<link rel="stylesheet" href="../site/docs.css"><script src="../site/docs.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand-link" href="../index.html" aria-label="Trueforms documentation home"><img src="../brand/handoff/v2/assets/svg/trueforms-logo.svg" alt="Trueforms" width="170" height="28"></a><span>Documentation</span><a href="saas-implementation-plan.html">Build path</a></header>
+<div class="docs-shell"><aside class="sidebar"><details class="site-navigation" open><summary>Browse documentation</summary><div class="nav-content"><label class="search-field js-only" for="nav-search">Find a page<input id="nav-search" type="search" placeholder="Search pages" autocomplete="off"></label><nav aria-label="Documentation"><section data-nav-group><h2>Start here</h2><a data-nav-page data-search="overview confirmed direction, ownership and current status." href="../overview.html">Overview</a><a data-nav-page data-search="build path implementation stages and acceptance gates." href="saas-implementation-plan.html">Build path</a></section><section data-nav-group><h2>Implementation</h2><a data-nav-page data-search="form ui the interface people use to complete forms." href="respondent-ui-build-order.html" aria-current="page">Form UI</a><a data-nav-page data-search="form builder ui editing, preview and publication." href="form-builder-ui-build-order.html">Form Builder UI</a><a data-nav-page data-search="form payments a separate package for payment collection." href="form-payment-fields.html">Form payments</a></section><section data-nav-group><h2>Reference</h2><a data-nav-page data-search="fields field types and value contracts." href="../reference/fields.html">Fields</a><a data-nav-page data-search="component ownership shared controls and application responsibilities." href="../reference/components.html">Component ownership</a></section><section data-nav-group><h2>Brand</h2><a data-nav-page data-search="logo v1.0 confirmed logo specification." href="../brand/logo/index.html">Logo v1.0</a><a data-nav-page data-search="source materials original materials and evidence." href="../brand/index.html">Source materials</a><a data-nav-page data-search="brand guidelines geometry, color and usage." href="../brand/guidelines.html">Brand guidelines</a></section><section data-nav-group><h2>Working rules</h2><a data-nav-page data-search="contribution rules commit identity and change boundaries." href="../contributing/index.html">Contribution rules</a><a data-nav-page data-search="documentation maintaining this site." href="../contributing/documentation.html">Documentation</a></section><details class="source-records"><summary>Source records</summary><section data-nav-group><h2>Source records</h2><a data-nav-page data-search="logo reconstruction independent icon and full-logo builds, previews and comparison evidence." href="../brand/recreated/index.html">Logo reconstruction</a><a data-nav-page data-search="nimbus roman provenance pinned font inputs, upstream origin and preserved license notices." href="../brand/reconstruction-sources/nimbus-roman/index.html">Nimbus Roman provenance</a><a data-nav-page data-search="brand handoff v2 review package review, 192 validation checks and outstanding integration work." href="../reviews/brand-handoff-v2.html">Brand handoff v2 review</a></section></details></nav><p id="nav-empty" role="status" hidden>No matching pages.</p><a class="all-files" href="../files.html">All source files</a></div></details></aside>
+<div class="reading-area"><main id="main"><div class="breadcrumbs"><a href="../index.html">Docs</a> / Implementation</div>
+<header class="document-header"><h1>Form UI</h1><p class="description">The interface people use to complete forms.</p>
+<div class="document-meta meta"><span>Proposal</span><time datetime="2026-11-07">2026-11-07</time><a href="respondent-ui-build-order.md">Markdown source</a><button class="quiet-button js-only" data-print>Print / Save PDF</button></div></header>
+<div class="document-layout"><details class="page-toc" open><summary>On this page</summary><nav aria-label="On this page"><div class="toc">
+<ul>
+<li><a href="#ownership-and-prerequisites">Ownership and prerequisites</a></li>
+<li><a href="#ordered-implementation-backlog">Ordered implementation backlog</a></li>
+<li><a href="#shared-state-contract">Shared state contract</a></li>
+<li><a href="#start-building-checklist-and-first-milestone">Start-building checklist and first milestone</a></li>
+</ul>
+</div>
+</nav></details>
+<article class="article"><p><strong>Updated:</strong> 7 November 2026. <strong>Status:</strong> implementation preparation; no runtime components implemented. This surface is the form filled in by a respondent, including embedded forms. It is separate from the <a href="form-builder-ui-build-order.html">builder UI plan</a>.</p>
+<p>This sequence translates the existing <a href="../reference/fields.html">field inventory</a> and <a href="saas-implementation-plan.html">SaaS plan</a> into dependency-ordered work. Component names are proposed contracts, not selected framework APIs. Deferred capabilities remain in the inventory.</p>
+<h2 id="ownership-and-prerequisites">Ownership and prerequisites</h2>
+<p><strong>U = TrueUI:</strong> reusable controls, accessible interaction and visual states. <strong>F = frontend:</strong> schema renderer, respondent session, validation timing, navigation and submission flow. <strong>B = backend dependency:</strong> published schema, authoritative validation, access and durable writes. Backend dependencies are prerequisites, not UI components.</p>
+<p>Before RUI-01, agree on stable field/option IDs, versioned field schema, value types, error paths, supported locales, access states and submit/idempotency contract. A renderer should not invent these while being built. Mock fixtures may unblock component work; the first usable milestone still requires a real backend.</p>
+<h2 id="ordered-implementation-backlog">Ordered implementation backlog</h2>
+<p>Build rows in order unless their dependencies permit parallel work. The initial slice ends at RUI-08. Build complex fields in vertical batches rather than implementing every control before one working submission.</p>
+<div class="table-wrap" role="region" aria-label="Table 1, scroll horizontally if needed" tabindex="0"><table class="wide">
+<thead>
+<tr>
+<th scope="col">Order / ID</th>
+<th scope="col">Components to implement</th>
+<th scope="col">Owner</th>
+<th scope="col">Depends on</th>
+<th scope="col">Completion evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01 / RUI-01</td>
+<td>Semantic tokens, Text, Heading, Link, Icon, Logo, Stack, Container, Divider, Button, Spinner, Alert</td>
+<td>U</td>
+<td>Schema/API agreement for consumers</td>
+<td>Focus, contrast, pending state, narrow layout and long text examples</td>
+</tr>
+<tr>
+<td>02 / RUI-02</td>
+<td>FormField, FieldLabel, FieldDescription, FieldError, FieldGroup, RequiredIndicator, ErrorSummary</td>
+<td>U</td>
+<td>RUI-01</td>
+<td>IDs associate label/help/error; summary links focus the correct control; required meaning is explicit</td>
+</tr>
+<tr>
+<td>03 / RUI-03</td>
+<td>TextInput, Textarea, EmailInput, NumberInput, Select, RadioGroup, Checkbox, CheckboxGroup</td>
+<td>U</td>
+<td>RUI-02</td>
+<td>Empty/invalid/readonly/disabled; zero/false preserved; keyboard group behavior; field-map F01–F03,F06,F08–F11</td>
+</tr>
+<tr>
+<td>04 / RUI-04</td>
+<td>FormShell, FormHeader, ContentBlock, FieldRenderer, FieldList, UnsupportedFieldState</td>
+<td>F using U</td>
+<td>RUI-03 + versioned schema</td>
+<td>Schema order and stable IDs preserved; unknown type produces recoverable error; safe content rendering</td>
+</tr>
+<tr>
+<td>05 / RUI-05</td>
+<td>FormValues controller, ValidationPresenter, SubmissionErrorPanel</td>
+<td>F using U</td>
+<td>RUI-04 + error contract</td>
+<td>Client errors and server field/global errors map correctly; typed values retained; focus moves after failed submit</td>
+</tr>
+<tr>
+<td>06 / RUI-06</td>
+<td>SubmitBar, PendingSubmission, RetryAction, SubmissionReceipt, CompletionScreen</td>
+<td>F using U</td>
+<td>RUI-05 + durable submit API</td>
+<td>Success only after acceptance; double click/retry does not duplicate; timeout with unknown outcome reconciles</td>
+</tr>
+<tr>
+<td>07 / RUI-07</td>
+<td>FormLoading, UnavailableForm, ClosedForm, ScheduledForm, AccessDenied, ExpiredLink, OfflineNotice</td>
+<td>F using U</td>
+<td>RUI-04,RUI-06 + access states</td>
+<td>Distinct causes and recovery; expired/closed form never silently discards entered values</td>
+</tr>
+<tr>
+<td>08 / RUI-08</td>
+<td>PublishedFormRoute, EmbeddedFormShell, ResponsiveFormLayout</td>
+<td>F</td>
+<td>RUI-04–07 + publication API</td>
+<td>Real published form can be completed by keyboard/mobile and reviewed by an authorized owner; embed integration may follow standalone route</td>
+</tr>
+<tr>
+<td>09 / RUI-09</td>
+<td>TelephoneInput, URLInput, SearchableSelect, MultiSelect, TagInput, ChoiceCard, NameGroup, AddressGroup</td>
+<td>U controls; F domain grouping</td>
+<td>RUI-02–05 + option data contracts</td>
+<td>Async options handle stale responses and failure; country/name assumptions explicit; F04–F05,F13–F14,F26–F27,F43</td>
+</tr>
+<tr>
+<td>10 / RUI-10</td>
+<td>DateInput, TimeInput, DateTimeInput, DateRangeInput, Rating, OpinionScale, Slider</td>
+<td>U; F value adapters</td>
+<td>RUI-02–05 + date/value policy</td>
+<td>Date versus instant distinguished; bounds/locale handled; unanswered distinct from default; F16–F19,F23–F25</td>
+</tr>
+<tr>
+<td>11 / RUI-11</td>
+<td>FilePicker, Dropzone, UploadQueue, FileItem, UploadProgress, FilePreview, ScanStatus, Cancel/Retry</td>
+<td>U presentation; F upload coordinator</td>
+<td>RUI-06 + storage/scan/finalization APIs</td>
+<td>Invalid/oversize/scanning/rejected states; retry/cancel; authorized file association; F21–F22</td>
+</tr>
+<tr>
+<td>12 / RUI-12</td>
+<td>FormPage, PageTitle, ProgressIndicator, PreviousNextBar, ReviewAnswers</td>
+<td>F using U Stepper</td>
+<td>RUI-05–06 + page schema</td>
+<td>Back preserves input; next validates current page; review links return focus; F47</td>
+</tr>
+<tr>
+<td>13 / RUI-13</td>
+<td>ConditionalField, ConditionalPage, BranchNavigation, DependentChoice</td>
+<td>F</td>
+<td>RUI-09,RUI-12 + shared rule contract</td>
+<td>Hidden-field policy matches server; loops/invalid references blocked; no stranded page/focus; F15</td>
+</tr>
+<tr>
+<td>14 / RUI-14</td>
+<td>PrefillAdapter, HiddenValueAdapter, MaskedInput, InputAffix, CharacterCounter</td>
+<td>F adapters; U decorators</td>
+<td>RUI-05 + trust/normalization policy</td>
+<td>URL/hidden values untrusted; display mask differs from persisted value; F35,F41</td>
+</tr>
+<tr>
+<td>15 / RUI-15</td>
+<td>ResumePrompt, SaveProgressStatus, ResumeLinkState, PartialResponseNotice</td>
+<td>F using U</td>
+<td>RUI-12–13 + resume/retention APIs</td>
+<td>Session/token expiry and cross-device resume handled; partial-data collection explicit</td>
+</tr>
+<tr>
+<td>16 / RUI-16</td>
+<td>MatrixField, RankingField, RepeatableGroup, AddRemoveItemBar, CalculatedValue</td>
+<td>F compositions; U reusable controls</td>
+<td>RUI-13 + advanced schema validators</td>
+<td>Keyboard reorder; stable repeated-item IDs; limits/cycles; server recomputes calculations; F31–F34</td>
+</tr>
+<tr>
+<td>17 / RUI-17</td>
+<td>RichTextAnswer, MonthInput, WeekInput, TransferList, LocationInput</td>
+<td>U adapters; F contracts</td>
+<td>RUI-09–10 + content/provider policies</td>
+<td>Restricted content, manual location fallback, accessible alternatives; F20,F28–F29,F42</td>
+</tr>
+<tr>
+<td>18 / RUI-18</td>
+<td>AmountInput, SignatureField, SignatureReview</td>
+<td>U amount control; F signature integration</td>
+<td>RUI-06 + numeric/signature contracts</td>
+<td>Amount entry does not charge money; signature policy established; F07,F30</td>
+</tr>
+<tr>
+<td>19 / RUI-19</td>
+<td>AccessGate, PasswordEntry, VerificationCode, ChallengeAdapter</td>
+<td>F flows using U</td>
+<td>RUI-07 + authentication/abuse policy</td>
+<td>Accessible retries and expiry; backend checks proof; public forms never collect account passwords as ordinary answers; F37–F38,F45</td>
+</tr>
+<tr>
+<td>20 / RUI-20</td>
+<td>LanguageSelector, ThemeBoundary, LongFormNavigation, MediaContent, PrintResponseView</td>
+<td>F compositions using U</td>
+<td>RUI-08,RUI-12 + locale/theme contracts</td>
+<td>Long labels, chosen RTL policy, zoom, captions, theme contrast and separate print checks</td>
+</tr>
+</tbody>
+</table></div>
+<p>RUI-19 is conditionally pulled forward: if the first release requires a gated form or challenge, it blocks RUI-08. Basic server abuse controls already block public release regardless of whether a challenge widget is used. Similarly, localization and theme acceptance from RUI-20 apply from the first slice for every supported locale/theme; optional selectors/media/print can follow later.</p>
+<h2 id="shared-state-contract">Shared state contract</h2>
+<p>Field state: value, error, dirty/touched, enabled/readonly, visible and pending asynchronous work. Form state: loading, ready, validating, submitting, accepted, rejected or unknown outcome. Unknown outcome is not automatically a fresh submission. Keep form access state separate from submission state.</p>
+<p>Use the same frontend renderer and field registry for builder preview and published forms. Pass schema, version, resolved theme, locale and explicit preview/live mode. Preview must use an inert submission adapter; live mode requires authorized backend contracts. TrueUI receives props and callbacks rather than knowing a form endpoint or workspace.</p>
+<h2 id="start-building-checklist-and-first-milestone">Start-building checklist and first milestone</h2>
+<p>The first implementation batch is RUI-01–03 with fixtures; the next is RUI-04–07 with a real published schema and response API. Connect RUI-08 after those states work. Do not wait for all 47 families.</p>
+<p>The initial milestone passes only when a published form accepts a valid response, shows actionable invalid/server errors without losing values, survives a repeated submission safely, displays closed/unavailable states, and supports keyboard/narrow-screen use. Confirm schema version and stored answers through backend evidence, not a success toast alone. The <a href="form-builder-ui-build-order.html#first-milestone-and-integration-order">builder's first milestone</a> produces the schema consumed here.</p></article></div></main><nav class="page-pager" aria-label="Page navigation"><a href="saas-implementation-plan.html"><span>Previous</span>Build path</a><a href="form-builder-ui-build-order.html"><span>Next</span>Form Builder UI</a></nav><footer class="site-footer"><span>Trueforms documentation</span><a href="../brand/handoff/v2/licenses/README.txt">Font notices</a><a href="#main">Back to top</a></footer></div></div></body></html>

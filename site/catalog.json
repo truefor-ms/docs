@@ -1,0 +1,123 @@
+[
+  {
+    "source": "README.md",
+    "output": "overview.html",
+    "title": "Overview",
+    "category": "Start here",
+    "kind": "Index",
+    "date": "2026-11-07",
+    "description": "Confirmed direction, ownership and current status."
+  },
+  {
+    "source": "planning/saas-implementation-plan.md",
+    "title": "Build path",
+    "category": "Start here",
+    "kind": "Proposal",
+    "date": "2026-11-07",
+    "description": "Implementation stages and acceptance gates."
+  },
+  {
+    "source": "planning/respondent-ui-build-order.md",
+    "title": "Form UI",
+    "description": "The interface people use to complete forms.",
+    "category": "Implementation",
+    "kind": "Proposal",
+    "date": "2026-11-07"
+  },
+  {
+    "source": "planning/form-builder-ui-build-order.md",
+    "title": "Form Builder UI",
+    "description": "Editing, preview and publication.",
+    "category": "Implementation",
+    "kind": "Proposal",
+    "date": "2026-11-07"
+  },
+  {
+    "source": "planning/form-payment-fields.md",
+    "title": "Form payments",
+    "category": "Implementation",
+    "kind": "Work package",
+    "date": "2026-11-07",
+    "description": "A separate package for payment collection."
+  },
+  {
+    "source": "reference/fields.md",
+    "kind": "Reference",
+    "title": "Fields",
+    "category": "Reference",
+    "description": "Field types and value contracts.",
+    "date": "2026-11-07"
+  },
+  {
+    "source": "reference/components.md",
+    "kind": "Reference",
+    "title": "Component ownership",
+    "category": "Reference",
+    "description": "Shared controls and application responsibilities.",
+    "date": "2026-11-07"
+  },
+  {
+    "source": "brand/logo/README.md",
+    "title": "Logo v1.0",
+    "category": "Brand",
+    "kind": "Reference · v1.0",
+    "date": "2026-11-07",
+    "description": "Confirmed logo specification."
+  },
+  {
+    "source": "brand/README.md",
+    "title": "Source materials",
+    "category": "Brand",
+    "kind": "Index",
+    "date": "2026-11-07",
+    "description": "Original materials and evidence."
+  },
+  {
+    "source": "brand/guidelines.md",
+    "title": "Brand guidelines",
+    "category": "Brand",
+    "kind": "Reference",
+    "date": "2026-11-07",
+    "description": "Geometry, color and usage."
+  },
+  {
+    "source": "contributing/README.md",
+    "title": "Contribution rules",
+    "category": "Working rules",
+    "kind": "Policy",
+    "date": "2026-11-07",
+    "description": "Commit identity and change boundaries."
+  },
+  {
+    "source": "contributing/documentation.md",
+    "title": "Documentation",
+    "category": "Working rules",
+    "kind": "Policy",
+    "date": "2026-11-07",
+    "description": "Maintaining this site."
+  },
+  {
+    "source": "brand/recreated/README.md",
+    "title": "Logo reconstruction",
+    "category": "Source records",
+    "kind": "Technical reference",
+    "date": "2026-11-05",
+    "description": "Independent icon and full-logo builds, previews and comparison evidence."
+  },
+  {
+    "source": "brand/reconstruction-sources/nimbus-roman/README.md",
+    "title": "Nimbus Roman provenance",
+    "category": "Source records",
+    "kind": "Source record",
+    "date": "2026-11-05",
+    "description": "Pinned font inputs, upstream origin and preserved license notices."
+  },
+  {
+    "source": "reviews/brand-handoff-v2.md",
+    "title": "Brand handoff v2 review",
+    "category": "Source records",
+    "kind": "Report",
+    "date": "2026-11-05",
+    "description": "Package review, 192 validation checks and outstanding integration work."
+  }
+]

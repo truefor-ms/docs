@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Shared controls and application responsibilities."><meta name="theme-color" content="#f8f7f2">
+<title>Component ownership | Trueforms Docs</title><link rel="icon" href="../brand/handoff/v2/assets/svg/favicon.svg">
+<link rel="stylesheet" href="../site/docs.css"><script src="../site/docs.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand-link" href="../index.html" aria-label="Trueforms documentation home"><img src="../brand/handoff/v2/assets/svg/trueforms-logo.svg" alt="Trueforms" width="170" height="28"></a><span>Documentation</span><a href="../planning/saas-implementation-plan.html">Build path</a></header>
+<div class="docs-shell"><aside class="sidebar"><details class="site-navigation" open><summary>Browse documentation</summary><div class="nav-content"><label class="search-field js-only" for="nav-search">Find a page<input id="nav-search" type="search" placeholder="Search pages" autocomplete="off"></label><nav aria-label="Documentation"><section data-nav-group><h2>Start here</h2><a data-nav-page data-search="overview confirmed direction, ownership and current status." href="../overview.html">Overview</a><a data-nav-page data-search="build path implementation stages and acceptance gates." href="../planning/saas-implementation-plan.html">Build path</a></section><section data-nav-group><h2>Implementation</h2><a data-nav-page data-search="form ui the interface people use to complete forms." href="../planning/respondent-ui-build-order.html">Form UI</a><a data-nav-page data-search="form builder ui editing, preview and publication." href="../planning/form-builder-ui-build-order.html">Form Builder UI</a><a data-nav-page data-search="form payments a separate package for payment collection." href="../planning/form-payment-fields.html">Form payments</a></section><section data-nav-group><h2>Reference</h2><a data-nav-page data-search="fields field types and value contracts." href="fields.html">Fields</a><a data-nav-page data-search="component ownership shared controls and application responsibilities." href="components.html" aria-current="page">Component ownership</a></section><section data-nav-group><h2>Brand</h2><a data-nav-page data-search="logo v1.0 confirmed logo specification." href="../brand/logo/index.html">Logo v1.0</a><a data-nav-page data-search="source materials original materials and evidence." href="../brand/index.html">Source materials</a><a data-nav-page data-search="brand guidelines geometry, color and usage." href="../brand/guidelines.html">Brand guidelines</a></section><section data-nav-group><h2>Working rules</h2><a data-nav-page data-search="contribution rules commit identity and change boundaries." href="../contributing/index.html">Contribution rules</a><a data-nav-page data-search="documentation maintaining this site." href="../contributing/documentation.html">Documentation</a></section><details class="source-records"><summary>Source records</summary><section data-nav-group><h2>Source records</h2><a data-nav-page data-search="logo reconstruction independent icon and full-logo builds, previews and comparison evidence." href="../brand/recreated/index.html">Logo reconstruction</a><a data-nav-page data-search="nimbus roman provenance pinned font inputs, upstream origin and preserved license notices." href="../brand/reconstruction-sources/nimbus-roman/index.html">Nimbus Roman provenance</a><a data-nav-page data-search="brand handoff v2 review package review, 192 validation checks and outstanding integration work." href="../reviews/brand-handoff-v2.html">Brand handoff v2 review</a></section></details></nav><p id="nav-empty" role="status" hidden>No matching pages.</p><a class="all-files" href="../files.html">All source files</a></div></details></aside>
+<div class="reading-area"><main id="main"><div class="breadcrumbs"><a href="../index.html">Docs</a> / Reference</div>
+<header class="document-header"><h1>Component ownership</h1><p class="description">Shared controls and application responsibilities.</p>
+<div class="document-meta meta"><span>Reference</span><time datetime="2026-11-07">2026-11-07</time><a href="components.md">Markdown source</a><button class="quiet-button js-only" data-print>Print / Save PDF</button></div></header>
+<div class="document-layout"><details class="page-toc" open><summary>On this page</summary><nav aria-label="On this page"><div class="toc">
+<ul>
+<li><a href="#reusable-component-families">Reusable component families</a></li>
+<li><a href="#application-compositions-and-domain-ownership">Application compositions and domain ownership</a></li>
+<li><a href="#shared-acceptance-contract">Shared acceptance contract</a></li>
+</ul>
+</div>
+</nav></details>
+<article class="article"><p>Planned shared components and application responsibilities.</p>
+<h2 id="reusable-component-families">Reusable component families</h2>
+<p>This reference retains reusable foundations and form-SaaS compositions. Unrelated example applications and decorative extensions are omitted. The build stages are dependency phases, not dates. A listed composition does not automatically require a separate package export.</p>
+<div class="table-wrap" role="region" aria-label="Table 1, scroll horizontally if needed" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">ID</th>
+<th scope="col">Family and variants</th>
+<th scope="col">First use / phase</th>
+<th scope="col">Boundary and required states</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C01</td>
+<td>Tokens, typography, spacing, color, elevation, borders, density, motion, focus</td>
+<td>All / foundation</td>
+<td>TrueUI; semantic roles, contrast and reduced motion; frontend resolves theme</td>
+</tr>
+<tr>
+<td>C02</td>
+<td>Text, heading, link, icon, logo, separator, list</td>
+<td>All / foundation</td>
+<td>TrueUI; semantic markup, truncation alternatives, decorative versus named icons</td>
+</tr>
+<tr>
+<td>C03</td>
+<td>Button, icon button, button group, split button</td>
+<td>All / foundation</td>
+<td>TrueUI; pending, disabled, destructive, keyboard and repeat activation</td>
+</tr>
+<tr>
+<td>C04</td>
+<td>Field wrapper, label, help, error, required indicator, group, error summary</td>
+<td>Forms / foundation</td>
+<td>TrueUI presentation; frontend validation timing; backend authority</td>
+</tr>
+<tr>
+<td>C05</td>
+<td>Basic and advanced controls F01–F47</td>
+<td>Forms / foundation–extensions</td>
+<td>See <a href="fields.html">field contract</a>; domain renderers live in frontend</td>
+</tr>
+<tr>
+<td>C06</td>
+<td>Stack, grid, container, responsive columns, divider, surface/card/panel</td>
+<td>All / foundation</td>
+<td>TrueUI; no product-specific data fetching</td>
+</tr>
+<tr>
+<td>C07</td>
+<td>App shell, sidebar, header, footer, top navigation, compact/horizontal layouts</td>
+<td>Admin / foundation</td>
+<td>TrueUI slots; frontend route and permission state</td>
+</tr>
+<tr>
+<td>C08</td>
+<td>Page header, breadcrumbs, toolbar, action bar, sticky actions</td>
+<td>Admin / first journey</td>
+<td>TrueUI composition; frontend titles/actions; narrow-layout overflow</td>
+</tr>
+<tr>
+<td>C09</td>
+<td>Menu, dropdown, context menu, nested navigation</td>
+<td>Admin / first journey</td>
+<td>TrueUI; keyboard roving, escape, focus return, viewport collision</td>
+</tr>
+<tr>
+<td>C10</td>
+<td>Dialog, confirmation, alert dialog, drawer/offcanvas</td>
+<td>Edit/delete / first journey</td>
+<td>TrueUI focus containment; frontend intent, dirty-state and delete workflow</td>
+</tr>
+<tr>
+<td>C11</td>
+<td>Tooltip, popover, hover card</td>
+<td>Help / first journey</td>
+<td>TrueUI; keyboard/touch access; essential instructions available without hover</td>
+</tr>
+<tr>
+<td>C12</td>
+<td>Tabs/pills, accordion, collapse/disclosure</td>
+<td>Settings / first journey</td>
+<td>TrueUI; selection and expansion semantics, lazy content state</td>
+</tr>
+<tr>
+<td>C13</td>
+<td>Alert/banner, toast/snackbar, inline status</td>
+<td>Save/failure / foundation</td>
+<td>TrueUI; persistent errors not toast-only, announcement and action support</td>
+</tr>
+<tr>
+<td>C14</td>
+<td>Spinner, skeleton, progress, overlay/blocking state</td>
+<td>Async / foundation–product expansion</td>
+<td>TrueUI; measurable versus indeterminate; cancel/retry supplied by app</td>
+</tr>
+<tr>
+<td>C15</td>
+<td>Empty state, no results, error panel, offline and permission state</td>
+<td>All / first journey</td>
+<td>TrueUI presentation; app distinguishes causes and recovery</td>
+</tr>
+<tr>
+<td>C16</td>
+<td>Badge, chip, tag, status dot, ribbon</td>
+<td>Lists / first journey</td>
+<td>TrueUI; text meaning, removable keyboard action, no color-only status</td>
+</tr>
+<tr>
+<td>C17</td>
+<td>Avatar/group, image/thumbnail, media object, file tile</td>
+<td>Team/assets / product expansion</td>
+<td>TrueUI; image failure, initials, alt text and loading</td>
+</tr>
+<tr>
+<td>C18</td>
+<td>Semantic table, responsive table, row actions</td>
+<td>Responses / first journey</td>
+<td>TrueUI; headers, empty/loading/error, narrow-screen reading</td>
+</tr>
+<tr>
+<td>C19</td>
+<td>DataTable: sort, filter, search, pagination, selection, bulk actions</td>
+<td>Responses / product expansion</td>
+<td>TrueUI controlled state; backend query authorization; explicit all-page selection semantics</td>
+</tr>
+<tr>
+<td>C20</td>
+<td>Column visibility/order/resize/pinning, expandable rows, virtualized grid, inline edit</td>
+<td>Large datasets / advanced features</td>
+<td>Optional TrueUI composition; stable row IDs; keyboard access and server conflicts</td>
+</tr>
+<tr>
+<td>C21</td>
+<td>Pagination/pager, page-size control, load-more</td>
+<td>Lists / first journey</td>
+<td>TrueUI; counts unknown/known, reset on filter, stable query state</td>
+</tr>
+<tr>
+<td>C22</td>
+<td>Filter bar, filter chips, date range, saved-view presentation</td>
+<td>Responses / product expansion</td>
+<td>TrueUI widgets; frontend query model; backend saves views and filters</td>
+</tr>
+<tr>
+<td>C23</td>
+<td>Global search / command palette / shortcuts</td>
+<td>Admin / advanced features</td>
+<td>TrueUI search shell; app result routing and authorization</td>
+</tr>
+<tr>
+<td>C24</td>
+<td>Stepper, wizard, progress navigation</td>
+<td>Onboarding/forms / product expansion</td>
+<td>TrueUI; frontend progression rules, back/skip/invalid steps</td>
+</tr>
+<tr>
+<td>C25</td>
+<td>Sortable list, drag handle, drop target, transfer, tree view</td>
+<td>Builder / first journey basic move, advanced features advanced</td>
+<td>TrueUI generic interaction; keyboard move alternative; app schema/permissions</td>
+</tr>
+<tr>
+<td>C26</td>
+<td>Timeline/activity feed, audit event presentation</td>
+<td>History / product expansion</td>
+<td>TrueUI; backend immutable event facts and visibility</td>
+</tr>
+<tr>
+<td>C27</td>
+<td>Chart adapters, legends, metrics, sparklines, gauges, heatmaps</td>
+<td>Analytics / release readiness–advanced features</td>
+<td>Optional TrueUI; frontend metric definitions; accessible tabular alternative</td>
+</tr>
+<tr>
+<td>C29</td>
+<td>Rich text, code editor, syntax highlighting, diff</td>
+<td>Content/integrations / advanced features</td>
+<td>Optional adapters; restricted content and app validation</td>
+</tr>
+<tr>
+<td>C30</td>
+<td>Upload queue, preview, image crop, file browser</td>
+<td>Files / product expansion–advanced features</td>
+<td>TrueUI presentation; backend storage, scan and signed access</td>
+</tr>
+<tr>
+<td>C33</td>
+<td>Tour, onboarding checklist, contextual help, feedback prompt</td>
+<td>Activation / release readiness</td>
+<td>Reusable presentation; frontend completion and eligibility</td>
+</tr>
+<tr>
+<td>C34</td>
+<td>Scroll area, sticky regions, scroll-to-top, scrollspy, resizable/split panels</td>
+<td>Builder/layout / product expansion–advanced features</td>
+<td>TrueUI where reusable; preserve native input and zoom behavior</td>
+</tr>
+<tr>
+<td>C36</td>
+<td>Notification list, inbox item, unread indicator</td>
+<td>SaaS / release readiness</td>
+<td>TrueUI presentation; frontend preferences; backend delivery/read state</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="application-compositions-and-domain-ownership">Application compositions and domain ownership</h2>
+<div class="table-wrap" role="region" aria-label="Table 2, scroll horizontally if needed" tabindex="0"><table class="wide">
+<thead>
+<tr>
+<th scope="col">ID</th>
+<th scope="col">Composition / feature</th>
+<th scope="col">Reusable parts</th>
+<th scope="col">Frontend and backend responsibilities</th>
+<th scope="col">Phase</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A01</td>
+<td>Marketing, pricing, FAQ, help, status and contact</td>
+<td>C02, C06, C12</td>
+<td>Accurate public availability, plan content, support routing</td>
+<td>release readiness</td>
+</tr>
+<tr>
+<td>A02</td>
+<td>Signup, verification, login, logout, reset, MFA, session list</td>
+<td>C03–C05, C13</td>
+<td>Identity lifecycle, session revocation, recovery and throttling</td>
+<td>foundation then release readiness MFA</td>
+</tr>
+<tr>
+<td>A03</td>
+<td>Onboarding, workspace switch/create, invitations</td>
+<td>C07, C24</td>
+<td>Tenant membership, invite expiry/revocation, owner transfer</td>
+<td>foundation–release readiness</td>
+</tr>
+<tr>
+<td>A04</td>
+<td>Form library: list/grid, search, folders/tags, duplicate/archive/trash</td>
+<td>C08–C10, C18–C22</td>
+<td>Authorized queries, lifecycle and restore/retention</td>
+<td>first journey–product expansion</td>
+</tr>
+<tr>
+<td>A05</td>
+<td>Form builder: palette, canvas, outline, properties, rules</td>
+<td>C04–C06, C25, C34</td>
+<td>Schema state, undo/redo, autosave, conflict resolution, validation</td>
+<td>first journey–advanced features</td>
+</tr>
+<tr>
+<td>A06</td>
+<td>Preview, theme, publication/version history, share/embed</td>
+<td>C10, C24, C26</td>
+<td>Atomic publish, stable public URL, access rules, embed configuration</td>
+<td>first journey–product expansion</td>
+</tr>
+<tr>
+<td>A07</td>
+<td>Respondent flow: welcome, questions, pages, review, submit, receipt</td>
+<td>F01–F47, C13–C15</td>
+<td>Public renderer, conditional logic, durable submit, close/expiry and retry</td>
+<td>first journey–advanced features</td>
+</tr>
+<tr>
+<td>A08</td>
+<td>Response inbox/detail, attachments, notes, tags, export, deletion</td>
+<td>C18–C22, C26, C30</td>
+<td>Version-aware answers, access checks, safe export, retention</td>
+<td>first journey–product expansion</td>
+</tr>
+<tr>
+<td>A09</td>
+<td>Form analytics, drop-off, completion, sources, trends</td>
+<td>C27</td>
+<td>Defined event/metric contracts, bot exclusion and aggregation</td>
+<td>release readiness–advanced features</td>
+</tr>
+<tr>
+<td>A10</td>
+<td>Workspace/member/role administration and audit</td>
+<td>C18, C10, C26</td>
+<td>Backend capability checks and object scope; revoke active access</td>
+<td>product expansion–release readiness</td>
+</tr>
+<tr>
+<td>A11</td>
+<td>Subscription, plan/usage, upgrade, payment method, invoices, cancellation</td>
+<td>C06, C13, C19</td>
+<td>App billing starts with foundations; distinct from form payment fields</td>
+<td>foundation implementation; release readiness release validation</td>
+</tr>
+<tr>
+<td>A12</td>
+<td>Profile, preferences, security, localization, data controls</td>
+<td>C04, C12</td>
+<td>Account/workspace settings ownership and export/deletion flows</td>
+<td>product expansion–release readiness</td>
+</tr>
+<tr>
+<td>A13</td>
+<td>API keys, webhooks, integrations, delivery logs and retry</td>
+<td>C19, C29</td>
+<td>Scopes/secrets, outbound delivery queue, idempotency and revocation</td>
+<td>advanced features</td>
+</tr>
+<tr>
+<td>A14</td>
+<td>Automation/rules, approvals, assignments, notification examples</td>
+<td>C25, C26, C29</td>
+<td>Versioned execution, retry/dead-letter, authorization and history</td>
+<td>advanced features</td>
+</tr>
+<tr>
+<td>A15</td>
+<td>Platform operator console, abuse cases, support tooling</td>
+<td>C18, C22, C26</td>
+<td>Separate staff permissions, audited access, operational controls</td>
+<td>release readiness</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="shared-acceptance-contract">Shared acceptance contract</h2>
+<p>Every implemented family needs examples for ordinary, empty, pending, failed, denied, disabled and overflow states where applicable. Document controlled/uncontrolled state, callback payloads, focus behavior, keyboard contract and localization boundaries. Test nested overlays, long content, zoom, reduced motion, theme contrast and mobile touch. A published API includes supported variants and intentional exclusions; visual resemblance to a theme is not an acceptance criterion.</p>
+<p>No reusable component may fetch a Trueforms endpoint, infer a subscription plan, authorize a user or persist a form. Domain compositions stay in frontend; backend remains authoritative. Heavy adapters load independently so a text field does not import charts or editors. Library choices require license, maintenance, accessibility, size and integration review; evaluate dependencies against product requirements.</p></article></div></main><nav class="page-pager" aria-label="Page navigation"><a href="fields.html"><span>Previous</span>Fields</a><a href="../brand/logo/index.html"><span>Next</span>Logo v1.0</a></nav><footer class="site-footer"><span>Trueforms documentation</span><a href="../brand/handoff/v2/licenses/README.txt">Font notices</a><a href="#main">Back to top</a></footer></div></div></body></html>

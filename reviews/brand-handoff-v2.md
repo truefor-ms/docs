@@ -6,7 +6,7 @@
 
 The package provides a strong, traceable brand foundation: exact B/A artwork, an independent document icon, production derivatives, structured measurements, font notices, and integration examples. It is suitable as a controlled source for implementation planning. It does not establish a finished product, a chosen framework, or accepted behavior in the target application.
 
-The [brand hub](../brand/README.md) gives direct access to the full original materials. The [project pre-plan](../planning/project-preplan.md) turns the findings into proposed work; the [guidelines](../brand/guidelines.md) preserve the distinction between established artwork and proposed UI usage.
+The [brand hub](../brand/README.md) gives direct access to the full original materials. The [build path](../planning/saas-implementation-plan.md) turns the findings into proposed work; the [guidelines](../brand/guidelines.md) preserve the distinction between established artwork and proposed UI usage.
 
 ## Materials examined
 

@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Field types and value contracts."><meta name="theme-color" content="#f8f7f2">
+<title>Fields | Trueforms Docs</title><link rel="icon" href="../brand/handoff/v2/assets/svg/favicon.svg">
+<link rel="stylesheet" href="../site/docs.css"><script src="../site/docs.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand-link" href="../index.html" aria-label="Trueforms documentation home"><img src="../brand/handoff/v2/assets/svg/trueforms-logo.svg" alt="Trueforms" width="170" height="28"></a><span>Documentation</span><a href="../planning/saas-implementation-plan.html">Build path</a></header>
+<div class="docs-shell"><aside class="sidebar"><details class="site-navigation" open><summary>Browse documentation</summary><div class="nav-content"><label class="search-field js-only" for="nav-search">Find a page<input id="nav-search" type="search" placeholder="Search pages" autocomplete="off"></label><nav aria-label="Documentation"><section data-nav-group><h2>Start here</h2><a data-nav-page data-search="overview confirmed direction, ownership and current status." href="../overview.html">Overview</a><a data-nav-page data-search="build path implementation stages and acceptance gates." href="../planning/saas-implementation-plan.html">Build path</a></section><section data-nav-group><h2>Implementation</h2><a data-nav-page data-search="form ui the interface people use to complete forms." href="../planning/respondent-ui-build-order.html">Form UI</a><a data-nav-page data-search="form builder ui editing, preview and publication." href="../planning/form-builder-ui-build-order.html">Form Builder UI</a><a data-nav-page data-search="form payments a separate package for payment collection." href="../planning/form-payment-fields.html">Form payments</a></section><section data-nav-group><h2>Reference</h2><a data-nav-page data-search="fields field types and value contracts." href="fields.html" aria-current="page">Fields</a><a data-nav-page data-search="component ownership shared controls and application responsibilities." href="components.html">Component ownership</a></section><section data-nav-group><h2>Brand</h2><a data-nav-page data-search="logo v1.0 confirmed logo specification." href="../brand/logo/index.html">Logo v1.0</a><a data-nav-page data-search="source materials original materials and evidence." href="../brand/index.html">Source materials</a><a data-nav-page data-search="brand guidelines geometry, color and usage." href="../brand/guidelines.html">Brand guidelines</a></section><section data-nav-group><h2>Working rules</h2><a data-nav-page data-search="contribution rules commit identity and change boundaries." href="../contributing/index.html">Contribution rules</a><a data-nav-page data-search="documentation maintaining this site." href="../contributing/documentation.html">Documentation</a></section><details class="source-records"><summary>Source records</summary><section data-nav-group><h2>Source records</h2><a data-nav-page data-search="logo reconstruction independent icon and full-logo builds, previews and comparison evidence." href="../brand/recreated/index.html">Logo reconstruction</a><a data-nav-page data-search="nimbus roman provenance pinned font inputs, upstream origin and preserved license notices." href="../brand/reconstruction-sources/nimbus-roman/index.html">Nimbus Roman provenance</a><a data-nav-page data-search="brand handoff v2 review package review, 192 validation checks and outstanding integration work." href="../reviews/brand-handoff-v2.html">Brand handoff v2 review</a></section></details></nav><p id="nav-empty" role="status" hidden>No matching pages.</p><a class="all-files" href="../files.html">All source files</a></div></details></aside>
+<div class="reading-area"><main id="main"><div class="breadcrumbs"><a href="../index.html">Docs</a> / Reference</div>
+<header class="document-header"><h1>Fields</h1><p class="description">Field types and value contracts.</p>
+<div class="document-meta meta"><span>Reference</span><time datetime="2026-11-07">2026-11-07</time><a href="fields.md">Markdown source</a><button class="quiet-button js-only" data-print>Print / Save PDF</button></div></header>
+<div class="document-layout"><details class="page-toc" open><summary>On this page</summary><nav aria-label="On this page"><div class="toc">
+<ul>
+<li><a href="#common-field-contract">Common field contract</a></li>
+<li><a href="#field-inventory-and-priority">Field inventory and priority</a></li>
+<li><a href="#field-decorators-and-layout-variants">Field decorators and layout variants</a></li>
+<li><a href="#builder-and-respondent-parity">Builder and respondent parity</a></li>
+<li><a href="#acceptance-matrix">Acceptance matrix</a></li>
+<li><a href="#open-decisions">Open decisions</a></li>
+</ul>
+</div>
+</nav></details>
+<article class="article"><p>Planned field contracts. No runtime implementation is implied.</p>
+<h2 id="common-field-contract">Common field contract</h2>
+<p>Every answer-bearing field has a stable ID, type and type version, label, description, required flag, constraints, default policy, option IDs where relevant, and presentation settings separated from stored values. Labels are editable; IDs are not derived from labels. Preserve the published schema version with each response. Unknown types must fail publication safely and render a recoverable incompatibility state, not disappear.</p>
+<p>TrueUI owns label/help/error association, keyboard/focus behavior, visual states and value callbacks. The frontend owns draft values, dirty/touched state, conditional visibility and submission orchestration. The backend owns schema validation, authoritative answer validation, normalization, authorization and persistence. A readonly or hidden control cannot establish trust.</p>
+<p>Empty, omitted and explicit false/zero are distinct. Define empty-string normalization per type; do not coerce every empty field to zero. All fields need editable, focused, invalid, disabled and readonly behavior where meaningful, with long labels, help, server errors and narrow layouts. Group fields use a group label and per-option accessible names. Passwords are account controls, not a default public survey field.</p>
+<h2 id="field-inventory-and-priority">Field inventory and priority</h2>
+<p>Stages follow the <a href="../planning/saas-implementation-plan.html">Build path</a>.</p>
+<div class="table-wrap" role="region" aria-label="Table 1, scroll horizontally if needed" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">ID</th>
+<th scope="col">Field / family</th>
+<th scope="col">Expected use / phase</th>
+<th scope="col">Stored value and essential behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F01</td>
+<td>Short text</td>
+<td>Frequent / first journey</td>
+<td>String; length bounds, Unicode, whitespace policy; no silent truncation</td>
+</tr>
+<tr>
+<td>F02</td>
+<td>Long text / autosize textarea</td>
+<td>Frequent / first journey</td>
+<td>String with line breaks; counter; resizing must preserve focus</td>
+</tr>
+<tr>
+<td>F03</td>
+<td>Email</td>
+<td>Frequent / first journey</td>
+<td>String; syntactic check is not ownership verification; explicit single/multiple policy</td>
+</tr>
+<tr>
+<td>F04</td>
+<td>Telephone</td>
+<td>Frequent / product expansion</td>
+<td>String plus country context if supplied; preserve leading + and zeros; extension policy</td>
+</tr>
+<tr>
+<td>F05</td>
+<td>URL</td>
+<td>Common / product expansion</td>
+<td>String; accepted schemes; safe rendering as a link; never fetch arbitrary destinations implicitly</td>
+</tr>
+<tr>
+<td>F06</td>
+<td>Integer / decimal / stepper</td>
+<td>Frequent / first journey</td>
+<td>Canonical numeric representation; min/max/step, locale parsing; reject nonfinite values</td>
+</tr>
+<tr>
+<td>F07</td>
+<td>Currency / amount</td>
+<td>Common / numeric-control batch</td>
+<td>Decimal amount plus currency; explicit precision and rounding; not floating-point billing arithmetic</td>
+</tr>
+<tr>
+<td>F08</td>
+<td>Single select</td>
+<td>Frequent / first journey</td>
+<td>Stable option ID or null; placeholder is not an answer; removed-option history</td>
+</tr>
+<tr>
+<td>F09</td>
+<td>Radio group / yes-no</td>
+<td>Frequent / first journey</td>
+<td>One option ID; no accidental default; keyboard group behavior</td>
+</tr>
+<tr>
+<td>F10</td>
+<td>Checkbox / acknowledgement</td>
+<td>Frequent / first journey</td>
+<td>Boolean; unchecked differs from unanswered where required; immutable wording/version for consent records</td>
+</tr>
+<tr>
+<td>F11</td>
+<td>Checkbox group</td>
+<td>Frequent / first journey</td>
+<td>Option-ID array; min/max selections; deterministic output order</td>
+</tr>
+<tr>
+<td>F12</td>
+<td>Switch</td>
+<td>Frequent in settings / foundation</td>
+<td>Boolean; explain immediate versus deferred save; use explicit choices when respondent intent is ambiguous</td>
+</tr>
+<tr>
+<td>F13</td>
+<td>Searchable select / combobox</td>
+<td>Common / product expansion</td>
+<td>ID plus display label; empty/loading/failure; stale async results ignored; keyboard navigation</td>
+</tr>
+<tr>
+<td>F14</td>
+<td>Multi-select / tags</td>
+<td>Common / product expansion</td>
+<td>ID array or free-text array, explicitly different modes; duplicates, paste limits and removal</td>
+</tr>
+<tr>
+<td>F15</td>
+<td>Cascading / dependent choice</td>
+<td>Common / advanced features</td>
+<td>Parent and child IDs; invalidate stale child when parent changes; server validates relation</td>
+</tr>
+<tr>
+<td>F16</td>
+<td>Date</td>
+<td>Frequent / product expansion</td>
+<td>Calendar date without timezone conversion; bounds and manual entry</td>
+</tr>
+<tr>
+<td>F17</td>
+<td>Time</td>
+<td>Common / product expansion</td>
+<td>Local time; precision and optional zone context; not automatically an instant</td>
+</tr>
+<tr>
+<td>F18</td>
+<td>Date-time</td>
+<td>Common / product expansion</td>
+<td>Instant plus zone when scheduling; ambiguous/nonexistent local time handling</td>
+</tr>
+<tr>
+<td>F19</td>
+<td>Date / time range</td>
+<td>Common / product expansion</td>
+<td>Start/end with inclusive-boundary policy; ordering and timezone semantics</td>
+</tr>
+<tr>
+<td>F20</td>
+<td>Month / week</td>
+<td>Occasional / advanced features</td>
+<td>Year-month or week-year/week; explicit calendar convention</td>
+</tr>
+<tr>
+<td>F21</td>
+<td>File upload / dropzone</td>
+<td>Frequent / product expansion</td>
+<td>File references, not arbitrary client URLs; per-file and total limits, progress, cancel/retry, scan status</td>
+</tr>
+<tr>
+<td>F22</td>
+<td>Image upload / crop</td>
+<td>Common / product expansion then advanced features crop</td>
+<td>File reference and transform metadata; image decoding, orientation, accessible filename and original preservation policy</td>
+</tr>
+<tr>
+<td>F23</td>
+<td>Rating / stars</td>
+<td>Common / product expansion</td>
+<td>Bounded integer or specified increments; explicit unanswered state; text alternative</td>
+</tr>
+<tr>
+<td>F24</td>
+<td>Opinion scale / NPS</td>
+<td>Common / product expansion</td>
+<td>Integer with configured endpoints; store question version; scoring belongs to product analytics</td>
+</tr>
+<tr>
+<td>F25</td>
+<td>Slider / range</td>
+<td>Common / product expansion</td>
+<td>Number or pair; keyboard increments and exact-entry alternative; distinguish untouched from chosen default</td>
+</tr>
+<tr>
+<td>F26</td>
+<td>Name group</td>
+<td>Common / product expansion</td>
+<td>Structured optional parts; support single names and non-Western order</td>
+</tr>
+<tr>
+<td>F27</td>
+<td>Address / country / region</td>
+<td>Common / product expansion</td>
+<td>Structured strings and country code; country-dependent labels; manual entry if lookup fails</td>
+</tr>
+<tr>
+<td>F28</td>
+<td>Location / map coordinate</td>
+<td>Occasional / extensions</td>
+<td>Coordinates plus precision and optional address; manual fallback; permission failure state</td>
+</tr>
+<tr>
+<td>F29</td>
+<td>Rich text answer / content editor</td>
+<td>Occasional / advanced features</td>
+<td>Restricted structured content; sanitized rendering and pasted content; attachment limits</td>
+</tr>
+<tr>
+<td>F30</td>
+<td>Signature</td>
+<td>Optional / extensions</td>
+<td>Asset or typed-name record plus timestamp/context; legal meaning is a separate product decision</td>
+</tr>
+<tr>
+<td>F31</td>
+<td>Matrix / Likert</td>
+<td>Common surveys / advanced features</td>
+<td>Row-ID to option-ID map; mobile stacked layout, per-row errors, missing-versus-skipped</td>
+</tr>
+<tr>
+<td>F32</td>
+<td>Ranking / sortable choices</td>
+<td>Occasional / advanced features</td>
+<td>Ordered option IDs; keyboard move buttons, uniqueness, partial-ranking policy</td>
+</tr>
+<tr>
+<td>F33</td>
+<td>Repeatable / nested group</td>
+<td>Common / advanced features</td>
+<td>Array of objects with stable item IDs; add/remove/reorder, nesting and item limits</td>
+</tr>
+<tr>
+<td>F34</td>
+<td>Calculated / read-only result</td>
+<td>Common / advanced features</td>
+<td>Typed server-recomputed value; dependency graph, cycles, rounding and division errors</td>
+</tr>
+<tr>
+<td>F35</td>
+<td>Hidden / prefilled value</td>
+<td>Common / product expansion</td>
+<td>Typed untrusted input; signed trusted context separately; URL values excluded from authorization</td>
+</tr>
+<tr>
+<td>F36</td>
+<td>Payment collection</td>
+<td>Separate <a href="../planning/form-payment-fields.html">Form payment fields work package</a></td>
+<td>Payment-specific respondent controls, builder settings and backend flow are delivered together; not part of the ordinary field sequence</td>
+</tr>
+<tr>
+<td>F37</td>
+<td>Password / reveal / strength</td>
+<td>Account / foundation</td>
+<td>Ephemeral secret input; password-manager support; no response-data or analytics logging</td>
+</tr>
+<tr>
+<td>F38</td>
+<td>OTP / verification code</td>
+<td>Account / foundation or release readiness</td>
+<td>Ephemeral code; paste/autofill, resend cooldown and server expiry/attempt limits</td>
+</tr>
+<tr>
+<td>F39</td>
+<td>Search</td>
+<td>App / first journey</td>
+<td>Query string; debounce/cancel and URL state as appropriate; not a response field by default</td>
+</tr>
+<tr>
+<td>F40</td>
+<td>Color picker</td>
+<td>Builder / product expansion</td>
+<td>Canonical color; alpha policy, text entry and contrast feedback</td>
+</tr>
+<tr>
+<td>F41</td>
+<td>Masked / formatted input</td>
+<td>Cross-cutting / product expansion</td>
+<td>Separate display mask from raw value; allow paste/edit; format is not validation</td>
+</tr>
+<tr>
+<td>F42</td>
+<td>Dual-list selection / transfer</td>
+<td>Optional / extensions</td>
+<td>Selected ID set; search both lists, keyboard transfer and stable order policy</td>
+</tr>
+<tr>
+<td>F43</td>
+<td>Card / picture choice</td>
+<td>Common / product expansion</td>
+<td>Option ID(s); image alternative text; selection independent of image loading</td>
+</tr>
+<tr>
+<td>F44</td>
+<td>Code / JSON editor</td>
+<td>Integration settings / advanced features</td>
+<td>Text plus parse diagnostics; no execution of untrusted expressions</td>
+</tr>
+<tr>
+<td>F45</td>
+<td>Challenge / anti-abuse widget</td>
+<td>Runtime / first journey policy, adapter as needed</td>
+<td>Short-lived proof validated server-side; expiry/retry and accessible alternative</td>
+</tr>
+<tr>
+<td>F46</td>
+<td>Content block / heading / paragraph / media</td>
+<td>Builder / first journey</td>
+<td>No answer value; sanitized content, alt text/captions, safe embeds</td>
+</tr>
+<tr>
+<td>F47</td>
+<td>Section / page break / completion block</td>
+<td>Builder / first journey then product expansion pages</td>
+<td>Structure IDs; progress/navigation; completion only after durable acceptance</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="field-decorators-and-layout-variants">Field decorators and layout variants</h2>
+<p>Preserve these as independently specified variants, not extra domain field types: leading/trailing icon or text, attached action, prefix/suffix units, floating versus static label, sizes/density, rounded/border styles, inline versus stacked choices, option groups, clear button, counters, autosize, masked display, copy action, strength feedback, disabled options, readonly display, vertical/horizontal forms, responsive grids, sticky actions, numbered/icon step navigation, inline editing, nested groups, and input groups.
+Color variants must communicate state with text/semantics as well as color. A floating label is presentation, not a separate validation contract. Avoid multiplying exports for visual differences that can be expressed as a documented variant.</p>
+<h2 id="builder-and-respondent-parity">Builder and respondent parity</h2>
+<p>Each enabled field needs seven deliverables: builder palette entry, property editor, schema serializer, respondent renderer, client validation adapter, server validator, and response/export formatter. Preview must use the published renderer with a draft schema, not a separate mock. Publication checks field compatibility, unique IDs, options, constraints and logic before changing the active version atomically.</p>
+<p>Conditional fields need explicit policy: when hidden, exclude from submission and required checks by default; whether to retain a temporary draft answer for undo must not alter the submitted payload. The server evaluates the same published rules. Multi-page back navigation preserves valid input; hidden pages cannot strand focus or create a loop.</p>
+<h2 id="acceptance-matrix">Acceptance matrix</h2>
+<div class="table-wrap" role="region" aria-label="Table 2, scroll horizontally if needed" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Dimension</th>
+<th scope="col">Required evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input</td>
+<td>Empty, valid, boundary, malformed, pasted, Unicode, very long values; false and zero preserved</td>
+</tr>
+<tr>
+<td>Accessibility</td>
+<td>Labels, group names, error associations, keyboard-only completion, focus restoration, screen-reader announcement; no drag-only operations</td>
+</tr>
+<tr>
+<td>Submission</td>
+<td>Server field errors mapped by stable ID; values retained; duplicate retry handled; stale schema response recoverable</td>
+</tr>
+<tr>
+<td>Async</td>
+<td>Out-of-order search, disconnected upload, expired session, aborted requests; no late result overwrites newer input</td>
+</tr>
+<tr>
+<td>Versioning</td>
+<td>Rename/delete/reorder options and fields after responses exist; historical display/export remain meaningful</td>
+</tr>
+<tr>
+<td>Responsive / locale</td>
+<td>Narrow viewport, zoom, long translations, RTL decision, dates/numbers and timezone boundaries</td>
+</tr>
+<tr>
+<td>Data handling</td>
+<td>Escaped display, safe CSV export, file authorization, no secret logging, backend rejects tampered hidden values</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="open-decisions">Open decisions</h2>
+<p>Audience, launch fields, locales, phone/address policy and maximum form size remain open. Enable a field only after its builder, renderer, validation and response contracts are ready.</p></article></div></main><nav class="page-pager" aria-label="Page navigation"><a href="../planning/form-payment-fields.html"><span>Previous</span>Form payments</a><a href="components.html"><span>Next</span>Component ownership</a></nav><footer class="site-footer"><span>Trueforms documentation</span><a href="../brand/handoff/v2/licenses/README.txt">Font notices</a><a href="#main">Back to top</a></footer></div></div></body></html>

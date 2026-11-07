@@ -2,9 +2,11 @@
 
 These project rules apply to new work in the Trueforms `docs`, `ui`, `frontend`, and `backend` repositories, including logo assets, reconstruction scripts, and documentation.
 
+Documentation and reports follow the [documentation standard](documentation.md): English content, HTML delivery through the Docs Hub, shared brand presentation, minimal slogans, and preserved original materials.
+
 ## GitHub account and commit identity
 
-Use **`formtrue`** for every Trueforms push. **Never push through `bugrakaan`**, and do not fall back to another account if authentication or repository access fails. Resolve access for `formtrue` before retrying.
+Push only as **`formtrue`** for every Trueforms repository.
 
 For newly authored project commits, use this identity for both the author and committer:
 

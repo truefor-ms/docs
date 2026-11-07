@@ -12,7 +12,7 @@ The original Trueforms materials are active working references. Start with the m
 | [Original master HTML](handoff/v2/trueforms-logo-master-spec.html) | Offline document with embedded visual examples and logo laboratory |
 | [English brand and icon guidelines](guidelines.md) | Practical reference, decision status, and integration constraints |
 | [Handoff review](../reviews/brand-handoff-v2.md) | Findings, verification evidence, and outstanding application checks |
-| [Project pre-plan](../planning/project-preplan.md) | How the brand foundation connects to the growing product |
+| [Build path](../planning/saas-implementation-plan.md) | How the brand foundation connects to the growing product |
 
 ## Original production materials
 

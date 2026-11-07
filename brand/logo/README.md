@@ -1,6 +1,8 @@
-# Trueforms logo: confirmed reference
+# Trueforms logo documentation v1.0
 
-**Updated:** 5 November 2026. **Scope:** the standalone icon, wordmark, independent dot, and complete horizontal logo.
+**Version:** 1.0 · **Released:** 6 November 2026. **Scope:** the standalone icon, wordmark, independent dot, and complete horizontal logo.
+
+This is the first real release of the maintained English logo documentation. The original handoff package retains its `v2` name and master `2.0` label as source provenance; these are separate from this document's release numbering. Artwork and previously measured verification results are unchanged by this documentation release.
 
 This README records the established source decisions and the reconstruction results verified so far. It does not define product UI, select a technology stack, or promote proposed usage values into approved brand rules.
 
@@ -166,7 +168,7 @@ Preview images were visually inspected. Browser behavior, physical-device render
 
 Logo assets, generation scripts, and related documentation follow the [shared contribution rules](../../contributing/README.md):
 
-- Push only as **`formtrue`**; never use `bugrakaan` or another fallback account.
+- Push only as **`formtrue`**.
 - Use **`Trueforms <352186882+formtrue@users.noreply.github.com>`** as both author and committer for newly authored project commits.
 - Use **Conventional Commits** for every new commit message, in English; for example, `docs(logo): record confirmed geometry`.
 

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A separate package for payment collection."><meta name="theme-color" content="#f8f7f2">
+<title>Form payments | Trueforms Docs</title><link rel="icon" href="../brand/handoff/v2/assets/svg/favicon.svg">
+<link rel="stylesheet" href="../site/docs.css"><script src="../site/docs.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand-link" href="../index.html" aria-label="Trueforms documentation home"><img src="../brand/handoff/v2/assets/svg/trueforms-logo.svg" alt="Trueforms" width="170" height="28"></a><span>Documentation</span><a href="saas-implementation-plan.html">Build path</a></header>
+<div class="docs-shell"><aside class="sidebar"><details class="site-navigation" open><summary>Browse documentation</summary><div class="nav-content"><label class="search-field js-only" for="nav-search">Find a page<input id="nav-search" type="search" placeholder="Search pages" autocomplete="off"></label><nav aria-label="Documentation"><section data-nav-group><h2>Start here</h2><a data-nav-page data-search="overview confirmed direction, ownership and current status." href="../overview.html">Overview</a><a data-nav-page data-search="build path implementation stages and acceptance gates." href="saas-implementation-plan.html">Build path</a></section><section data-nav-group><h2>Implementation</h2><a data-nav-page data-search="form ui the interface people use to complete forms." href="respondent-ui-build-order.html">Form UI</a><a data-nav-page data-search="form builder ui editing, preview and publication." href="form-builder-ui-build-order.html">Form Builder UI</a><a data-nav-page data-search="form payments a separate package for payment collection." href="form-payment-fields.html" aria-current="page">Form payments</a></section><section data-nav-group><h2>Reference</h2><a data-nav-page data-search="fields field types and value contracts." href="../reference/fields.html">Fields</a><a data-nav-page data-search="component ownership shared controls and application responsibilities." href="../reference/components.html">Component ownership</a></section><section data-nav-group><h2>Brand</h2><a data-nav-page data-search="logo v1.0 confirmed logo specification." href="../brand/logo/index.html">Logo v1.0</a><a data-nav-page data-search="source materials original materials and evidence." href="../brand/index.html">Source materials</a><a data-nav-page data-search="brand guidelines geometry, color and usage." href="../brand/guidelines.html">Brand guidelines</a></section><section data-nav-group><h2>Working rules</h2><a data-nav-page data-search="contribution rules commit identity and change boundaries." href="../contributing/index.html">Contribution rules</a><a data-nav-page data-search="documentation maintaining this site." href="../contributing/documentation.html">Documentation</a></section><details class="source-records"><summary>Source records</summary><section data-nav-group><h2>Source records</h2><a data-nav-page data-search="logo reconstruction independent icon and full-logo builds, previews and comparison evidence." href="../brand/recreated/index.html">Logo reconstruction</a><a data-nav-page data-search="nimbus roman provenance pinned font inputs, upstream origin and preserved license notices." href="../brand/reconstruction-sources/nimbus-roman/index.html">Nimbus Roman provenance</a><a data-nav-page data-search="brand handoff v2 review package review, 192 validation checks and outstanding integration work." href="../reviews/brand-handoff-v2.html">Brand handoff v2 review</a></section></details></nav><p id="nav-empty" role="status" hidden>No matching pages.</p><a class="all-files" href="../files.html">All source files</a></div></details></aside>
+<div class="reading-area"><main id="main"><div class="breadcrumbs"><a href="../index.html">Docs</a> / Implementation</div>
+<header class="document-header"><h1>Form payments</h1><p class="description">A separate package for payment collection.</p>
+<div class="document-meta meta"><span>Work package</span><time datetime="2026-11-07">2026-11-07</time><a href="form-payment-fields.md">Markdown source</a><button class="quiet-button js-only" data-print>Print / Save PDF</button></div></header>
+<div class="document-layout"><details class="page-toc" open><summary>On this page</summary><nav aria-label="On this page"><div class="toc">
+<ul>
+<li><a href="#scope-boundary">Scope boundary</a></li>
+<li><a href="#delivery-order-within-pay-f">Delivery order within PAY-F</a></li>
+<li><a href="#release-boundary">Release boundary</a></li>
+</ul>
+</div>
+</nav></details>
+<article class="article"><p><strong>Updated:</strong> 6 November 2026. <strong>Status:</strong> separate future work package, PAY-F. This scope decision is confirmed; provider, timing and detailed payment behavior remain open.</p>
+<h2 id="scope-boundary">Scope boundary</h2>
+<p>This package owns <strong>payment collection inside forms (F36)</strong>, including respondent payment controls, builder configuration and backend processing. It is excluded from the ordinary <a href="respondent-ui-build-order.html">respondent</a> and <a href="form-builder-ui-build-order.html">builder</a> component sequences and will be delivered as its own end-to-end package.</p>
+<p><strong>App subscription and billing are not part of this package.</strong> SaaS plans, trials, subscription checkout, invoices, payment methods, cancellation and entitlements remain in the initial implementation process in stage 2 of the <a href="saas-implementation-plan.html">Build path</a>. Sharing a provider would not merge their domain models or release gates.</p>
+<p>F07, a generic amount/currency input, stays in the normal field inventory. Entering an amount does not initiate a payment. Payment-specific totals, charge validation and transaction state belong here.</p>
+<h2 id="delivery-order-within-pay-f">Delivery order within PAY-F</h2>
+<div class="table-wrap" role="region" aria-label="Table 1, scroll horizontally if needed" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">ID</th>
+<th scope="col">Work</th>
+<th scope="col">Ownership</th>
+<th scope="col">Dependency / completion criterion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PAY-F-01</td>
+<td>Define recipient/merchant model, supported currencies, amount source, payment timing and refund policy</td>
+<td>Product + backend</td>
+<td>Decide whether payment precedes response acceptance, follows it or uses a separate pending state; no implicit policy</td>
+</tr>
+<tr>
+<td>PAY-F-02</td>
+<td>Define payment schema, transaction/response association, provider adapter and state contract</td>
+<td>Backend + frontend</td>
+<td>Requires stable published-form versions and response IDs; server owns amounts and allowed transitions</td>
+</tr>
+<tr>
+<td>PAY-F-03</td>
+<td>Implement provider session creation, verified events, idempotency, reconciliation and audit records</td>
+<td>Backend</td>
+<td>Duplicate/out-of-order events and unknown outcomes handled; credentials and raw card data excluded from form answers</td>
+</tr>
+<tr>
+<td>PAY-F-04</td>
+<td>Build PaymentFieldSettings, AmountRuleSettings, CurrencySettings, PaymentConnectionStatus and schema diagnostics</td>
+<td>Frontend using TrueUI</td>
+<td>Invalid or disconnected payment configuration blocks publication; test/live configuration explicit</td>
+</tr>
+<tr>
+<td>PAY-F-05</td>
+<td>Build PaymentSummary, provider-hosted PaymentStep, PaymentPending, PaymentFailure, PaymentRetry and PaymentReceipt</td>
+<td>Frontend using TrueUI</td>
+<td>Respondent state follows verified backend state, not a redirect URL; cancellation and retry preserve intended response</td>
+</tr>
+<tr>
+<td>PAY-F-06</td>
+<td>Add payment status to response detail/export and implement refund/support operations</td>
+<td>Frontend + backend</td>
+<td>Scoped authorization and auditable changes; response status and payment status remain distinct</td>
+</tr>
+<tr>
+<td>PAY-F-07</td>
+<td>Validate and release the complete package</td>
+<td>Frontend + backend + operations</td>
+<td>Test success, decline, cancel, timeout, duplicate/reordered events, expired session, refund and provider outage</td>
+</tr>
+</tbody>
+</table></div>
+<p>Dependencies are the existing form schema/renderer, publication, submission, response management, authorization, secrets and background-job infrastructure. The package can reuse generic TrueUI controls but must not put payment business logic in TrueUI.</p>
+<h2 id="release-boundary">Release boundary</h2>
+<p>Keep F36 unavailable in the builder palette until configuration, respondent UI, backend validation, event handling, response presentation and operational recovery are ready together. Preview/test mode must not create live charges. Account subscription development and ordinary form creation/submission continue independently while this package is deferred.</p></article></div></main><nav class="page-pager" aria-label="Page navigation"><a href="form-builder-ui-build-order.html"><span>Previous</span>Form Builder UI</a><a href="../reference/fields.html"><span>Next</span>Fields</a></nav><footer class="site-footer"><span>Trueforms documentation</span><a href="../brand/handoff/v2/licenses/README.txt">Font notices</a><a href="#main">Back to top</a></footer></div></div></body></html>
