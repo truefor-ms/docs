@@ -56,11 +56,17 @@ Register new documents, rebuild and verify before committing. Follow the [contri
 
 ## Project UI skills
 
-The docs repository maintains the workspace skill bundle in `.workspace/skills/` and the shared workspace instructions in `.workspace/AGENTS.md`. These are agent configuration sources, not Docs Hub articles. Upstream sources and local adaptations are recorded in `.workspace/sources.json`.
+The project records upstream references rather than maintaining copied skill releases.
 
-The five skills are `building-components`, `web-design-guidelines`, `accessibility`, `impeccable`, and `better-layout`. The component skill is a locally authored, technology-neutral adaptation. Impeccable's extraction guidance has also been adapted to document APIs in the existing language. Skills must not introduce or require Tailwind CSS or TypeScript.
+- [building-components](https://github.com/vercel/components.build/tree/main/skills/building-components): component architecture and contracts. Treat this as an architectural reference only; its Tailwind and TypeScript recipes are outside the project's accepted approach.
+- [web-design-guidelines](https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines): interface implementation reviews.
+- [accessibility](https://github.com/addyosmani/web-quality-skills/tree/main/skills/accessibility): accessibility implementation and verification.
+- [Impeccable](https://github.com/pbakaus/impeccable): visual hierarchy and design refinement.
+- [better-layout](https://github.com/jakubkrehel/skills/tree/main/skills/better-layout): grouping, responsive layout, text growth, and RTL.
 
-With `docs`, `ui`, `frontend`, and `backend` checked out as sibling folders, run `./.workspace/install.ps1` from the docs repository in PowerShell. This copies the bundle into the parent workspace's `.agents/skills/` and installs the shared root `AGENTS.md`, keeping the skills available across the project. It overwrites the corresponding local files; maintain changes in the versioned bundle and rerun the installer. Unrelated skills are retained. Installed skills become available on the next turn.
+Consult the current upstream instructions and relevant supporting references before using a skill. Existing local installations are conveniences, not authoritative snapshots. Use only task-relevant guidance, preserve the approved brand and technology choices, and do not use a skill version that requires Tailwind CSS or TypeScript. Upstream references are not blanket approval of future changes.
+
+No project installer or repository-vendored skill bundle is required. Skills may be read from their sources or used through a compatible local installation. Report unavailable references as a verification limitation rather than claiming they were reviewed.
 
 ## Information architecture
 
