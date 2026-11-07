@@ -54,6 +54,14 @@ After presentation changes, inspect the hub and representative long documents on
 
 Register new documents, rebuild and verify before committing. Follow the [contribution rules](README.md): English Conventional Commits, the required Trueforms author/committer identity, and pushes only through `formtrue` when requested.
 
+## Project UI skills
+
+The docs repository maintains the workspace skill bundle in `.workspace/skills/` and the shared workspace instructions in `.workspace/AGENTS.md`. These are agent configuration sources, not Docs Hub articles. Upstream sources and local adaptations are recorded in `.workspace/sources.json`.
+
+The five skills are `building-components`, `web-design-guidelines`, `accessibility`, `impeccable`, and `better-layout`. The component skill is a locally authored, technology-neutral adaptation. Impeccable's extraction guidance has also been adapted to document APIs in the existing language. Skills must not introduce or require Tailwind CSS or TypeScript.
+
+With `docs`, `ui`, `frontend`, and `backend` checked out as sibling folders, run `./.workspace/install.ps1` from the docs repository in PowerShell. This copies the bundle into the parent workspace's `.agents/skills/` and installs the shared root `AGENTS.md`, keeping the skills available across the project. It overwrites the corresponding local files; maintain changes in the versioned bundle and rerun the installer. Unrelated skills are retained. Installed skills become available on the next turn.
+
 ## Information architecture
 
 The sidebar follows the build path: Start here, Implementation, Reference, Brand and Working rules. Source records remain available in a secondary disclosure. Keep exploratory research out of the maintained documentation unless it supports a current decision. Consolidate superseded plans instead of retaining competing roadmaps. Preserve original brand materials and source evidence.
