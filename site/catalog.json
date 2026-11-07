@@ -17,6 +17,14 @@
     "description": "Implementation stages and acceptance gates."
   },
   {
+    "source": "planning/trueui-implementation.md",
+    "title": "TrueUI",
+    "category": "Implementation",
+    "kind": "Plan",
+    "date": "2026-11-07",
+    "description": "Build and validate the shared library before application implementation."
+  },
+  {
     "source": "planning/respondent-ui-build-order.md",
     "title": "Form UI",
     "description": "The interface people use to complete forms.",

@@ -2,6 +2,8 @@
 
 Planned shared components and application responsibilities.
 
+The [TrueUI readiness gate](../planning/saas-implementation-plan.md#trueui-readiness-gate) governs execution: implement the reusable scope required by both initial surfaces in TrueUI before starting frontend/backend application work. Phase labels below describe capability priority, not parallel application implementation.
+
 ## Reusable component families
 
 This reference retains reusable foundations and form-SaaS compositions. Unrelated example applications and decorative extensions are omitted. The build stages are dependency phases, not dates. A listed composition does not automatically require a separate package export.
@@ -55,7 +57,7 @@ This reference retains reusable foundations and form-SaaS compositions. Unrelate
 | A08 | Response inbox/detail, attachments, notes, tags, export, deletion | C18–C22, C26, C30 | Version-aware answers, access checks, safe export, retention | first journey–product expansion |
 | A09 | Form analytics, drop-off, completion, sources, trends | C27 | Defined event/metric contracts, bot exclusion and aggregation | release readiness–advanced features |
 | A10 | Workspace/member/role administration and audit | C18, C10, C26 | Backend capability checks and object scope; revoke active access | product expansion–release readiness |
-| A11 | Subscription, plan/usage, upgrade, payment method, invoices, cancellation | C06, C13, C19 | App billing starts with foundations; distinct from form payment fields | foundation implementation; release readiness release validation |
+| A11 | Subscription, plan/usage, upgrade, payment method, invoices, cancellation | C06, C13, C19 | App billing starts in the first application phase after TrueUI readiness; distinct from form payment fields | first application phase; release validation |
 | A12 | Profile, preferences, security, localization, data controls | C04, C12 | Account/workspace settings ownership and export/deletion flows | product expansion–release readiness |
 | A13 | API keys, webhooks, integrations, delivery logs and retry | C19, C29 | Scopes/secrets, outbound delivery queue, idempotency and revocation | advanced features |
 | A14 | Automation/rules, approvals, assignments, notification examples | C25, C26, C29 | Versioned execution, retry/dead-letter, authorization and history | advanced features |

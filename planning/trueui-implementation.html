@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Build and validate the shared library before application implementation."><meta name="theme-color" content="#f8f7f2">
+<title>TrueUI | Trueforms Docs</title><link rel="icon" href="../brand/handoff/v2/assets/svg/favicon.svg">
+<link rel="stylesheet" href="../site/docs.css"><script src="../site/docs.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand-link" href="../index.html" aria-label="Trueforms documentation home"><img src="../brand/handoff/v2/assets/svg/trueforms-logo.svg" alt="Trueforms" width="170" height="28"></a><span>Documentation</span><a href="saas-implementation-plan.html">Build path</a></header>
+<div class="docs-shell"><aside class="sidebar"><details class="site-navigation" open><summary>Browse documentation</summary><div class="nav-content"><label class="search-field js-only" for="nav-search">Find a page<input id="nav-search" type="search" placeholder="Search pages" autocomplete="off"></label><nav aria-label="Documentation"><section data-nav-group><h2>Start here</h2><a data-nav-page data-search="overview confirmed direction, ownership and current status." href="../overview.html">Overview</a><a data-nav-page data-search="build path implementation stages and acceptance gates." href="saas-implementation-plan.html">Build path</a></section><section data-nav-group><h2>Implementation</h2><a data-nav-page data-search="trueui build and validate the shared library before application implementation." href="trueui-implementation.html" aria-current="page">TrueUI</a><a data-nav-page data-search="form ui the interface people use to complete forms." href="respondent-ui-build-order.html">Form UI</a><a data-nav-page data-search="form builder ui editing, preview and publication." href="form-builder-ui-build-order.html">Form Builder UI</a><a data-nav-page data-search="form payments a separate package for payment collection." href="form-payment-fields.html">Form payments</a></section><section data-nav-group><h2>Reference</h2><a data-nav-page data-search="fields field types and value contracts." href="../reference/fields.html">Fields</a><a data-nav-page data-search="component ownership shared controls and application responsibilities." href="../reference/components.html">Component ownership</a></section><section data-nav-group><h2>Brand</h2><a data-nav-page data-search="logo v1.0 confirmed logo specification." href="../brand/logo/index.html">Logo v1.0</a><a data-nav-page data-search="source materials original materials and evidence." href="../brand/index.html">Source materials</a><a data-nav-page data-search="brand guidelines geometry, color and usage." href="../brand/guidelines.html">Brand guidelines</a></section><section data-nav-group><h2>Working rules</h2><a data-nav-page data-search="contribution rules commit identity and change boundaries." href="../contributing/index.html">Contribution rules</a><a data-nav-page data-search="documentation maintaining this site." href="../contributing/documentation.html">Documentation</a></section><details class="source-records"><summary>Source records</summary><section data-nav-group><h2>Source records</h2><a data-nav-page data-search="logo reconstruction independent icon and full-logo builds, previews and comparison evidence." href="../brand/recreated/index.html">Logo reconstruction</a><a data-nav-page data-search="nimbus roman provenance pinned font inputs, upstream origin and preserved license notices." href="../brand/reconstruction-sources/nimbus-roman/index.html">Nimbus Roman provenance</a><a data-nav-page data-search="brand handoff v2 review package review, 192 validation checks and outstanding integration work." href="../reviews/brand-handoff-v2.html">Brand handoff v2 review</a></section></details></nav><p id="nav-empty" role="status" hidden>No matching pages.</p><a class="all-files" href="../files.html">All source files</a></div></details></aside>
+<div class="reading-area"><main id="main"><div class="breadcrumbs"><a href="../index.html">Docs</a> / Implementation</div>
+<header class="document-header"><h1>TrueUI</h1><p class="description">Build and validate the shared library before application implementation.</p>
+<div class="document-meta meta"><span>Plan</span><time datetime="2026-11-07">2026-11-07</time><a href="trueui-implementation.md">Markdown source</a><button class="quiet-button js-only" data-print>Print / Save PDF</button></div></header>
+<div class="document-layout"><details class="page-toc" open><summary>On this page</summary><nav aria-label="On this page"><div class="toc">
+<ul>
+<li><a href="#scope">Scope</a></li>
+<li><a href="#implementation-order">Implementation order</a></li>
+<li><a href="#readiness-evidence">Readiness evidence</a></li>
+<li><a href="#after-acceptance">After acceptance</a></li>
+</ul>
+</div>
+</nav></details>
+<article class="article"><p><strong>Status:</strong> first implementation workstream. Frontend and backend application implementation starts only after TrueUI reaches standalone readiness for the initial Form UI and Form Builder UI scope.</p>
+<h2 id="scope">Scope</h2>
+<p>Build in <code>ui</code>: reusable presentation, component state, keyboard/focus behavior, tokens and fixture-based examples. Use the <a href="respondent-ui-build-order.html">Form UI</a> and <a href="form-builder-ui-build-order.html">Form Builder UI</a> plans as requirements, not as parallel application projects.</p>
+<p>TrueUI does not own product schema commands, publication, persistence, authorization or billing. Examples simulate application data and callbacks. Planning those contracts is allowed before the gate; implementing the application repositories is not.</p>
+<h2 id="implementation-order">Implementation order</h2>
+<div class="table-wrap" role="region" aria-label="Table 1, scroll horizontally if needed" tabindex="0"><table class="wide">
+<thead>
+<tr>
+<th scope="col">Order</th>
+<th scope="col">Work package</th>
+<th scope="col">Form UI need</th>
+<th scope="col">Form Builder need</th>
+<th scope="col">Completion evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Token source, theme contract, typography, icons/logo, spacing, layout primitives</td>
+<td>Readable form layout</td>
+<td>Consistent panels and toolbars</td>
+<td>Standalone catalog runs; tokens and supported themes documented</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Button, IconButton, Link, FormField, Label, Help, Error, FieldGroup, ErrorSummary</td>
+<td>Actions and accessible field feedback</td>
+<td>Property editors and schema issue presentation</td>
+<td>Keyboard/focus, labeling, errors and pending states verified</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Input, Textarea, NumberInput, Select, Checkbox, RadioGroup, Switch and input decorators</td>
+<td>Initial answer controls</td>
+<td>Label/default/constraint and choice settings</td>
+<td>Controlled values and callbacks; empty/invalid/disabled/readonly fixtures</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Alert, Toast, Spinner, Progress, EmptyState, Status, Dialog, Menu, Popover, Tooltip</td>
+<td>Submit/access/error presentation</td>
+<td>Save/conflict/delete and action presentation</td>
+<td>Overlay focus and recovery actions demonstrated without backend flows</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Tabs, Accordion, responsive PanelLayout, Toolbar, List, Tree and selection primitives</td>
+<td>Sections and navigation</td>
+<td>Palette, outline and property-panel composition</td>
+<td>Long content and narrow-screen navigation work in both sample surfaces</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Repeatable option-list presentation, keyboard reorder controls and reusable sortable behavior</td>
+<td>Repeated choice/group presentation where required</td>
+<td>Option editing and field selection/reorder</td>
+<td>Stable item IDs supplied by consumer; add/remove/move callbacks; no drag-only operation</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Required advanced controls: combobox/multiselect, dates, upload presentation, rating/range and adapters</td>
+<td>Agreed initial extended fields</td>
+<td>Corresponding property controls</td>
+<td>Each included control has documented value/state contracts and isolated examples</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Compose representative form and builder examples</td>
+<td>Completion, validation and pending/error states</td>
+<td>Palette, selection, property editing, reorder and save/conflict feedback</td>
+<td>Both compositions use the same library; fixtures only, no application endpoints</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Package, regression coverage and readiness review</td>
+<td>Stable consumer contract</td>
+<td>Stable consumer contract</td>
+<td>Versioned artifact works in an isolated consumer fixture; readiness accepted</td>
+</tr>
+</tbody>
+</table></div>
+<p>Determine the required initial advanced-control scope before package 7. Record explicit deferrals against the two surface plans; do not treat basic inputs alone as a mature library. Field inventories remain planning references, not a requirement to finish every future integration before accepting the initial scope. Form payment fields retain their <a href="form-payment-fields.html">separate package</a>.</p>
+<h2 id="readiness-evidence">Readiness evidence</h2>
+<p>The authoritative <a href="saas-implementation-plan.html#trueui-readiness-gate">TrueUI readiness gate</a> requires coverage of both surfaces, documented APIs and states, keyboard/accessibility and responsive checks, standalone examples, a consumable artifact and explicit acceptance.</p>
+<p>Track each reusable requirement as planned, specified, implemented, verified or accepted, with its example and verification evidence. Mark a composition as simulated when application behavior is provided by fixtures. No readiness acceptance or completed component implementation is claimed by this document.</p>
+<h2 id="after-acceptance">After acceptance</h2>
+<p>Start application foundations and subscriptions, then execute the frontend-owned steps in <a href="respondent-ui-build-order.html">Form UI</a> and <a href="form-builder-ui-build-order.html">Form Builder UI</a> against the ready library and backend contracts. Subsequent component additions still belong in TrueUI; application business logic remains in frontend/backend.</p></article></div></main><nav class="page-pager" aria-label="Page navigation"><a href="saas-implementation-plan.html"><span>Previous</span>Build path</a><a href="respondent-ui-build-order.html"><span>Next</span>Form UI</a></nav><footer class="site-footer"><span>Trueforms documentation</span><a href="../brand/handoff/v2/licenses/README.txt">Font notices</a><a href="#main">Back to top</a></footer></div></div></body></html>

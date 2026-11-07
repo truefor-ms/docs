@@ -4,6 +4,11 @@
 
 The sequence uses the existing [field inventory](../reference/fields.md) and [SaaS delivery stages](saas-implementation-plan.md). It is a dependency plan, not a framework selection. All field capabilities remain accounted for, including later extensions.
 
+## TrueUI-first execution rule
+
+Start with the [TrueUI implementation sequence](trueui-implementation.md). This surface plan supplies requirements for that initial standalone library build. Implement its reusable U components and fixture-based catalog compositions first. F-owned product components and B-owned backend services begin only after the [TrueUI readiness gate](saas-implementation-plan.md#trueui-readiness-gate) is accepted. Mixed-ownership rows are split at that boundary: reusable presentation now, domain integration later. The row numbers below describe dependencies within this surface, not permission to bypass the global gate.
+
+
 ## Ownership and shared foundations
 
 **U = TrueUI:** inputs, overlays, layout, selection and reusable interaction. **F = frontend:** builder canvas, field registry, property editors, schema commands, history, rules, preview and publication orchestration. **B = backend dependency:** draft persistence, concurrency, authoritative schema checks and immutable publication.
@@ -50,8 +55,8 @@ Every enabled field type provides: palette metadata, schema defaults, property e
 
 ## First milestone and integration order
 
-1. Agree on the schema and APIs, then build shared U foundations once.
-2. Build RUI-04–07 against a small fixed schema while BUI-01–07 builds the editor for that same schema. These tracks can proceed independently after the contract exists.
+1. Agree on surface requirements and contracts, then build all required shared U components and representative fixture-based compositions in TrueUI. Record acceptance of the standalone readiness gate before application work.
+2. Build RUI-04–07 against a small fixed schema while BUI-01–07 builds the editor for that same schema. These application tracks can proceed independently only after TrueUI readiness is accepted and their contracts exist.
 3. Add BUI-08–09 persistence/history. Add BUI-10 using the existing respondent renderer.
 4. Connect BUI-11 to atomic publication; RUI-08 loads that published version. Complete create → preview → publish → submit → inspect stored response.
 5. Expand in matched batches: field control + builder settings + server validation + response display/export. Multi-page settings cannot ship before multi-page runtime; upload settings cannot ship before upload storage/validation.

@@ -4,6 +4,11 @@
 
 This sequence translates the existing [field inventory](../reference/fields.md) and [SaaS plan](saas-implementation-plan.md) into dependency-ordered work. Component names are proposed contracts, not selected framework APIs. Deferred capabilities remain in the inventory.
 
+## TrueUI-first execution rule
+
+Start with the [TrueUI implementation sequence](trueui-implementation.md). This surface plan supplies requirements for that initial standalone library build. Implement its reusable U components and fixture-based catalog compositions first. F-owned product components and B-owned backend services begin only after the [TrueUI readiness gate](saas-implementation-plan.md#trueui-readiness-gate) is accepted. Mixed-ownership rows are split at that boundary: reusable presentation now, domain integration later. The row numbers below describe dependencies within this surface, not permission to bypass the global gate.
+
+
 ## Ownership and prerequisites
 
 **U = TrueUI:** reusable controls, accessible interaction and visual states. **F = frontend:** schema renderer, respondent session, validation timing, navigation and submission flow. **B = backend dependency:** published schema, authoritative validation, access and durable writes. Backend dependencies are prerequisites, not UI components.
@@ -47,6 +52,6 @@ Use the same frontend renderer and field registry for builder preview and publis
 
 ## Start-building checklist and first milestone
 
-The first implementation batch is RUI-01–03 with fixtures; the next is RUI-04–07 with a real published schema and response API. Connect RUI-08 after those states work. Do not wait for all 47 families.
+Start with RUI-01–03 and continue through the reusable controls/compositions required by both initial surfaces in the TrueUI catalog. Do not move directly from basic inputs to application code. After the cross-surface TrueUI readiness gate is accepted, implement RUI-04–07 with real schema/response APIs and connect RUI-08. Later specialized fields remain governed by explicit scope decisions.
 
 The initial milestone passes only when a published form accepts a valid response, shows actionable invalid/server errors without losing values, survives a repeated submission safely, displays closed/unavailable states, and supports keyboard/narrow-screen use. Confirm schema version and stored answers through backend evidence, not a success toast alone. The [builder's first milestone](form-builder-ui-build-order.md#first-milestone-and-integration-order) produces the schema consumed here.

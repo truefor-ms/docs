@@ -6,7 +6,7 @@
 
 This package owns **payment collection inside forms (F36)**, including respondent payment controls, builder configuration and backend processing. It is excluded from the ordinary [respondent](respondent-ui-build-order.md) and [builder](form-builder-ui-build-order.md) component sequences and will be delivered as its own end-to-end package.
 
-**App subscription and billing are not part of this package.** SaaS plans, trials, subscription checkout, invoices, payment methods, cancellation and entitlements remain in the initial implementation process in stage 2 of the [Build path](saas-implementation-plan.md). Sharing a provider would not merge their domain models or release gates.
+**App subscription and billing are not part of this package.** SaaS plans, trials, subscription checkout, invoices, payment methods, cancellation and entitlements remain in the initial implementation process in the first application phase after TrueUI readiness (stage 3 of the [Build path](saas-implementation-plan.md)). Sharing a provider would not merge their domain models or release gates.
 
 F07, a generic amount/currency input, stays in the normal field inventory. Entering an amount does not initiate a payment. Payment-specific totals, charge validation and transaction state belong here.
 

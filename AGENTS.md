@@ -8,4 +8,4 @@
 - Never edit preserved files under `brand/handoff/`. Originals retain their language and bytes.
 - Follow `contributing/README.md` for Conventional Commits and identity. Use `Trueforms <352186882+formtrue@users.noreply.github.com>` for author and committer. Push only as `formtrue`. Commit/push when requested.
 
-- Keep the maintained docs focused on confirmed decisions, the single Build path, surface implementation sequences and durable references. Do not reintroduce marketplace research or competing pre-plans. App subscriptions start in the initial phase; form payment fields remain a separate package.
+- Keep the maintained docs focused on confirmed decisions, the single Build path, surface implementation sequences and durable references. Do not reintroduce marketplace research or competing pre-plans. TrueUI must reach standalone readiness for both initial form surfaces before frontend/backend implementation begins. App subscriptions start in the first application phase after that gate; form payment fields remain a separate package.

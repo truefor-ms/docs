@@ -2,6 +2,8 @@
 
 Planned field contracts. No runtime implementation is implied.
 
+The [TrueUI readiness gate](../planning/saas-implementation-plan.md#trueui-readiness-gate) governs execution: implement the reusable scope required by both initial surfaces in TrueUI before starting frontend/backend application work. Phase labels below describe capability priority, not parallel application implementation.
+
 ## Common field contract
 
 Every answer-bearing field has a stable ID, type and type version, label, description, required flag, constraints, default policy, option IDs where relevant, and presentation settings separated from stored values. Labels are editable; IDs are not derived from labels. Preserve the published schema version with each response. Unknown types must fail publication safely and render a recoverable incompatibility state, not disappear.
