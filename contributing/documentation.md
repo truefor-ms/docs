@@ -56,17 +56,11 @@ Register new documents, rebuild and verify before committing. Follow the [contri
 
 ## Project UI skills
 
-The project records upstream references rather than maintaining copied skill releases.
-
-- [building-components](https://github.com/vercel/components.build/tree/main/skills/building-components): component architecture and contracts. Treat this as an architectural reference only; its Tailwind and TypeScript recipes are outside the project's accepted approach.
-- [web-design-guidelines](https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines): interface implementation reviews.
-- [accessibility](https://github.com/addyosmani/web-quality-skills/tree/main/skills/accessibility): accessibility implementation and verification.
-- [Impeccable](https://github.com/pbakaus/impeccable): visual hierarchy and design refinement.
-- [better-layout](https://github.com/jakubkrehel/skills/tree/main/skills/better-layout): grouping, responsive layout, text growth, and RTL.
-
-Consult the current upstream instructions and relevant supporting references before using a skill. Existing local installations are conveniences, not authoritative snapshots. Use only task-relevant guidance, preserve the approved brand and technology choices, and do not use a skill version that requires Tailwind CSS or TypeScript. Upstream references are not blanket approval of future changes.
-
-No project installer or repository-vendored skill bundle is required. Skills may be read from their sources or used through a compatible local installation. Report unavailable references as a verification limitation rather than claiming they were reviewed.
+- [building-components](https://github.com/vercel/components.build/tree/main/skills/building-components)
+- [web-design-guidelines](https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines)
+- [accessibility](https://github.com/addyosmani/web-quality-skills/tree/main/skills/accessibility)
+- [Impeccable](https://github.com/pbakaus/impeccable)
+- [better-layout](https://github.com/jakubkrehel/skills/tree/main/skills/better-layout)
 
 ## Information architecture
 
